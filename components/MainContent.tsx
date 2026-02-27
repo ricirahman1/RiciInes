@@ -7,6 +7,14 @@ import PageFour from "@/components/PageFour";
 import PageFive from "@/components/PageFive";
 import PageSix from "@/components/PageSix";
 
+<audio
+  src="/audio/music.mp3"
+  autoPlay
+  loop
+  controls
+  className="fixed bottom-4 left-4 z-50"
+/>
+
 export default function MainContent() {
   return (
     <div
