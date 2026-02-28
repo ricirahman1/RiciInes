@@ -18,7 +18,6 @@ const TITLE_TEXT = "Rici & Ines";
    ANIMATION CONFIG
 ======================= */
 const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.05 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -37,7 +36,7 @@ const contentVariant: Variants = {
 };
 
 const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  
   visible: {
     opacity: 1,
     y: 0,
@@ -89,7 +88,7 @@ export default function Cover({ onOpenAction }: { onOpenAction: () => void }) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0" />
       </motion.div>
 
       

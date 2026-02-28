@@ -20,7 +20,7 @@ export default function PageTwo() {
       />
 
       {/* Overlay untuk membuat teks lebih terbaca */}
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 " />
 
       {/* Konten */}
       <div className="relative z-10 flex flex-col items-center justify-center">

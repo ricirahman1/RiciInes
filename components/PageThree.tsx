@@ -35,13 +35,13 @@ export default function PageThree() {
       {/* BACKGROUND STICKY */}
       <div className="sticky top-0 h-screen w-full">
         <Image
-          src="/bg-rici.jpeg"
+          src="/bg-sd2.jpg"
           alt="Wedding Background"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 " />
       </div>
 
       
@@ -85,7 +85,7 @@ export default function PageThree() {
     >
       <div className="w-72 h-96 rounded-3xl overflow-hidden shadow-2xl bg-white">
         <Image
-          src="/bg-rici.jpeg"
+          src="/rici.jpeg"
           alt="Rici Rahman"
           width={400}
           height={600}
@@ -159,7 +159,7 @@ export default function PageThree() {
     >
       <div className="w-72 h-96 rounded-3xl overflow-hidden shadow-2xl bg-white">
         <Image
-          src="/bg-ines.jpeg"
+          src="/INESS.jpeg"
           alt="Ines"
           width={400}
           height={600}

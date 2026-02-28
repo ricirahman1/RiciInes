@@ -24,7 +24,7 @@ export default function PageWeddingLocation() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* CONTENT */}
