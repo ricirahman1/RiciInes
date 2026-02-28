@@ -16,7 +16,7 @@ export default function PageWeddingLocation() {
     <section className="relative w-full">
 
       {/* BACKGROUND STICKY */}
-      <div className="sticky top-0 h-screen w-full">
+      <div className="sticky top-0 h-screen w-full bg-black/20">
         <Image
           src="/bg-qs.jpeg"
           alt="Wedding Location"
