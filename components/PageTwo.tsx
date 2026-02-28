@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Allura } from "next/font/google";
 import Image from "next/image";
+import { Allura, Poppins, Caveat } from "next/font/google";
 
-const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
+const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function PageTwo() {
   return (
@@ -26,7 +26,7 @@ export default function PageTwo() {
       <div className="relative z-10 flex flex-col items-center justify-center">
         {/* QS Ar-Rum */}
         <motion.p
-          className={`${titleFont.className} text-3xl md:text-4xl text-white/90 italic mb-6 max-w-2xl`}
+          className={`${caveat.className} text-3xl md:text-4xl text-white/90 italic mb-6 max-w-2xl`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

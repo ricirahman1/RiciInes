@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Allura } from "next/font/google";
+import Image from "next/image";
+import { Allura, Poppins } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
+const bodyFont = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 
 interface Wish {
   id: string;
@@ -21,116 +23,152 @@ export default function PageSix() {
   const [message, setMessage] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Load wishes from Supabase
   const fetchWishes = async () => {
-    const { data, error } = await supabase
-      .from("wishes")
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (error) {
-      console.error("Fetch wishes error:", error);
-    } else if (data) {
-      setWishes(data as Wish[]);
-    }
-  };
+  const { data, error } = await supabase
+    .from("wishes")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(10); // ⬅️ hanya 10 data terbaru
+
+  if (error) {
+    console.error("Fetch wishes error:", error);
+  } else if (data) {
+    setWishes(data as Wish[]);
+  }
+};
 
   useEffect(() => {
     fetchWishes();
   }, []);
 
-  // Handle send
   const handleSend = async () => {
     if (!name.trim() || !message.trim()) return;
 
-    try {
-      const { data, error } = await supabase
-        .from("wishes")
-        .insert([{ name, message }])
-        .select();
+    const { data } = await supabase
+      .from("wishes")
+      .insert([{ name, message }])
+      .select();
 
-      if (error) {
-        console.error("Insert wish error:", error);
-      } else if (data && data[0]) {
-        setWishes([data[0] as Wish, ...wishes]);
-        setName("");
-        setMessage("");
-      }
-    } catch (err) {
-      console.error("Unexpected insert error:", err);
+    if (data && data[0]) {
+      setWishes([data[0] as Wish, ...wishes]);
+      setName("");
+      setMessage("");
     }
   };
 
-  // Auto-scroll
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [wishes]);
-
   return (
-    <section className="min-h-screen w-full bg-pink-50 flex flex-col items-center justify-start px-6 py-12">
-      {/* Judul */}
-      <motion.div
-        className={`flex items-center justify-center gap-3 ${titleFont.className} mb-8`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <h2 className="text-4xl md:text-5xl text-rose-600 font-semibold">
-          Wedding Wishes
-        </h2>
-        <Camera className="w-8 h-8 text-rose-600" />
-      </motion.div>
+    <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* Form Input */}
-      <motion.div
-        className="w-full max-w-2xl flex flex-col gap-4 mb-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <input
-          type="text"
-          placeholder="Nama Anda"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-300"
-        />
-        <textarea
-          placeholder="Tulis ucapan Anda..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-rose-300 resize-none h-24"
-        />
-        <button
-          onClick={handleSend}
-          className="bg-rose-500 text-white font-semibold py-3 rounded-xl hover:bg-rose-600 transition-colors"
+      {/* BACKGROUND */}
+      <Image
+        src="/bg-cvrr.jpeg"   // ganti sesuai foto kamu
+        alt="Wedding Wishes Background"
+        fill
+        priority
+        className="object-cover"
+      />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+
+      {/* CONTENT */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center px-6 py-16">
+
+        {/* TITLE */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`flex items-center gap-3 mb-10 ${titleFont.className}`}
         >
-          Send
-        </button>
-      </motion.div>
+          <h2 className="text-4xl md:text-5xl text-white">
+            Wedding Wishes
+          </h2>
+          <Camera className="w-8 h-8 text-rose-300" />
+        </motion.div>
 
-      {/* List Ucapan */}
-      <div
-        ref={containerRef}
-        className="w-full max-w-2xl flex flex-col gap-4 overflow-y-auto h-[60vh] pr-2"
-      >
-        <AnimatePresence>
-          {wishes.map((wish) => (
-            <motion.div
-              key={wish.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white p-4 rounded-2xl shadow-lg border-l-4 border-rose-500"
+        {/* FORM (GLASS CARD) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="
+            w-full max-w-2xl
+            backdrop-blur-xl
+            bg-white/15
+            border border-white/20
+            rounded-3xl
+            p-6 mb-8
+            shadow-xl
+          "
+        >
+          <div className="flex flex-col gap-4">
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nama Anda"
+              className="
+                p-3 rounded-xl
+                bg-white/80
+                focus:outline-none
+                focus:ring-2 focus:ring-rose-400
+              "
+            />
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Tuliskan doa & ucapan terbaik..."
+              className="
+                p-3 rounded-xl
+                bg-white/80
+                focus:outline-none
+                focus:ring-2 focus:ring-rose-400
+                resize-none h-24
+              "
+            />
+            <button
+              onClick={handleSend}
+              className="
+                bg-rose-500 text-white
+                py-3 rounded-xl
+                font-medium
+                hover:bg-rose-600
+                transition
+              "
             >
-              <div className="flex items-center gap-2">
-                <Camera className="w-5 h-5 text-rose-500" />
-                <p className="text-gray-800 font-semibold">{wish.name}</p>
-              </div>
-              <p className="text-gray-600 mt-1">{wish.message}</p>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+              Kirim Ucapan
+            </button>
+          </div>
+        </motion.div>
+
+        {/* WISH LIST */}
+        <div
+          ref={containerRef}
+          className="w-full max-w-2xl space-y-4 overflow-y-auto max-h-[55vh] pr-1"
+        >
+          <AnimatePresence>
+            {wishes.map((wish) => (
+              <motion.div
+                key={wish.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="
+                  backdrop-blur-lg
+                  bg-white/20
+                  border border-white/20
+                  rounded-2xl
+                  p-4
+                  shadow-lg
+                "
+              >
+                <p className="text-white font-semibold mb-1">
+                  {wish.name}
+                </p>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  {wish.message}
+                </p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );

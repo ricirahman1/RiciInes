@@ -1,16 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Allura } from "next/font/google";
+import { Allura, Poppins, Caveat } from "next/font/google";
 
 /* =======================
-   FONT
+   FONTS
 ======================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
+const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
 const TITLE_TEXT = "Rici & Ines";
+
+/* =======================
+   ANIMATION CONFIG
+======================= */
+const bgVariant: Variants = {
+  hidden: { opacity: 0, scale: 1.05 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 1.2, ease: "easeOut" },
+  },
+};
+
+const contentVariant: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.8,
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const itemVariant: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
 const titleContainer: Variants = {
   hidden: {},
@@ -21,120 +54,126 @@ const titleContainer: Variants = {
 
 const titleLetter: Variants = {
   hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
-  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.6, ease: "easeInOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
 };
 
 /* =======================
-   COVER COMPONENT
+   COMPONENT
 ======================= */
 export default function Cover({ onOpenAction }: { onOpenAction: () => void }) {
-  const [closing, setClosing] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  const handleOpen = () => {
-    setClosing(true);
-    setTimeout(onOpenAction, 700);
-  };
+  useEffect(() => {
+    audioRef.current?.play().catch(() => {});
+  }, []);
 
   return (
-    <section
-      className={`
-        fixed inset-0 z-50 overflow-hidden
-        transition-all duration-700 ease-in-out
-        ${closing ? "-translate-y-full opacity-0" : "opacity-100"}
-      `}
-    >
-      {/* BACKGROUND IMAGE */}
-      <Image
-        src="/bg-cvr.jpeg"
-        alt="Wedding Cover"
-        fill
-        priority
-        className="object-cover"
-      />
+    <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/10" />
+      {/* BACKGROUND */}
+      <motion.div
+        variants={bgVariant}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0"
+      >
+        <Image
+          src="/bg-cvr.jpeg"
+          alt="Wedding Cover"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/20" />
+      </motion.div>
+
+      
 
       {/* CONTENT */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-8">
-
-        {/* AUDIO PLAYER */}
-        <audio
-          src="/audio/music.mp3"
-          autoPlay
-          loop
-          controls
-          className="fixed bottom-4 left-4 z-50"
-        />
+      <motion.div
+        variants={contentVariant}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center"
+      >
 
         {/* TITLE */}
         <motion.h1
           variants={titleContainer}
-          initial="hidden"
-          animate="visible"
           className={`
             ${titleFont.className}
-            text-[7.5rem] md:text-[9rem]
+            flex items-end justify-center
+            -rotate-6
             text-white
             leading-none
-            flex items-end
-            -rotate-12
-            origin-left
-            -translate-y-40
-            drop-shadow-[0_0_40px_rgba(255,255,255,0.35)]
+            text-[clamp(4rem,10vw,9rem)]
+            drop-shadow-[0_0_30px_rgba(255,255,255,0.35)]
           `}
         >
-          {TITLE_TEXT.split("").map((char, index) => (
+          {TITLE_TEXT.split("").map((char, i) => (
             <motion.span
-              key={index}
+              key={i}
               variants={titleLetter}
-              className={`${char === "&" ? "text-rose-300 mx-4" : ""}`}
+              className={char === "&" ? "text-rose-300 mx-3" : ""}
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
-
-          <motion.span
-            className="ml-2 text-rose-300"
-            animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 1, repeat: Infinity }}
-          >
-            |
-          </motion.span>
         </motion.h1>
 
-        <motion.p className={`${titleFont.className} text-2xl text-white/90 mt-4 text-center`}>
+        {/* HASHTAG */}
+        <motion.p
+          variants={itemVariant}
+          className={`${caveat.className} mt-4 text-white/90 text-lg md:text-2xl`}
+        >
           #RICIwithhappINESs
         </motion.p>
 
-        {/* Kepada Yth */}
-        <div className="mt-32">
-          <motion.p className={`${titleFont.className} text-2xl text-white/90 mt-4 text-center`}>
-            "kepada Yth <br /> Bapak/Ibu/Saudara/i"
-          </motion.p>
-        </div>
+        {/* KEPADA YTH */}
+        <motion.p
+          variants={itemVariant}
+          className={`${caveat.className} mt-16 md:mt-24 text-white/90 text-lg md:text-2xl`}
+        >
+          kepada Yth <br />
+          Bapak/Ibu/Saudara/i
+        </motion.p>
 
         {/* BUTTON */}
         <motion.button
-          onClick={handleOpen}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.6 }}
+          variants={itemVariant}
+          onClick={onOpenAction}
+          initial={{ opacity: 0, y: 120, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            delay: 2.2,
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          whileHover={{
+            scale: 1.06,
+            boxShadow: "0 0 30px rgba(244,63,94,0.6)",
+          }}
+          whileTap={{ scale: 0.95 }}
           className={`
-            ${titleFont.className}
-            mt-6
-            px-20 py-3
+            ${poppins.className}
+            mt-10
+            px-16 md:px-24
+            py-3
             rounded-full
             bg-rose-500 text-white
-            shadow-lg
-            transition-transform
-            hover:scale-105
-            active:scale-95
+            font-medium
+            shadow-[0_10px_40px_rgba(244,63,94,0.35)]
           `}
         >
           Open Invitation
         </motion.button>
-      </div>
+
+      </motion.div>
     </section>
   );
 }

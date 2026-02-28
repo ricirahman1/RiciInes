@@ -1,46 +1,43 @@
 "use client";
 
-import Cover from "@/components/Cover";
 import PageTwo from "@/components/PageTwo";
 import PageThree from "@/components/PageThree";
 import PageFour from "@/components/PageFour";
 import PageFive from "@/components/PageFive";
 import PageSix from "@/components/PageSix";
-
-<audio
-  src="/audio/music.mp3"
-  autoPlay
-  loop
-  controls
-  className="fixed bottom-4 left-4 z-50"
-/>
+import PageTempatNikah from "@/components/PageTempat";
+import PageTerakhir from "@/components/PageTerakhir";
 
 export default function MainContent() {
   return (
-    <div
-      className="h-screen w-full snap-y snap-mandatory overflow-y-scroll scroll-smooth"
-      style={{ scrollBehavior: "smooth" }}
-    >
-      
-
-      <section className="h-screen w-full snap-start">
+    <>
+      <section id="page-two" className="min-h-screen">
         <PageTwo />
       </section>
 
-      <section className="h-screen w-full snap-start">
+      <section className="min-h-screen">
         <PageThree />
       </section>
 
-      <section className="h-screen w-full snap-start">
+      <section className="min-h-screen">
         <PageFour />
       </section>
 
-      <section className="h-screen w-full snap-start">
+      <section className="min-h-screen">
+        <PageTempatNikah />
+      </section>
+
+      <section className="min-h-screen">
         <PageFive />
       </section>
-      <section className="h-screen w-full snap-start">
+
+      <section className="min-h-screen">
         <PageSix />
       </section>
-    </div>
+
+      <section className="min-h-screen">
+        <PageTerakhir />
+      </section>
+    </>
   );
 }
