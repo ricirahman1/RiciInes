@@ -18,7 +18,7 @@ export default function PageFour() {
 
       {/* Background */}
       <Image
-        src="/bg-Ines.jpeg"
+        src="/bg-cover.jpeg"
         alt="Wedding Date"
         fill
         className="object-cover"

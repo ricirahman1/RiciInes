@@ -8,26 +8,28 @@ const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 export default function PageLast() {
   return (
     <section
-      className="min-h-screen w-full flex items-center justify-center bg-center px-6"
-      style={{ backgroundImage: "url('/bg-test.jpg')" }}
+      className="min-h-screen w-full flex items-center justify-center bg-cover bg-center px-6"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/bg-ending.jpg')",
+      }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
-
-      {/* Content */}
       <motion.div
-        className="relative z-10 max-w-xl text-center text-white"
-        initial={{ opacity: 0, y: 30 }}
+        className="max-w-xl text-center text-white"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h2 className={`${titleFont.className} text-4xl md:text-5xl mb-6`}>
           Thank You
         </h2>
 
         <p className="text-lg leading-relaxed opacity-90">
-          Today we celebrate love, <br />
-          tomorrow we build a lifetime together. <br />
+          Today we celebrate love,
+          <br />
+          tomorrow we build a lifetime together.
+          <br />
           Thank you for being part of our forever.
         </p>
 
