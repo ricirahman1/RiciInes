@@ -11,7 +11,7 @@ export default function PageLast() {
       className="min-h-screen w-full flex items-center justify-center bg-cover bg-center px-6"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/bg-ending.jpg')",
+          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/bg-end.jpg')",
       }}
     >
       <motion.div
