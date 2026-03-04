@@ -91,35 +91,41 @@ export default function Cover({
 
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
-      {/* AUDIO */}
-    
       {/* BACKGROUND */}
-<motion.div
-  variants={bgVariant}
-  initial="hidden"
-  animate="visible"
-  className="absolute inset-0"
->
-  <Image
-    src="/test.jpg"
-    alt="Wedding Cover"
-    fill
-    priority
-    className="object-cover"
-  />
-
-  
-</motion.div>
+      <motion.div
+        variants={bgVariant}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0"
+      >
+        <Image
+          src="/bg-fixcvr.jpeg"
+          alt="Wedding Cover"
+          fill
+          priority
+          className="object-cover"
+        />
+      </motion.div>
 
       {/* CONTENT */}
       <motion.div
         variants={contentVariant}
         initial="hidden"
         animate="visible"
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center"
+        className="
+          relative z-10 min-h-screen
+          flex flex-col items-center justify-center
+          px-2 text-center
+        "
       >
-        {/* LOGO */}
-        <motion.div variants={logoVariant} className="mb-6 md:mb-10">
+        {/* LOGO (NAIK KE ATAS) */}
+        <motion.div
+          variants={logoVariant}
+          className="
+            mb-2 md:mb-4
+            -translate-y-6 md:-translate-y-10
+          "
+        >
           <Image
             src="/test.png"
             alt="Wedding Logo"
@@ -130,13 +136,14 @@ export default function Cover({
           />
         </motion.div>
 
-        {/* TITLE */}
+        {/* TITLE (NAIK SEDIKIT) */}
         <motion.h1
           variants={titleContainer}
           className={`
             ${titleFont.className}
             flex items-end justify-center
             -rotate-6
+            -translate-y-4 md:-translate-y-6
             text-white
             leading-none
             text-[clamp(4rem,10vw,9rem)]
@@ -157,7 +164,12 @@ export default function Cover({
         {/* KEPADA YTH */}
         <motion.p
           variants={itemVariant}
-          className={`${caveat.className} mt-16 md:mt-24 text-white/90 text-lg md:text-2xl`}
+          className={`
+            ${caveat.className}
+            mt-16 md:mt-24
+            text-white/90
+            text-lg md:text-2xl
+          `}
         >
           kepada Yth <br />
           Bapak/Ibu/Saudara/i
