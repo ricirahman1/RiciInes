@@ -102,27 +102,20 @@ export default function Cover({
         className="absolute inset-0"
       >
        <div className="relative w-full h-screen overflow-hidden">
-  {/* Background penuh layar */}
-  <Image
-    src="/bgp.jpeg"
-    alt="Wedding Background"
-    fill
-    className="object-cover scale-110 blur-md"
-  />
+  
 
   {/* Foto utama (utuh) */}
   <Image
-    src="/test.jpeg"
+    src="/test.jpg"
     alt="Wedding Cover"
     fill
     priority
     className="object-contain"
   />
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/10" />
-</div>
-        <div className="absolute inset-0 bg-black/10" />
+  
+    </div>
+        
       </motion.div>
 
       {/* CONTENT */}
