@@ -92,31 +92,24 @@ export default function Cover({
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
       {/* AUDIO */}
-      
-
+    
       {/* BACKGROUND */}
-      <motion.div
-        variants={bgVariant}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0"
-      >
-       <div className="relative w-full h-screen overflow-hidden">
-  
-
-  {/* Foto utama (utuh) */}
+<motion.div
+  variants={bgVariant}
+  initial="hidden"
+  animate="visible"
+  className="absolute inset-0"
+>
   <Image
     src="/test.jpg"
     alt="Wedding Cover"
     fill
     priority
-    className="object-contain"
+    className="object-cover"
   />
 
   
-    </div>
-        
-      </motion.div>
+</motion.div>
 
       {/* CONTENT */}
       <motion.div
