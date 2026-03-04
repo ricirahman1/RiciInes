@@ -101,14 +101,15 @@ export default function Cover({
         animate="visible"
         className="absolute inset-0"
       >
-        <Image
-  src="/bgp.jpeg"
-  alt="Wedding Cover"
-  fill
-  priority
-  
-  className="object-cover object-top "
-/>
+       <div className="relative w-full h-screen">
+  <Image
+    src="/bgp.jpeg"
+    alt="Wedding Cover"
+    fill
+    priority
+    className="object-contain object-center"
+  />
+</div>
         <div className="absolute inset-0 bg-black/10" />
       </motion.div>
 
