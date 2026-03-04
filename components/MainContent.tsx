@@ -8,13 +8,17 @@ import PageSix from "@/components/PageSix";
 import PageTempatNikah from "@/components/PageTempat";
 import PageTerakhir from "@/components/PageTerakhir";
 
+import PageCover from "@/components/PageCover";
+
 export default function MainContent() {
   return (
     <>
-      <section id="page-two" className="min-h-screen">
+     <section id="page-two" className="min-h-screen">
         <PageTwo />
       </section>
-
+      <section className="min-h-screen">
+        <PageCover/>
+      </section>
       <section className="min-h-screen">
         <PageThree />
       </section>
