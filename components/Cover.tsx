@@ -107,7 +107,7 @@ export default function Cover({
   fill
   priority
   sizes="100vw"
-  className="object-cover object-top"
+  className="object-cover object-top p-2"
 />
         <div className="absolute inset-0 bg-black/10" />
       </motion.div>
