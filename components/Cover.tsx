@@ -90,7 +90,7 @@ export default function Cover({
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden">
+    <section className="relative  w-full overflow-hidden">
       {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
@@ -115,7 +115,7 @@ export default function Cover({
         className="
           relative z-10 min-h-screen
           flex flex-col items-center justify-center
-          px-2 text-center
+           text-center
         "
       >
         {/* LOGO (NAIK KE ATAS) */}
@@ -123,7 +123,7 @@ export default function Cover({
           variants={logoVariant}
           className="
             mb-2 md:mb-4
-            -translate-y-6 md:-translate-y-10
+            -translate-y-19 md:-translate-y-36
           "
         >
           <Image
@@ -143,7 +143,7 @@ export default function Cover({
             ${titleFont.className}
             flex items-end justify-center
             -rotate-6
-            -translate-y-4 md:-translate-y-6
+            -translate-y-19 md:-translate-y-36
             text-white
             leading-none
             text-[clamp(4rem,10vw,9rem)]
@@ -166,7 +166,7 @@ export default function Cover({
           variants={itemVariant}
           className={`
             ${caveat.className}
-            mt-16 md:mt-24
+            mt-8 md:mt-16
             text-white/90
             text-lg md:text-2xl
           `}
