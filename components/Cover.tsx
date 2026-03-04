@@ -99,7 +99,7 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-          src="/bg-fixcvr.jpeg"
+          src="/bg9.jpg"
           alt="Wedding Cover"
           fill
           priority
