@@ -102,12 +102,12 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-  src="/bg-cvr.jpeg"
+  src="/bg-s2.jpeg"
   alt="Wedding Cover"
   fill
   priority
   sizes="100vw"
-  className="object-cover object-top p-2"
+  className="object-cover object-top "
 />
         <div className="absolute inset-0 bg-black/10" />
       </motion.div>
