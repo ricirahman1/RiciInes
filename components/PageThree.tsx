@@ -35,7 +35,7 @@ export default function PageThree() {
       {/* BACKGROUND STICKY */}
       <div className="sticky top-0 h-screen w-full">
         <Image
-          src="/bg-sld-3.JPEG"
+          src="/bg-sd2.JPG"
           alt="Wedding Background"
           fill
           priority

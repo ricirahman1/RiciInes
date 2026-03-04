@@ -2,29 +2,26 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Countdown from "react-countdown";
-import { Allura, Poppins } from "next/font/google";
-import { MapPin, Clock } from "lucide-react";
+import { Allura, Caveat } from "next/font/google";
+import { MapPin } from "lucide-react";
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
-const bodyFont = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
-
-const WEDDING_DATE = new Date("2026-05-31T09:00:00");
+const caveatFont = Caveat({ subsets: ["latin"], weight: ["400"] });
 
 export default function PageWeddingLocation() {
   return (
     <section className="relative w-full">
 
-      {/* BACKGROUND STICKY */}
-      <div className="sticky top-0 h-screen w-full bg-black/20">
+      {/* BACKGROUND */}
+      <div className="sticky top-0 h-screen w-full">
         <Image
-          src="/bg-qs.jpeg"
+          src="/bg-s-55.jpeg"
           alt="Wedding Location"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* CONTENT */}
@@ -42,14 +39,14 @@ export default function PageWeddingLocation() {
         </motion.h2>
 
         {/* ORNAMENT */}
-        <div className="flex items-center justify-center my-10">
+        <div className="flex items-center justify-center my-12">
           <span className="w-24 h-px bg-white/40" />
           <span className="mx-4 text-white/70 text-xl">✦</span>
           <span className="w-24 h-px bg-white/40" />
         </div>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-2 gap-24 items-start">
+        {/* ================= AKAD ================= */}
+        <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 items-start mt-24">
 
           {/* LEFT */}
           <motion.div
@@ -57,44 +54,11 @@ export default function PageWeddingLocation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-left space-y-5"
+            className="space-y-6 text-left"
           >
-            <h3 className={`${titleFont.className} text-4xl text-rose-300`}>
-              Akad & Resepsi
+            <h3 className={`${caveatFont.className} text-6xl text-white`}>
+              Akad Nikah
             </h3>
-
-            <p className={`${bodyFont.className} text-white/90`}>
-              Minggu, 31 Mei 2026
-            </p>
-
-            <div className="flex items-center gap-2 text-white/90">
-              <Clock size={18} />
-              <span className={`${bodyFont.className}`}>
-                09.00 – 17.00 WIB
-              </span>
-            </div>
-
-            {/* COUNTDOWN */}
-            <Countdown
-              date={WEDDING_DATE}
-              renderer={({ days, hours, minutes }) => (
-                <div className="flex gap-4 mt-6">
-                  {[days, hours, minutes].map((v, i) => (
-                    <div
-                      key={i}
-                      className="bg-white/15 backdrop-blur-md px-4 py-3 rounded-xl text-center"
-                    >
-                      <div className="text-white text-xl font-semibold">
-                        {v}
-                      </div>
-                      <div className="text-white/70 text-xs">
-                        {["Hari", "Jam", "Menit"][i]}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            />
           </motion.div>
 
           {/* RIGHT */}
@@ -103,39 +67,123 @@ export default function PageWeddingLocation() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-right space-y-6"
+            className="space-y-4 text-right"
           >
-            <p className={`${bodyFont.className} text-white/90 leading-relaxed`}>
+            <h4 className={`${caveatFont.className} text-white/90 text-2xl`}>
+              Wedding Venue
+            </h4>
+
+            <p className={`${caveatFont.className} text-white/80 text-lg`}>
               Gedung Pramuka <br />
               Jln. Pramuka <br />
               Padang, Indonesia 25136
             </p>
 
-            {/* MAP */}
-            <div className="rounded-3xl overflow-hidden border border-white/20 shadow-xl">
-              <iframe
-                src="https://www.google.com/maps?q=Gedung+Pramuka+Padang&output=embed"
-                width="100%"
-                height="260"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            
+          </motion.div>
+          
+        </div>
 
+        <motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }}
+  className="relative text-left"
+>
+  {/* BLUR ROSE – LAYER 1 */}
+  <h3
+    className={`
+      absolute inset-0
+      ${caveatFont.className}
+      font-extrabold
+      text-6xl
+      text-rose-400/80
+      blur-2xl
+      scale-110
+      select-none
+    `}
+  >
+    31 <br /> 05 <br /> 26
+  </h3>
+
+  {/* BLUR ROSE – LAYER 2 (lebih kuat) */}
+  <h3
+    className={`
+      absolute inset-0
+      ${caveatFont.className}
+      font-extrabold
+      text-6xl
+      text-rose-500/60
+      blur-3xl
+      scale-125
+      select-none
+    `}
+  >
+    31 <br /> 05 <br /> 26
+  </h3>
+
+  {/* MAIN TEXT */}
+  <h3
+    className={`
+      relative
+      ${caveatFont.className}
+      font-extrabold
+      text-6xl
+      text-rose-500
+      drop-shadow-[0_6px_14px_rgba(0,0,0,0.85)]
+    `}
+  >
+    31 <br /> 05 <br /> 26
+  </h3>
+</motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="space-y-4 text-right"
+          >
             <a
               href="https://www.google.com/maps/search/?api=1&query=Gedung+Pramuka+Padang"
               target="_blank"
-              className="inline-flex items-center gap-2 justify-end
+              className="inline-flex items-center gap-2
                          px-6 py-3 rounded-full
                          bg-rose-500 text-white font-medium
                          hover:bg-rose-600 transition"
             >
               <MapPin size={18} />
-              Buka di Google Maps
+              View Maps
             </a>
           </motion.div>
 
+        
+
+        {/* ================= RESEPSI ================= */}
+        <div className="grid md:grid-cols-2 gap-x-20 gap-y-12 items-start mt-32">
+
+          {/* LEFT */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="space-y-6 text-left"
+          >
+            <h3 className={`${caveatFont.className} text-5xl text-white`}>
+              Resepsi
+            </h3>
+
+            <p className={`${caveatFont.className} text-white/80 text-lg`}>
+              Gedung Pramuka <br />
+              Jln. Pramuka <br />
+              Padang, Indonesia 25136
+            </p>
+          </motion.div>
+
         </div>
+
       </div>
     </section>
   );

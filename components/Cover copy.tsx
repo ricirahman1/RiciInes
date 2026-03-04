@@ -9,10 +9,7 @@ import { Allura, Poppins, Caveat } from "next/font/google";
    FONTS
 ======================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
+const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
 const TITLE_TEXT = "Rici & Ines";
@@ -21,7 +18,6 @@ const TITLE_TEXT = "Rici & Ines";
    ANIMATION CONFIG
 ======================= */
 const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.05 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -40,21 +36,11 @@ const contentVariant: Variants = {
 };
 
 const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const logoVariant: Variants = {
-  hidden: { opacity: 0, y: -40, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.9, ease: "easeOut" },
   },
 };
 
@@ -78,11 +64,7 @@ const titleLetter: Variants = {
 /* =======================
    COMPONENT
 ======================= */
-export default function Cover({
-  onOpenAction,
-}: {
-  onOpenAction: () => void;
-}) {
+export default function Cover({ onOpenAction }: { onOpenAction: () => void }) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -91,8 +73,6 @@ export default function Cover({
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      {/* AUDIO */}
-      
 
       {/* BACKGROUND */}
       <motion.div
@@ -102,15 +82,15 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-  src="/bg-cvr.jpeg"
-  alt="Wedding Cover"
-  fill
-  priority
-  sizes="100vw"
-  className="object-cover object-center"
-/>
-        <div className="absolute inset-0 bg-black/10" />
+          src="/bg-cvr.jpeg"
+          alt="Wedding Cover"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0" />
       </motion.div>
+
 
       {/* CONTENT */}
       <motion.div
@@ -119,17 +99,6 @@ export default function Cover({
         animate="visible"
         className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center"
       >
-        {/* LOGO */}
-        <motion.div variants={logoVariant} className="mb-6 md:mb-10">
-          <Image
-            src="/test.png"
-            alt="Wedding Logo"
-            width={350}
-            height={350}
-            priority
-            className="mx-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-          />
-        </motion.div>
 
         {/* TITLE */}
         <motion.h1
@@ -154,6 +123,14 @@ export default function Cover({
             </motion.span>
           ))}
         </motion.h1>
+
+        {/* HASHTAG */}
+        <motion.p
+          variants={itemVariant}
+          className={`${caveat.className} mt-4 text-white/90 text-lg md:text-2xl`}
+        >
+          #RICIwithhappINESs
+        </motion.p>
 
         {/* KEPADA YTH */}
         <motion.p
@@ -193,6 +170,7 @@ export default function Cover({
         >
           Open Invitation
         </motion.button>
+
       </motion.div>
     </section>
   );
