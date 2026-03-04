@@ -90,7 +90,7 @@ export default function Cover({
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-[100svh] w-full overflow-hidden">
       {/* AUDIO */}
       
 
@@ -107,7 +107,7 @@ export default function Cover({
   fill
   priority
   sizes="100vw"
-  className="object-cover object-center"
+  className="object-cover object-top"
 />
         <div className="absolute inset-0 bg-black/10" />
       </motion.div>
