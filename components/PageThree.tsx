@@ -35,7 +35,7 @@ export default function PageThree() {
       {/* BACKGROUND STICKY */}
       <div className="sticky top-0 h-screen w-full">
         <Image
-          src="/bg-sd2.JPG"
+          src="/bg-sd2.jpg"
           alt="Wedding Background"
           fill
           priority
@@ -83,11 +83,12 @@ export default function PageThree() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
     >
-      <div className="w-100 h-110 rounded-3xl overflow-hidden shadow-2xl bg-white">
+      <div className="w-96 h-96
+       rounded-xl overflow-hidden shadow-2xl bg-white">
         <Image
           src="/rici.jpeg"
           alt="Rici Rahman"
-          width={400}
+          width={200}
           height={600}
           className="object-cover w-full h-full"
         />
@@ -160,7 +161,7 @@ export default function PageThree() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
     >
-      <div className="w-72 h-96 rounded-3xl overflow-hidden shadow-2xl bg-white">
+      <div className="w-96 h-80 rounded-xl overflow-hidden shadow-2xl bg-white">
         <Image
           src="/INESS.jpeg"
           alt="Ines"
