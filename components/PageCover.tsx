@@ -1,45 +1,156 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
 import { Allura, Poppins, Caveat } from "next/font/google";
 
+/* =======================
+   FONTS
+======================= */
+const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
-export default function PageTwo() {
+const TITLE_TEXT = "Rici & Ines";
+
+/* =======================
+   ANIMATION CONFIG
+======================= */
+const bgVariant: Variants = {
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 1.2, ease: "easeOut" },
+  },
+};
+
+const contentVariant: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.8,
+      staggerChildren: 0.25,
+    },
+  },
+};
+
+const itemVariant: Variants = {
+  
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const titleContainer: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const titleLetter: Variants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
+};
+
+/* =======================
+   COMPONENT
+======================= */
+export default function Cover() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    audioRef.current?.play().catch(() => {});
+  }, []);
+
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center px-6 text-center">
-      
-      {/* Background Image */}
-      <Image
-        src="/bg-qs.jpeg"   // ganti dengan path backgroundmu
-        alt="Background Page Two"
-        fill
-        className="object-cover"
-        priority
-      />
+    <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* Overlay untuk membuat teks lebih terbaca */}
-      <div className="absolute inset-0 " />
+      {/* BACKGROUND */}
+      <motion.div
+        variants={bgVariant}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0"
+      >
+        <Image
+          src="/bg-slide-2.jpeg"
+          alt="Wedding Cover"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0" />
+      </motion.div>
+{/* CONTENT */}
+<motion.div
+  variants={contentVariant}
+  initial="hidden"
+  animate="visible"
+  className="
+    relative z-10 min-h-screen
+    flex items-start justify-start
+    px-8 pt-24
+    text-left
+  "
+>
+  {/* ROTATED WRAPPER */}
+  <div className="-rotate-6">
 
-      {/* Konten */}
-      <div className="relative z-10 flex flex-col items-center justify-center">
-        {/* QS Ar-Rum */}
-        <motion.p
-          className={`${caveat.className} text-3xl md:text-4xl text-white/90 italic mb-6 max-w-2xl`}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+    {/* SUBTITLE */}
+    <motion.p
+      variants={itemVariant}
+      className={`${caveat.className} text-white/90 uppercase tracking-[0.25em] mb-3 text-sm md:text-base`}
+    >
+      Wedding Invitation
+    </motion.p>
+
+    {/* TITLE */}
+    <motion.h1
+      variants={titleContainer}
+      className={`
+        ${titleFont.className}
+        flex items-end
+        text-white
+        leading-none
+        text-[clamp(4rem,10vw,9rem)]
+        drop-shadow-[0_0_30px_rgba(255,255,255,0.35)]
+      `}
+    >
+      {"RICI & Ines".split("").map((char, i) => (
+        <motion.span
+          key={i}
+          variants={titleLetter}
+          className={char === "&" ? "text-rose-300 mx-3" : ""}
         >
-          “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu pasangan-pasangan
-          dari jenismu sendiri, agar kamu merasa tenteram di sisinya, dan Dia menjadikan di antaramu
-          rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda
-          bagi kaum yang berpikir.” <br />
-          — QS Ar-Rum: 21
-        </motion.p>
+          {char === " " ? "\u00A0" : char}
+        </motion.span>
+      ))}
+    </motion.h1>
 
+    {/* HASHTAG */}
+    <motion.p
+      variants={itemVariant}
+      className={`${caveat.className} mt-2 text-white/90 text-lg md:text-2xl`}
+    >
+      #RICIwithhappINESs
+    </motion.p>
+
+  </div>
+</motion.div>
         
-      </div>
+
+ 
+
+      
     </section>
   );
 }

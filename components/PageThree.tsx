@@ -83,7 +83,7 @@ export default function PageThree() {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
     >
-      <div className="w-72 h-96 rounded-3xl overflow-hidden shadow-2xl bg-white">
+      <div className="w-100 h-110 rounded-3xl overflow-hidden shadow-2xl bg-white">
         <Image
           src="/rici.jpeg"
           alt="Rici Rahman"
@@ -94,13 +94,16 @@ export default function PageThree() {
       </div>
 
       <div className="mt-6 text-white">
-        <h2 className={`${titleFont.className} text-5xl mb-4 
+        <h2 className={`${titleFont.className} text-6xl 
         `}>
-          Rici Rahman
+          Rici 
         </h2>
         <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Putra dari Alm Bapak Syamsuri <br />
-          & Ibu Uuk Uswatul Chasanah
+          Rici Rahman S.Tr.T
+        </p>
+        
+        <p className={`${bodyFont.className} text-white/90 mb-4`}>
+          Putra dari  <br />Alm Bapak Syamsuri & Ibu Uuk Uswatul Chasanah
         </p>
         <div className="flex flex-col items-center">
   <a
@@ -168,11 +171,15 @@ export default function PageThree() {
       </div>
 
       <div className="mt-6 text-white">
-        <h2 className={`${titleFont.className} text-5xl mb-4`}>
-          Ines Leo Riesgo
+        <h2 className={`${titleFont.className} text-6xl mb-4`}>
+          Ines 
         </h2>
+
         <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Putri dari Bapak Jefandri <br />
+          Ines Leo Riesgo S.Tp
+        </p>
+        <p className={`${bodyFont.className} text-white/90 mb-4`}>
+          Putri dari <br /> Bapak Jefandri 
           & Ibu Eldawati
         </p>
         <div className="flex flex-col items-center">

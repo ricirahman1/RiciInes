@@ -14,10 +14,10 @@ export default function MainContent() {
   return (
     <>
      <section id="page-two" className="min-h-screen">
-        <PageTwo />
+        <PageCover />
       </section>
       <section className="min-h-screen">
-        <PageCover/>
+        <PageTwo/>
       </section>
       <section className="min-h-screen">
         <PageThree />

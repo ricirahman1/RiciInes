@@ -141,35 +141,7 @@ export default function Cover({ onOpenAction }: { onOpenAction: () => void }) {
           Bapak/Ibu/Saudara/i
         </motion.p>
 
-        {/* BUTTON */}
-        <motion.button
-          variants={itemVariant}
-          onClick={onOpenAction}
-          initial={{ opacity: 0, y: 120, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            delay: 2.2,
-            duration: 1,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          whileHover={{
-            scale: 1.06,
-            boxShadow: "0 0 30px rgba(244,63,94,0.6)",
-          }}
-          whileTap={{ scale: 0.95 }}
-          className={`
-            ${poppins.className}
-            mt-10
-            px-16 md:px-24
-            py-3
-            rounded-full
-            bg-rose-500 text-white
-            font-medium
-            shadow-[0_10px_40px_rgba(244,63,94,0.35)]
-          `}
-        >
-          Open Invitation
-        </motion.button>
+ 
 
       </motion.div>
     </section>
