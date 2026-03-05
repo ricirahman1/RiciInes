@@ -18,7 +18,7 @@ const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 const TITLE_TEXT = "Rici & Ines";
 
 /* =======================
-   ANIMATION CONFIG
+   ANIMATION
 ======================= */
 const bgVariant: Variants = {
   hidden: { opacity: 0, scale: 1.05 },
@@ -40,7 +40,7 @@ const contentVariant: Variants = {
 };
 
 const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -49,7 +49,7 @@ const itemVariant: Variants = {
 };
 
 const logoVariant: Variants = {
-  hidden: { opacity: 0, y: -40, scale: 0.9 },
+  hidden: { opacity: 0, y: -40, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
@@ -90,7 +90,8 @@ export default function Cover({
   }, []);
 
   return (
-    <section className="relative  w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden">
+
       {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
@@ -115,35 +116,36 @@ export default function Cover({
         className="
           relative z-10 min-h-screen
           flex flex-col items-center justify-center
-           text-center
+          text-center
         "
       >
-        {/* LOGO (NAIK KE ATAS) */}
+
+        {/* LOGO */}
         <motion.div
           variants={logoVariant}
           className="
-            mb-2 md:mb-4
-            -translate-y-19 md:-translate-y-36
+            mb-4
+            -translate-y-24 md:-translate-y-36
           "
         >
           <Image
             src="/test.png"
             alt="Wedding Logo"
-            width={350}
-            height={350}
+            width={320}
+            height={320}
             priority
             className="mx-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
           />
         </motion.div>
 
-        {/* TITLE (NAIK SEDIKIT) */}
+        {/* TITLE */}
         <motion.h1
           variants={titleContainer}
           className={`
             ${titleFont.className}
             flex items-end justify-center
             -rotate-6
-            -translate-y-19 md:-translate-y-36
+            -translate-y-24 md:-translate-y-36
             text-white
             leading-none
             text-[clamp(4rem,10vw,9rem)]
@@ -161,12 +163,12 @@ export default function Cover({
           ))}
         </motion.h1>
 
-        {/* KEPADA YTH */}
+        {/* SUBTEXT */}
         <motion.p
           variants={itemVariant}
           className={`
             ${caveat.className}
-            mt-8 md:mt-16
+            mt-10 md:mt-16
             text-white/90
             text-lg md:text-2xl
           `}
@@ -179,11 +181,11 @@ export default function Cover({
         <motion.button
           variants={itemVariant}
           onClick={onOpenAction}
-          initial={{ opacity: 0, y: 120, scale: 0.95 }}
+          initial={{ opacity: 0, y: 80, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
             delay: 2.2,
-            duration: 1,
+            duration: 0.9,
             ease: [0.22, 1, 0.36, 1],
           }}
           whileHover={{
@@ -194,7 +196,7 @@ export default function Cover({
           className={`
             ${poppins.className}
             mt-10
-            px-16 md:px-24
+            px-14 md:px-20
             py-3
             rounded-full
             bg-rose-500 text-white
@@ -204,6 +206,7 @@ export default function Cover({
         >
           Open Invitation
         </motion.button>
+
       </motion.div>
     </section>
   );

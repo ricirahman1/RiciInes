@@ -9,7 +9,10 @@ import { Allura, Poppins, Caveat } from "next/font/google";
    FONTS
 ======================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
-const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
 const TITLE_TEXT = "RICI & Ines";
@@ -37,11 +40,7 @@ const contentVariant: Variants = {
 };
 
 const itemVariant: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 24,
-    filter: "blur(6px)",
-  },
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
@@ -71,7 +70,7 @@ const titleLetter: Variants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1], // cinematic easing
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -89,7 +88,7 @@ export default function Cover() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* ================= BACKGROUND ================= */}
+      {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
         initial="hidden"
@@ -106,7 +105,7 @@ export default function Cover() {
         <div className="absolute inset-0 bg-black/10" />
       </motion.div>
 
-      {/* ================= CONTENT ================= */}
+      {/* CONTENT */}
       <motion.div
         variants={contentVariant}
         initial="hidden"
@@ -126,10 +125,10 @@ export default function Cover() {
             variants={itemVariant}
             className={`
               ${caveat.className}
-              text-white/90
-              uppercase tracking-[0.28em]
               mb-3
               text-sm md:text-base
+              uppercase tracking-[0.28em]
+              text-white/90
             `}
           >
             Wedding Invitation
@@ -138,8 +137,6 @@ export default function Cover() {
           {/* TITLE */}
           <motion.h1
             variants={titleContainer}
-            initial="hidden"
-            animate="visible"
             className={`
               ${titleFont.className}
               flex items-end
@@ -166,8 +163,8 @@ export default function Cover() {
             className={`
               ${caveat.className}
               mt-2
-              text-white/90
               text-lg md:text-2xl
+              text-white/90
             `}
           >
             #RICIwithhappINESs

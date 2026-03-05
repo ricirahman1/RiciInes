@@ -26,11 +26,9 @@ export default function PageLast() {
         </h2>
 
         <p className="text-lg leading-relaxed opacity-90">
-          Today we celebrate love,
-          <br />
-          tomorrow we build a lifetime together.
-          <br />
-          Thank you for being part of our forever.
+          We have come to our new life,
+          we want to share the joy of our marriage with all the families and friends.
+          We write this invitation to invite all of you to share the joy with us on our wedding
         </p>
 
         <div className="mt-10 text-sm tracking-widest opacity-80">
