@@ -201,7 +201,7 @@ export default function Cover({
           `}
         >
           <BookOpen size={20} />
-          Open Invitation
+          Open 
         </motion.button>
       </motion.div>
     </section>
