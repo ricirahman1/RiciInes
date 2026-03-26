@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Allura, Poppins, Caveat } from "next/font/google";
+import { BookOpen } from "lucide-react";
 
 /* =======================
    FONTS
@@ -85,13 +86,32 @@ export default function Cover({
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
 
+  // ✅ PINDAH KE DALAM COMPONENT
+  const [guestName, setGuestName] = useState("");
+
   useEffect(() => {
     audioRef.current?.play().catch(() => {});
   }, []);
 
+  // ✅ AMBIL NAMA DARI URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("to");
+
+    const formatName = (name: string) => {
+      return name.replace(/\b\w/g, (c) => c.toUpperCase());
+    };
+
+    if (name) {
+      setGuestName(formatName(decodeURIComponent(name)));
+    } else {
+      setGuestName("Bapak/Ibu/Saudara/i");
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-
+      
       {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
@@ -100,7 +120,7 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-          src="/bg9.jpg"
+          src="/bg-fixcvr.jpeg"
           alt="Wedding Cover"
           fill
           priority
@@ -113,20 +133,13 @@ export default function Cover({
         variants={contentVariant}
         initial="hidden"
         animate="visible"
-        className="
-          relative z-10 min-h-screen
-          flex flex-col items-center justify-center
-          text-center
-        "
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center"
       >
 
         {/* LOGO */}
         <motion.div
           variants={logoVariant}
-          className="
-            mb-4
-            -translate-y-24 md:-translate-y-36
-          "
+          className="mb-4 -translate-y-24 md:-translate-y-36"
         >
           <Image
             src="/test.png"
@@ -147,52 +160,33 @@ export default function Cover({
             -rotate-6
             -translate-y-24 md:-translate-y-36
             text-white
-            leading-none
             text-[clamp(4rem,10vw,9rem)]
-            drop-shadow-[0_0_30px_rgba(255,255,255,0.35)]
           `}
         >
           {TITLE_TEXT.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              variants={titleLetter}
-              className={char === "&" ? "text-rose-300 mx-3" : ""}
-            >
+            <motion.span key={i} variants={titleLetter}>
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.h1>
 
-        {/* SUBTEXT */}
+        {/* ✅ DEAR + NAMA */}
         <motion.p
           variants={itemVariant}
           className={`
-            ${caveat.className}
+            ${poppins.className}
             mt-10 md:mt-16
             text-white/90
             text-lg md:text-2xl
           `}
         >
-          kepada Yth <br />
-          Bapak/Ibu/Saudara/i
+          Dear {guestName}
         </motion.p>
 
         {/* BUTTON */}
         <motion.button
           variants={itemVariant}
           onClick={onOpenAction}
-          initial={{ opacity: 0, y: 80, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{
-            delay: 2.2,
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          whileHover={{
-            scale: 1.06,
-            boxShadow: "0 0 30px rgba(244,63,94,0.6)",
-          }}
-          whileTap={{ scale: 0.95 }}
           className={`
             ${poppins.className}
             mt-10
@@ -202,11 +196,12 @@ export default function Cover({
             bg-rose-500 text-white
             font-medium
             shadow-[0_10px_40px_rgba(244,63,94,0.35)]
+            flex items-center gap-3
           `}
         >
+          <BookOpen size={20} />
           Open Invitation
         </motion.button>
-
       </motion.div>
     </section>
   );

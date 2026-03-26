@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Caveat } from "next/font/google";
+import { Caveat, Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 
 const caveat = Caveat({
   subsets: ["latin"],
@@ -53,11 +58,11 @@ export default function PageTwo() {
         {/* AYAT */}
         <p
           className={`
-            ${caveat.className}
-            text-[0.95rem]
+            ${poppins.className}
+            text-[0.99rem]
             leading-relaxed
-            text-rose-200
-            italic
+            text-black
+            
           `}
         >
           “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu
@@ -69,10 +74,10 @@ export default function PageTwo() {
         {/* SOURCE */}
         <p
           className={`
-            ${caveat.className}
+            ${poppins.className}
             mt-4
             text-sm
-            text-rose-300
+            text-black
           `}
         >
           — QS Ar-Rum: 21

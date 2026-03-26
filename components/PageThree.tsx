@@ -177,7 +177,7 @@ export default function PageThree() {
         </h2>
 
         <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Ines Leo Riesgo S.Tp
+          Ines Leo Riesgo S.TP
         </p>
         <p className={`${bodyFont.className} text-white/90 mb-4`}>
           Putri dari <br /> Bapak Jefandri 

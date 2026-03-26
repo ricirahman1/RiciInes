@@ -4,9 +4,16 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Allura, Caveat } from "next/font/google";
 import { MapPin } from "lucide-react";
+import { Kumar_One_Outline } from "next/font/google";
+import { Kanit } from "next/font/google";
+
+
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const caveatFont = Caveat({ subsets: ["latin"], weight: ["400"] });
+const kumarOne = Kumar_One_Outline({ subsets: ["latin"], weight: ["400"] });
+const kanitFont = Kanit({ subsets: ["latin"], weight: ["400"] });
+
 
 export default function PageWeddingLocation() {
   return (
@@ -75,11 +82,8 @@ export default function PageWeddingLocation() {
 
             <p className={`${caveatFont.className} text-white/80 text-lg`}>
               Gedung Pramuka <br />
-              Jln. Pramuka <br />
-              Padang, Indonesia 25136
+              Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
-
-            
           </motion.div>
           
         </div>
@@ -91,54 +95,18 @@ export default function PageWeddingLocation() {
   transition={{ duration: 0.7 }}
   className="relative text-left"
 >
-  {/* BLUR ROSE – LAYER 1 */}
-  <h3
-    className={`
-      absolute inset-0
-      ${caveatFont.className}
-      font-extrabold
-      text-6xl
-      text-rose-400/80
-      blur-2xl
-      scale-110
-      select-none
-    `}
-  >
-    31 <br /> 05 <br /> 26
-  </h3>
 
-  {/* BLUR ROSE – LAYER 2 (lebih kuat) */}
-  <h3
-    className={`
-      absolute inset-0
-      ${caveatFont.className}
-      font-extrabold
-      text-6xl
-      text-rose-500/60
-      blur-3xl
-      scale-125
-      select-none
-    `}
-  >
-    31 <br /> 05 <br /> 26
-  </h3>
 
   {/* MAIN TEXT */}
   <h3
-    className={`
-      relative
-      ${caveatFont.className}
-      font-extrabold
-      text-6xl
-      text-rose-500
-      drop-shadow-[0_6px_14px_rgba(0,0,0,0.85)]
-    `}
+    className={`${kanitFont.className} relative font-extrabold text-6xl text-white`}
+      
   >
     31 <br /> 05 <br /> 26
   </h3>
 </motion.div>
 
-          <motion.div
+          <motion.div                
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -177,8 +145,7 @@ export default function PageWeddingLocation() {
 
             <p className={`${caveatFont.className} text-white/80 text-lg`}>
               Gedung Pramuka <br />
-              Jln. Pramuka <br />
-              Padang, Indonesia 25136
+              Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
           </motion.div>
 

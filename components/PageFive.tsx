@@ -36,16 +36,30 @@ const gallery = [
 
 export default function PageFive() {
   return (
-    <section className="w-full bg-[#f7f6f4] px-3 py-16">
+    <section className="relative w-full py-16 px-3 overflow-hidden">
+
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/bg-cover.jpeg"
+          alt="Gallery Background"
+          fill
+          priority
+          className="object-cover scale-110 blur-[2px]"
+        />
+        <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px]" />
+      </div>
 
       {/* TITLE */}
-      <div className={`flex items-center justify-center gap-2 mb-12 ${titleFont.className}`}>
+      <div
+        className={`flex items-center justify-center gap-2 mb-12 ${titleFont.className}`}
+      >
         <h2 className="text-3xl text-gray-800">Portrait Of Us</h2>
         <Camera className="w-5 h-5 text-gray-700" />
       </div>
 
       {/* GALLERY */}
-      <div className="max-w-md mx-auto flex flex-col gap-2">
+      <div className="max-w-md mx-auto flex flex-col gap-2 relative z-10">
         {gallery.map((item, index) =>
           item.type === "single" ? (
             <SingleImage key={index} src={item.src} />
@@ -78,14 +92,9 @@ function DoubleImageRow({ left, right }: { left: string; right?: string }) {
       {[left, right].map((img, i) => (
         <div
           key={i}
-          className="relative h-[160px] rounded-lg overflow-hidden"
+          className="relative h-[160px] rounded-md overflow-hidden"
         >
-          <Image
-            src={img}
-            alt="Gallery"
-            fill
-            className="object-cover"
-          />
+          <Image src={img} alt="Gallery" fill className="object-cover" />
         </div>
       ))}
     </motion.div>
@@ -99,14 +108,9 @@ function SingleImage({ src }: { src: string }) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative h-[260px] rounded-xl overflow-hidden"
+      className="relative h-[260px] rounded-md overflow-hidden"
     >
-      <Image
-        src={src}
-        alt="Gallery Highlight"
-        fill
-        className="object-cover"
-      />
+      <Image src={src} alt="Gallery Highlight" fill className="object-cover" />
     </motion.div>
   );
 }

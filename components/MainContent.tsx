@@ -7,7 +7,6 @@ import PageFive from "@/components/PageFive";
 import PageSix from "@/components/PageSix";
 import PageTempatNikah from "@/components/PageTempat";
 import PageTerakhir from "@/components/PageTerakhir";
-
 import PageCover from "@/components/PageCover";
 
 export default function MainContent() {
