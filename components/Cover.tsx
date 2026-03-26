@@ -180,7 +180,8 @@ export default function Cover({
             text-lg md:text-2xl
           `}
         >
-          Dear {guestName}
+          Dear <br/>
+          {guestName}
         </motion.p>
 
         {/* BUTTON */}
