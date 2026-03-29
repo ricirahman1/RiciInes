@@ -1,210 +1,167 @@
 "use client";
 
 import Image from "next/image";
-import { Allura, Poppins } from "next/font/google";
+import { Allura, Poppins, Oregano } from "next/font/google";
 import { Instagram } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
+/* ================= FONTS ================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
-const bodyFont = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
+const bodyFont = Poppins({ subsets: ["latin"], weight: ["300", "400", "500"] });
+const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
 
-const TITLE_TEXT_THREE = "The wedding of";
-
-/* ================= ANIMATION ================= */
-const titleLetter: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, ease: "easeInOut" },
+/* ================= DATA ================= */
+const data = [
+  {
+    name: "Rici",
+    full: "Rici Rahman S.Tr.T",
+    desc: "Putra dari Alm Bapak Syamsuri & Ibu Uuk Uswatul Chasanah",
+    img: "/rici.jpeg",
+    ig: "ric_rhmn",
+    link: "https://www.instagram.com/ric_rhmn",
   },
-};
-
-const titleContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
+  {
+    name: "Ines",
+    full: "Ines Leo Riesgo S.TP",
+    desc: "Putri dari Bapak Jefandri & Ibu Eldawati",
+    img: "/INESS.jpeg",
+    ig: "inesleoriesgo",
+    link: "https://www.instagram.com/inesleoriesgo",
   },
-};
+];
 
+/* ================= ITEM COMPONENT ================= */
+const RenderItem = ({ item }: { item: typeof data[0] }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 80, filter: "blur(10px)" }}
+    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+    transition={{ duration: 1 }}
+    className="flex flex-col items-center"
+  >
+    {/* FOTO */}
+    <div className="relative w-[260px] md:w-[320px] h-[340px] md:h-[420px] group">
+
+      {/* GLOW */}
+      <div className="absolute -inset-4 rounded-2xl bg-[#d4af37]/10 blur-xl group-hover:bg-[#d4af37]/20 transition" />
+
+      {/* GOLD FRAME */}
+      <div className="absolute -inset-2 rounded-2xl border border-[#d4af37]/50" />
+
+      {/* GLASS */}
+      <div className="absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.4)]" />
+
+      {/* IMAGE */}
+      <Image
+        src={item.img}
+        alt={item.name}
+        fill
+        className="object-cover rounded-2xl p-[6px] transition-transform duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    {/* TEXT */}
+    <div className="mt-8 text-center">
+
+      <h2
+        className={`
+          ${oregano.className}
+          text-5xl md:text-6xl
+          bg-gradient-to-r from-[#d4af37] via-[#fff3c4] to-[#d4af37]
+          bg-clip-text text-transparent
+        `}
+      >
+        {item.name}
+      </h2>
+
+      <p className={`${bodyFont.className} text-white/80 text-sm mt-2`}>
+        {item.full}
+      </p>
+
+      <p className={`${bodyFont.className} text-white/70 text-sm mt-3 max-w-xs`}>
+        {item.desc}
+      </p>
+
+      {/* IG */}
+      <div className="flex flex-col items-center mt-4">
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-[#d4af37] text-sm hover:scale-105 hover:text-white transition"
+        >
+          <Instagram size={16} />
+          @{item.ig}
+        </a>
+
+        <span className="mt-1 w-10 h-[1px] bg-[#d4af37]/70" />
+      </div>
+
+    </div>
+  </motion.div>
+);
+
+/* ================= MAIN COMPONENT ================= */
 export default function PageThree() {
   return (
     <section className="relative w-full">
 
-      {/* BACKGROUND STICKY */}
+      {/* ===== BACKGROUND (STICKY) ===== */}
       <div className="sticky top-0 h-screen w-full">
         <Image
           src="/bg-sd2.jpg"
-          alt="Wedding Background"
+          alt="bg"
           fill
           priority
-          className="object-cover"
+          className="object-cover scale-105"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      
-      {/* SCROLL CONTENT */}
-<div className="relative z-10 -mt-[100vh]">
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-10 -mt-[100vh] px-6 md:px-16 py-20 text-white">
 
-  {/* ===== JUDUL ===== */}
-  <div className="min-h-[20vh] flex items-end justify-center pb-12">
-    <motion.h1
-      variants={titleContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className={`
-        ${titleFont.className}
-        flex items-end justify-center
-        text-white
-        leading-none
-        text-[clamp(4rem,10vw,9rem)]
-        drop-shadow-[0_0_30px_rgba(255,255,255,0.35)]
-      `}
-    >
-      {TITLE_TEXT_THREE.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          variants={titleLetter}
+        {/* TITLE */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className={`
+            ${titleFont.className}
+            text-center
+            text-[clamp(3rem,6vw,6rem)]
+            mb-20
+          `}
+          style={{
+            textShadow:
+              "0 10px 40px rgba(0,0,0,0.5), 0 0 25px rgba(212,175,55,0.25)",
+          }}
         >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </motion.h1>
-  </div>
+          The Wedding Of
+        </motion.h1>
 
-  {/* ===== CARD LAKI-LAKI ===== */}
-  <div className="flex flex-col items-center text-center pb-24">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="w-96 h-96
-       rounded-xl overflow-hidden shadow-2xl bg-white">
-        <Image
-          src="/rici.jpeg"
-          alt="Rici Rahman"
-          width={200}
-          height={600}
-          className="object-cover w-full h-full"
-        />
+        {/* ===== GRID 3 KOLOM ===== */}
+        <div className="grid md:grid-cols-3 gap-10 items-center">
+
+          {/* RICI */}
+          <RenderItem item={data[0]} />
+
+          {/* PEMISAH */}
+          <div className="flex justify-center items-center">
+            <div className="flex items-center gap-4 md:gap-6">
+              <span className="w-10 md:w-16 h-[1px] bg-[#d4af37]/40" />
+              <span className={`${titleFont.className} text-4xl md:text-5xl text-[#d4af37]`}>
+                &
+              </span>
+              <span className="w-10 md:w-16 h-[1px] bg-[#d4af37]/40" />
+            </div>
+          </div>
+
+          {/* INES */}
+          <RenderItem item={data[1]} />
+
+        </div>
+
       </div>
-
-      <div className="mt-6 text-white">
-        <h2 className={`${titleFont.className} text-6xl 
-        `}>
-          Rici 
-        </h2>
-        <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Rici Rahman S.Tr.T
-        </p>
-        
-        <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Putra dari  <br />Alm Bapak Syamsuri & Ibu Uuk Uswatul Chasanah
-        </p>
-        <div className="flex flex-col items-center">
-  <a
-    href="https://instagram.com/rici"
-    target="_blank"
-    className="inline-flex items-center gap-2 text-rose-600 font-medium"
-  >
-    <Instagram size={18} />
-    @rici
-  </a>
-
-  <motion.span
-    initial={{ width: 0, opacity: 0 }}
-    whileInView={{ width: 80, opacity: 1 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className="mt-1 h-[1.5px] rounded-full bg-rose-600/90"
-  />
-</div>
-      </div>
-    </motion.div>
-  </div>
-
-
-  {/* ===== LOGO PEMISAH ===== */}
-<motion.div
-  initial={{ opacity: 0, scale: 0.8 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="flex items-center justify-center gap-6 py-6 mb-16"
->
-  {/* garis kiri */}
-  <span className="h-[1px] w-20 bg-white/40" />
-
-  {/* logo / simbol */}
-  <span
-    className={`
-      ${titleFont.className}
-      text-8xl text-rose-400 drop-shadow 
-    `}
-  >
-    &
-  </span>
-
-  {/* garis kanan */}
-  <span className="h-[1px] w-20 bg-white/40" />
-</motion.div>
-
-  {/* ===== CARD PEREMPUAN ===== */}
-  <div className="flex flex-col items-center text-center pb-32 ">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="w-96 h-80 rounded-xl overflow-hidden shadow-2xl bg-white">
-        <Image
-          src="/INESS.jpeg"
-          alt="Ines"
-          width={400}
-          height={600}
-          className="object-cover w-full h-full"
-        />
-      </div>
-
-      <div className="mt-6 text-white">
-        <h2 className={`${titleFont.className} text-6xl mb-4`}>
-          Ines 
-        </h2>
-
-        <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Ines Leo Riesgo S.TP
-        </p>
-        <p className={`${bodyFont.className} text-white/90 mb-4`}>
-          Putri dari <br /> Bapak Jefandri 
-          & Ibu Eldawati
-        </p>
-        <div className="flex flex-col items-center">
-  <a
-    href="https://instagram.com/rici"
-    target="_blank"
-    className="inline-flex items-center gap-2 text-rose-600 font-medium"
-  >
-    <Instagram size={18} />
-    @InesLeoRiesgo
-  </a>
-
-  <motion.span
-    initial={{ width: 0, opacity: 0 }}
-    whileInView={{ width: 80, opacity: 1 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className="mt-1 h-[1.5px] rounded-full bg-rose-600/90"
-  />
-</div>
-      </div>
-    </motion.div>
-  </div>
-
-</div>
     </section>
   );
 }

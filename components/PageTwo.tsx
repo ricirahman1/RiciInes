@@ -2,16 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Caveat, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: ["300", "400", "500"],
 });
 
 export default function PageTwo() {
@@ -31,38 +26,37 @@ export default function PageTwo() {
         alt="Background Page Two"
         fill
         priority
-        className="object-cover"
+        className="object-cover scale-105"
       />
 
-      {/* SOFT OVERLAY */}
-      <div className="absolute inset-0 bg-black/10" />
+      {/* SOFT DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* CONTENT */}
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 1.2,
-          ease: [0.22, 1, 0.36, 1], // very soft cinematic
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="
           relative z-10
-          w-full max-w-md
-          rounded-2xl
-          bg-white/20
-          backdrop-blur-sm
-          px-5 py-6
-          shadow-[0_6px_24px_rgba(0,0,0,0.14)]
+          w-full max-w-sm
+          rounded-xl
+          bg-white/10
+          backdrop-blur-md
+          px-4 py-5
+          shadow-[0_4px_18px_rgba(0,0,0,0.12)]
         "
       >
         {/* AYAT */}
         <p
           className={`
             ${poppins.className}
-            text-[0.99rem]
-            leading-relaxed
-            text-black
-            
+            text-[0.85rem] md:text-[0.95rem]
+            leading-relaxed md:leading-loose
+            text-white/90
           `}
         >
           “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu
@@ -75,13 +69,17 @@ export default function PageTwo() {
         <p
           className={`
             ${poppins.className}
-            mt-4
-            text-sm
-            text-black
+            mt-3
+            text-[0.75rem] md:text-xs
+            tracking-wide
+            text-white/70
           `}
         >
           — QS Ar-Rum: 21
         </p>
+
+        {/* DECOR LINE */}
+        <div className="mx-auto mt-4 h-[1px] w-10 bg-white/40" />
       </motion.div>
     </section>
   );

@@ -234,31 +234,35 @@ export default function Cover() {
             Wedding Invitation
           </motion.p>
 
-          {/* TITLE */}
-          <motion.h1
-            variants={titleContainer}
-            className={`
-              ${oregano.className}
-              flex flex-wrap
-              text-white
-              leading-none
-              text-[clamp(5.5rem,14vw,13rem)]
-            `}
-            style={{
-              textShadow:
-                "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
-            }}
-          >
-            {TITLE_TEXT.split("").map((char, i) => (
-              <motion.span
-                key={i}
-                variants={titleLetter}
-                className={char === "&" ? "mx-4 text-rose-300" : ""}
-              >
-                {char === " " ? "\u00A0" : char}
-              </motion.span>
-            ))}
-          </motion.h1>
+<motion.h1
+  variants={titleContainer}
+  className={`
+    ${oregano.className}
+    flex flex-wrap items-center justify-center md:justify-start
+    text-white
+    leading-none
+    text-[clamp(5rem,10vw,10rem)]
+  `}
+  style={{
+    textShadow:
+      "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
+  }}
+>
+  {TITLE_TEXT.split("").map((char, i) => (
+    <motion.span
+      key={i}
+      variants={titleLetter}
+      className={`
+        inline-flex items-center justify-center
+        ${char === "&"
+          ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,6vw,4rem)]"
+          : ""}
+      `}
+    >
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  ))}
+</motion.h1>
 
           {/* HASHTAG */}
           <motion.p
