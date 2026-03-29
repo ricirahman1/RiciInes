@@ -1,31 +1,35 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Allura, Poppins, Caveat } from "next/font/google";
+import { Oregano } from "next/font/google";
 
 /* =======================
-   FONTS
+   FONT
 ======================= */
-const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
-const poppins = Poppins({
+const oregano = Oregano({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400"],
 });
-const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
 
-const TITLE_TEXT = "RICI & Ines";
+const TITLE_TEXT = "Rici & Ines";
 
 /* =======================
-   ANIMATION CONFIG
+   ANIMATION
 ======================= */
 const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.05 },
+  hidden: { opacity: 0, scale: 1.08 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1.4, ease: "easeOut" },
+    transition: { duration: 1.6, ease: "easeOut" },
+  },
+};
+
+const overlayVariant: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1.2 },
   },
 };
 
@@ -34,13 +38,13 @@ const contentVariant: Variants = {
   visible: {
     transition: {
       delayChildren: 1,
-      staggerChildren: 0.25,
+      staggerChildren: 0.18,
     },
   },
 };
 
 const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
@@ -52,14 +56,17 @@ const itemVariant: Variants = {
 const titleContainer: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12 },
+    transition: {
+      delayChildren: 1.2,
+      staggerChildren: 0.08,
+    },
   },
 };
 
 const titleLetter: Variants = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 50,
     scale: 0.95,
     filter: "blur(10px)",
   },
@@ -79,31 +86,124 @@ const titleLetter: Variants = {
    COMPONENT
 ======================= */
 export default function Cover() {
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    audioRef.current?.play().catch(() => {});
-  }, []);
-
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* BACKGROUND */}
+      {/* BACKGROUND VIDEO */}
       <motion.div
         variants={bgVariant}
         initial="hidden"
         animate="visible"
         className="absolute inset-0"
       >
-        <Image
-          src="/bg-slide-2.jpeg"
-          alt="Wedding Cover"
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-black/10" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/bg.mp4" type="video/mp4" />
+        </video>
       </motion.div>
+
+      {/* OVERLAY */}
+      <motion.div
+        variants={overlayVariant}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 bg-black/40"
+      />
+
+      {/* ANIMATED LINES */}
+      {/* ANIMATED ELEGANT LINES */}
+<div className="absolute inset-0 pointer-events-none overflow-hidden">
+
+  {/* === HORIZONTAL LINES === */}
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{ width: "70%", opacity: 0.35 }}
+    transition={{ duration: 1.6, delay: 1 }}
+    className="absolute top-[20%] left-0 h-[2px] bg-white"
+  />
+
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{ width: "50%", opacity: 0.25 }}
+    transition={{ duration: 1.6, delay: 1.2 }}
+    className="absolute top-[35%] right-0 h-[1px] bg-white"
+  />
+
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{ width: "60%", opacity: 0.3 }}
+    transition={{ duration: 1.6, delay: 1.4 }}
+    className="absolute top-[55%] left-0 h-[2px] bg-white"
+  />
+
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{ width: "40%", opacity: 0.2 }}
+    transition={{ duration: 1.6, delay: 1.6 }}
+    className="absolute top-[75%] right-0 h-[1px] bg-white"
+  />
+
+  {/* === VERTICAL LINES === */}
+  <motion.div
+    initial={{ height: 0, opacity: 0 }}
+    animate={{ height: "60%", opacity: 0.25 }}
+    transition={{ duration: 1.6, delay: 1.3 }}
+    className="absolute left-[8%] top-0 w-[1px] bg-white"
+  />
+
+  <motion.div
+    initial={{ height: 0, opacity: 0 }}
+    animate={{ height: "50%", opacity: 0.2 }}
+    transition={{ duration: 1.6, delay: 1.5 }}
+    className="absolute right-[10%] bottom-0 w-[2px] bg-white"
+  />
+
+  <motion.div
+    initial={{ height: 0, opacity: 0 }}
+    animate={{ height: "40%", opacity: 0.15 }}
+    transition={{ duration: 1.6, delay: 1.7 }}
+    className="absolute left-[20%] bottom-0 w-[1px] bg-white"
+  />
+
+  {/* === FLOATING LINES (GERAK HALUS) === */}
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{
+      width: "50%",
+      opacity: 0.2,
+      x: [0, 40, 0],
+    }}
+    transition={{
+      duration: 8,
+      delay: 2,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute top-[45%] left-0 h-[1px] bg-white"
+  />
+
+  <motion.div
+    initial={{ height: 0, opacity: 0 }}
+    animate={{
+      height: "50%",
+      opacity: 0.15,
+      y: [0, 30, 0],
+    }}
+    transition={{
+      duration: 9,
+      delay: 2.2,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute right-[25%] top-0 w-[1px] bg-white"
+  />
+
+</div>
 
       {/* CONTENT */}
       <motion.div
@@ -112,23 +212,23 @@ export default function Cover() {
         animate="visible"
         className="
           relative z-10 min-h-screen
-          flex items-start justify-start
-          px-8 pt-24
-          text-left
+          flex items-center md:items-start
+          justify-start
+          px-8 md:px-20
+          pt-40 md:pt-32
         "
       >
-        {/* ROTATED GROUP */}
-        <div className="-rotate-6">
+        <div className="max-w-2xl">
 
           {/* SUBTITLE */}
           <motion.p
             variants={itemVariant}
             className={`
-              ${caveat.className}
+              ${oregano.className}
               mb-3
-              text-sm md:text-base
-              uppercase tracking-[0.28em]
-              text-white/90
+              text-xs md:text-sm
+              uppercase tracking-[0.3em]
+              text-white/80
             `}
           >
             Wedding Invitation
@@ -138,19 +238,22 @@ export default function Cover() {
           <motion.h1
             variants={titleContainer}
             className={`
-              ${titleFont.className}
-              flex items-end
+              ${oregano.className}
+              flex flex-wrap
               text-white
               leading-none
-              text-[clamp(4rem,10vw,9rem)]
-              drop-shadow-[0_0_30px_rgba(255,255,255,0.35)]
+              text-[clamp(5.5rem,14vw,13rem)]
             `}
+            style={{
+              textShadow:
+                "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
+            }}
           >
             {TITLE_TEXT.split("").map((char, i) => (
               <motion.span
                 key={i}
                 variants={titleLetter}
-                className={char === "&" ? "text-rose-300 mx-4" : ""}
+                className={char === "&" ? "mx-4 text-rose-300" : ""}
               >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
@@ -161,14 +264,20 @@ export default function Cover() {
           <motion.p
             variants={itemVariant}
             className={`
-              ${caveat.className}
-              mt-2
-              text-lg md:text-2xl
-              text-white/90
+              ${oregano.className}
+              mt-4
+              text-lg md:text-3xl
+              text-white/85
             `}
           >
             #RICIwithhappINESs
           </motion.p>
+
+          {/* DECOR LINE */}
+          <motion.div
+            variants={itemVariant}
+            className="mt-6 w-24 h-[2px] bg-white/50"
+          />
 
         </div>
       </motion.div>

@@ -39,18 +39,12 @@ export default function PageFive() {
     <section className="relative w-full py-16 px-3 overflow-hidden">
 
       {/* BACKGROUND */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/bg-cover.jpeg"
-          alt="Gallery Background"
-          fill
-          priority
-          className="object-cover scale-110 blur-[2px]"
-        />
+      <div className="bg-black-100 absolute inset-0">
+       
         <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px]" />
       </div>
 
-      {/* TITLE */}
+      {/* TITLE */}     
       <div
         className={`flex items-center justify-center gap-2 mb-12 ${titleFont.className}`}
       >

@@ -3,18 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Allura, Poppins, Caveat } from "next/font/google";
+import { Oregano, Poppins } from "next/font/google";
 import { BookOpen } from "lucide-react";
 
 /* =======================
    FONTS
 ======================= */
-const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
 });
-const caveat = Caveat({ subsets: ["latin"], weight: ["400", "600"] });
+
+const oregano = Oregano({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const TITLE_TEXT = "Rici & Ines";
 
@@ -22,11 +25,19 @@ const TITLE_TEXT = "Rici & Ines";
    ANIMATION
 ======================= */
 const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.05 },
+  hidden: { opacity: 0, scale: 1.1 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1.2, ease: "easeOut" },
+    transition: { duration: 1.6, ease: "easeOut" },
+  },
+};
+
+const overlayVariant: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1.2 },
   },
 };
 
@@ -34,45 +45,58 @@ const contentVariant: Variants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.25,
+      delayChildren: 1,
+      staggerChildren: 0.2,
     },
   },
 };
 
 const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
 const logoVariant: Variants = {
-  hidden: { opacity: 0, y: -40, scale: 0.95 },
+  hidden: { opacity: 0, y: -60, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.9, ease: "easeOut" },
+    transition: { duration: 1, ease: "easeOut" },
   },
 };
 
 const titleContainer: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12 },
+    transition: {
+      delayChildren: 1.2,
+      staggerChildren: 0.08,
+    },
   },
 };
 
 const titleLetter: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
+  hidden: {
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+    filter: "blur(10px)",
+  },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
     filter: "blur(0px)",
-    transition: { duration: 0.6, ease: "easeInOut" },
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
@@ -85,33 +109,21 @@ export default function Cover({
   onOpenAction: () => void;
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  // ✅ PINDAH KE DALAM COMPONENT
   const [guestName, setGuestName] = useState("");
 
-  useEffect(() => {
-    audioRef.current?.play().catch(() => {});
-  }, []);
-
-  // ✅ AMBIL NAMA DARI URL
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const name = params.get("to");
 
-    const formatName = (name: string) => {
-      return name.replace(/\b\w/g, (c) => c.toUpperCase());
-    };
+    const formatName = (name: string) =>
+      name.replace(/\b\w/g, (c) => c.toUpperCase());
 
-    if (name) {
-      setGuestName(formatName(decodeURIComponent(name)));
-    } else {
-      setGuestName("Bapak/Ibu/Saudara/i");
-    }
+    setGuestName(name ? formatName(decodeURIComponent(name)) : "-");
   }, []);
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      
+
       {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
@@ -124,84 +136,108 @@ export default function Cover({
           alt="Wedding Cover"
           fill
           priority
-          className="object-cover"
+          className="object-cover scale-105"
         />
       </motion.div>
+
+      {/* OVERLAY biar teks kebaca */}
+      <motion.div
+        variants={overlayVariant}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 bg-black/40"
+      />
 
       {/* CONTENT */}
       <motion.div
         variants={contentVariant}
         initial="hidden"
         animate="visible"
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6"
       >
 
         {/* LOGO */}
         <motion.div
           variants={logoVariant}
-          className="mb-4 -translate-y-24 md:-translate-y-36"
+          className="mb-6 -translate-y-20 md:-translate-y-24"
         >
           <Image
             src="/test.png"
             alt="Wedding Logo"
-            width={320}
-            height={320}
+            width={300}
+            height={260}
             priority
-            className="mx-auto drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+            className="mx-auto drop-shadow-[0_10px_40px_rgba(255,255,255,0.4)]"
           />
         </motion.div>
 
         {/* TITLE */}
         <motion.h1
           variants={titleContainer}
+          initial="hidden"
+          animate="visible"
           className={`
-            ${titleFont.className}
-            flex items-end justify-center
-            -rotate-6
-            -translate-y-24 md:-translate-y-36
+            ${oregano.className}
+            flex flex-wrap justify-center
             text-white
-            text-[clamp(4rem,10vw,9rem)]
+            leading-none
+            text-[clamp(5.5rem,14vw,12rem)]
           `}
+          style={{
+            textShadow:
+              "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
+          }}
         >
           {TITLE_TEXT.split("").map((char, i) => (
-            <motion.span key={i} variants={titleLetter}>
+            <motion.span
+              key={i}
+              variants={titleLetter}
+              className={char === "&" ? "mx-4 text-rose-300" : ""}
+            >
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.h1>
 
-        {/* ✅ DEAR + NAMA */}
-        <motion.p
-          variants={itemVariant}
-          className={`
-            ${poppins.className}
-            mt-10 md:mt-16
-            text-white/90
-            text-lg md:text-2xl
-          `}
-        >
-          Dear <br/>
-          {guestName}
-        </motion.p>
+        {/* NAMA TAMU */}
+        <motion.div variants={itemVariant} className="mt-10">
+          <p className={`${poppins.className} text-white/80 text-sm`}>
+            Dear
+          </p>
+          <p
+            className={`
+              ${poppins.className}
+              text-white
+              text-xl md:text-2xl
+              font-medium
+              mt-1
+            `}
+          >
+            {guestName}
+          </p>
+        </motion.div>
 
         {/* BUTTON */}
         <motion.button
           variants={itemVariant}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={onOpenAction}
           className={`
             ${poppins.className}
-            mt-10
-            px-14 md:px-20
+            mt-16
+            px-12 md:px-16
             py-3
             rounded-full
-            bg-rose-500 text-white
+            bg-gradient-to-r from-rose-500 to-pink-500
+            text-white
             font-medium
             shadow-[0_10px_40px_rgba(244,63,94,0.35)]
             flex items-center gap-3
           `}
         >
           <BookOpen size={20} />
-          Open 
+          Open Invitation
         </motion.button>
       </motion.div>
     </section>
