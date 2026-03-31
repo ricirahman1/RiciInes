@@ -2,53 +2,76 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Allura, Caveat } from "next/font/google";
+import { Allura, Caveat, Oregano } from "next/font/google";
 import { motion } from "framer-motion";
 import { supabase } from "@/lib/supabaseClient";
 
+/* ================= FONT ================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
+const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
 const caveat = Caveat({ subsets: ["latin"], weight: ["400"] });
 
+/* ================= TYPE ================= */
 interface Wish {
   id: string;
   name: string;
   message: string;
+  created_at?: string;
 }
 
+/* ================= MAIN ================= */
 export default function PageSix() {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    supabase
+  /* ================= FETCH ================= */
+  const fetchWishes = async () => {
+    const { data, error } = await supabase
       .from("wishes")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(6) // ✅ hanya 6 terbaru
-      .then(({ data }) => {
-        if (data) setWishes(data as Wish[]);
-      });
+      .limit(6);
+
+    if (error) {
+      console.error("Fetch error:", error);
+      return;
+    }
+
+    if (data) setWishes(data as Wish[]);
+  };
+
+  useEffect(() => {
+    fetchWishes();
   }, []);
 
+  /* ================= SEND ================= */
   const handleSend = async () => {
     if (!name.trim() || !message.trim()) return;
 
-    const { data } = await supabase
-      .from("wishes")
-      .insert([{ name, message }])
-      .select();
+    setLoading(true);
 
-    if (data && data[0]) {
-      setWishes((prev) => [data[0] as Wish, ...prev].slice(0, 6));
-      setName("");
-      setMessage("");
+    const { error } = await supabase
+      .from("wishes")
+      .insert([{ name, message }]);
+
+    if (error) {
+      console.error("Insert error:", error);
+      setLoading(false);
+      return;
     }
+
+    await fetchWishes();
+
+    setName("");
+    setMessage("");
+    setLoading(false);
   };
 
+  /* ================= UI ================= */
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-
       {/* BACKGROUND */}
       <Image
         src="/bg-cvrr.jpeg"
@@ -57,79 +80,141 @@ export default function PageSix() {
         priority
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
 
       {/* CONTENT */}
-      <div className="relative z-10 min-h-screen px-6 py-14 flex flex-col items-center">
-
+      <div className="relative z-10 min-h-screen px-6 py-16 flex flex-col items-center">
+        
         {/* TITLE */}
         <motion.h2
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`${titleFont.className} text-4xl text-white mb-8`}
+          className={`${titleFont.className} text-4xl text-white mb-10`}
         >
           Wedding Wishes
         </motion.h2>
 
-        {/* FORM */}
-        <div
-          className="
-            w-full max-w-md mb-8
-            bg-white/15 backdrop-blur-xl
-            rounded-2xl p-4
-          "
-        >
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Nama"
-            className="w-full mb-2 p-2.5 rounded-lg text-sm bg-white/85"
-          />
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Tulis doa terbaikmu…"
-            className="w-full p-2.5 rounded-lg text-sm bg-white/85 h-20 resize-none"
-          />
-          <button
-            onClick={handleSend}
-            className="
-              mt-3 w-full
-              bg-rose-500 text-white
-              py-2.5 rounded-lg text-sm
-              hover:bg-rose-600 transition
-            "
-          >
-            Kirim Ucapan
-          </button>
-        </div>
+        {/* FORM - NOTE STYLE */}
+<div className="w-full max-w-md mb-12 flex justify-center">
+  <div className="relative">
 
-        {/* WISH LIST (NO SCROLL) */}
-        <div className="w-full max-w-md space-y-3">
-          {wishes.map((wish, i) => (
-            <motion.div
-              key={wish.id}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.08 }}
-              className="
-                bg-white/20 backdrop-blur-lg
-                rounded-xl px-4 py-3
-              "
-            >
-              <p className="text-white text-xs mb-1 opacity-80">
-                — {wish.name}
-              </p>
-              <p
-                className={`${caveat.className}
-                text-white text-sm leading-relaxed`}
-              >
-                {wish.message}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+    {/* PIN */}
+    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 bg-rose-400 rounded-full shadow-md z-10" />
 
+    {/* NOTE */}
+    <div className="
+      bg-yellow-200/90
+      w-[280px]
+      rounded-xl
+      p-5 pt-6
+      shadow-[0_10px_25px_rgba(0,0,0,0.2)]
+      rotate-[-1deg]
+      hover:rotate-0
+      transition-all duration-300
+    ">
+
+      {/* NAME */}
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Nama kamu..."
+        className="
+          w-full mb-3
+          bg-transparent
+          border-b border-gray-500/40
+          text-sm text-gray-800
+          placeholder:text-gray-500
+          outline-none
+          focus:border-gray-700
+          pb-1
+        "
+      />
+
+      {/* MESSAGE */}
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Tulis doa terbaikmu..."
+        className="
+          w-full
+          bg-transparent
+          text-sm text-gray-800
+          placeholder:text-gray-500
+          outline-none
+          resize-none
+          h-20
+          leading-relaxed
+        "
+      />
+
+      {/* BUTTON */}
+      <button
+        onClick={handleSend}
+        disabled={loading}
+        className="
+          mt-4 w-full
+          text-xs font-semibold
+          text-white
+          bg-rose-400
+          py-2 rounded-lg
+          shadow-md
+          hover:bg-rose-500
+          hover:scale-105
+          active:scale-95
+          transition-all duration-200
+          disabled:opacity-50
+        "
+      >
+        {loading ? "Mengirim..." : "Kirim 💌"}
+      </button>
+    </div>
+  </div>
+</div>
+
+        {/* LIST UCAPAN - NOTE STYLE */}
+<div className="w-full max-w-md flex flex-wrap justify-center gap-4">
+  {wishes.map((wish, i) => {
+    const colors = [
+      "bg-yellow-200/90",
+      "bg-pink-200/90",
+      "bg-blue-200/90",
+      "bg-green-200/90",
+      "bg-rose-200/90",
+    ];
+
+    const rotations = ["rotate-[-2deg]", "rotate-[2deg]", "rotate-[-1deg]", "rotate-[1deg]"];
+
+    return (
+      <motion.div
+        key={wish.id}
+        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ delay: i * 0.08 }}
+        className={`
+          ${colors[i % colors.length]}
+          ${rotations[i % rotations.length]}
+          w-[140px] min-h-[120px]
+          rounded-xl p-3
+          shadow-lg
+          text-gray-800
+          flex flex-col justify-between
+          hover:scale-105 hover:rotate-0
+          transition-all duration-300
+        `}
+      >
+        <p className="text-[10px] mb-1 opacity-70 italic">
+          — {wish.name}
+        </p>
+
+        <p className={`${oregano.className} text-xs leading-relaxed`}>
+          {wish.message}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
       </div>
     </section>
   );

@@ -42,10 +42,10 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
     <div className="relative w-[260px] md:w-[320px] h-[340px] md:h-[420px] group">
 
       {/* GLOW */}
-      <div className="absolute -inset-4 rounded-2xl bg-[#d4af37]/10 blur-xl group-hover:bg-[#d4af37]/20 transition" />
+      <div className="absolute -inset-4 rounded-2xl bg-white blur-xl group-hover:bg-[#d4af37]/20 transition" />
 
       {/* GOLD FRAME */}
-      <div className="absolute -inset-2 rounded-2xl border border-[#d4af37]/50" />
+      <div className="absolute -inset-2 rounded-2xl border border-rose-500" />
 
       {/* GLASS */}
       <div className="absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.4)]" />
@@ -66,7 +66,7 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
         className={`
           ${oregano.className}
           text-5xl md:text-6xl
-          bg-gradient-to-r from-[#d4af37] via-[#fff3c4] to-[#d4af37]
+          bg-rose-500/80 bg-clip-text text-transparent
           bg-clip-text text-transparent
         `}
       >
@@ -87,13 +87,13 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[#d4af37] text-sm hover:scale-105 hover:text-white transition"
+          className="flex items-center gap-2 text-rose-600 text-sm hover:scale-105 hover:text-white transition"
         >
           <Instagram size={16} />
           @{item.ig}
         </a>
 
-        <span className="mt-1 w-10 h-[1px] bg-[#d4af37]/70" />
+        <span className="mt-1 w-10 h-[1px] bg-rose-500/70" />
       </div>
 
     </div>

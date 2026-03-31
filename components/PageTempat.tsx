@@ -2,17 +2,16 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Allura, Caveat } from "next/font/google";
+import { Allura, Caveat, Oregano } from "next/font/google";
 import { MapPin } from "lucide-react";
-import { Kumar_One_Outline } from "next/font/google";
-import { Kanit } from "next/font/google";
+
 
 
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const caveatFont = Caveat({ subsets: ["latin"], weight: ["400"] });
-const kumarOne = Kumar_One_Outline({ subsets: ["latin"], weight: ["400"] });
-const kanitFont = Kanit({ subsets: ["latin"], weight: ["400"] });
+const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
+
 
 
 export default function PageWeddingLocation() {
@@ -63,7 +62,7 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-6 text-left"
           >
-            <h3 className={`${caveatFont.className} text-6xl text-white`}>
+            <h3 className={`${oregano.className} text-6xl text-white`}>
               Akad Nikah
             </h3>
           </motion.div>
@@ -76,11 +75,11 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-4 text-right"
           >
-            <h4 className={`${caveatFont.className} text-white/90 text-2xl`}>
+            <h4 className={`${oregano.className} text-white/90 text-2xl`}>
               Wedding Venue
             </h4>
 
-            <p className={`${caveatFont.className} text-white/80 text-lg`}>
+            <p className={`${oregano.className} text-white/80 text-lg`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
@@ -99,7 +98,7 @@ export default function PageWeddingLocation() {
 
   {/* MAIN TEXT */}
   <h3
-    className={`${kanitFont.className} relative font-extrabold text-6xl text-white`}
+    className={`${oregano.className} relative font-extrabold text-6xl text-white`}
       
   >
     31 <br /> 05 <br /> 26
@@ -139,11 +138,11 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-6 text-left"
           >
-            <h3 className={`${caveatFont.className} text-5xl text-white`}>
+            <h3 className={`${oregano.className} text-5xl text-white`}>
               Resepsi
             </h3>
 
-            <p className={`${caveatFont.className} text-white/80 text-lg`}>
+            <p className={`${oregano.className} text-white/80 text-lg`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>

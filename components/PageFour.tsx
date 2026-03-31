@@ -3,13 +3,13 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Allura, Poppins } from "next/font/google";
+import { Allura, Poppins, Oregano } from "next/font/google";
 
 const Countdown = dynamic(() => import("react-countdown"), { ssr: false });
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const bodyFont = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
-
+const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
 const WEDDING_DATE = new Date("2026-05-31T00:00:00");
 
 export default function PageFour() {

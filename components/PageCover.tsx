@@ -112,7 +112,7 @@ export default function Cover() {
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0 "
       />
 
       {/* ANIMATED LINES */}
@@ -124,28 +124,35 @@ export default function Cover() {
     initial={{ width: 0, opacity: 0 }}
     animate={{ width: "70%", opacity: 0.35 }}
     transition={{ duration: 1.6, delay: 1 }}
-    className="absolute top-[20%] left-0 h-[2px] bg-white"
+    className="absolute top-[20%] left-0 h-[4px] bg-white"
+  />
+
+  <motion.div
+    initial={{ width: 0, opacity: 0 }}
+    animate={{ width: "70%", opacity: 0.35 }}
+    transition={{ duration: 1.6, delay: 1 }}
+    className="absolute top-[20%] left-0 h-[4px] bg-white"
   />
 
   <motion.div
     initial={{ width: 0, opacity: 0 }}
     animate={{ width: "50%", opacity: 0.25 }}
     transition={{ duration: 1.6, delay: 1.2 }}
-    className="absolute top-[35%] right-0 h-[1px] bg-white"
+    className="absolute top-[35%] right-0 h-[6px] bg-white"
   />
 
   <motion.div
     initial={{ width: 0, opacity: 0 }}
     animate={{ width: "60%", opacity: 0.3 }}
     transition={{ duration: 1.6, delay: 1.4 }}
-    className="absolute top-[55%] left-0 h-[2px] bg-white"
+    className="absolute top-[55%] left-0 h-[6px] bg-white"
   />
 
   <motion.div
     initial={{ width: 0, opacity: 0 }}
     animate={{ width: "40%", opacity: 0.2 }}
     transition={{ duration: 1.6, delay: 1.6 }}
-    className="absolute top-[75%] right-0 h-[1px] bg-white"
+    className="absolute top-[75%] right-0 h-[6px] bg-white"
   />
 
   {/* === VERTICAL LINES === */}
@@ -153,21 +160,21 @@ export default function Cover() {
     initial={{ height: 0, opacity: 0 }}
     animate={{ height: "60%", opacity: 0.25 }}
     transition={{ duration: 1.6, delay: 1.3 }}
-    className="absolute left-[8%] top-0 w-[1px] bg-white"
+    className="absolute left-[8%] top-0 w-[6px] bg-white"
   />
 
   <motion.div
     initial={{ height: 0, opacity: 0 }}
     animate={{ height: "50%", opacity: 0.2 }}
     transition={{ duration: 1.6, delay: 1.5 }}
-    className="absolute right-[10%] bottom-0 w-[2px] bg-white"
+    className="absolute right-[50%] bottom-0 w-[2px] bg-white"
   />
 
   <motion.div
     initial={{ height: 0, opacity: 0 }}
     animate={{ height: "40%", opacity: 0.15 }}
     transition={{ duration: 1.6, delay: 1.7 }}
-    className="absolute left-[20%] bottom-0 w-[1px] bg-white"
+    className="absolute left-[20%] bottom-0 w-[4px] bg-white"
   />
 
   {/* === FLOATING LINES (GERAK HALUS) === */}
@@ -184,7 +191,7 @@ export default function Cover() {
       repeat: Infinity,
       ease: "easeInOut",
     }}
-    className="absolute top-[45%] left-0 h-[1px] bg-white"
+    className="absolute top-[45%] left-0 h-[4px] bg-white"
   />
 
   <motion.div
@@ -200,7 +207,7 @@ export default function Cover() {
       repeat: Infinity,
       ease: "easeInOut",
     }}
-    className="absolute right-[25%] top-0 w-[1px] bg-white"
+    className="absolute right-[25%] top-0 w-[2px] bg-white"
   />
 
 </div>
@@ -214,11 +221,11 @@ export default function Cover() {
           relative z-10 min-h-screen
           flex items-center md:items-start
           justify-start
-          px-8 md:px-20
-          pt-40 md:pt-32
+          px-10 md:px-20
+          pt-12 md:pt-32
         "
       >
-        <div className="max-w-2xl">
+        <div className="">
 
           {/* SUBTITLE */}
           <motion.p

@@ -145,7 +145,7 @@ export default function Cover({
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/40"
+        className="absolute inset-0 "
       />
 
       {/* CONTENT */}
@@ -192,7 +192,7 @@ export default function Cover({
             <motion.span
               key={i}
               variants={titleLetter}
-              className={char === "&" ? "mx-4 text-rose-300" : ""}
+              className={char === "&" ? " mt-4 text-6xl mx-4 text-rose-300" : ""}
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>

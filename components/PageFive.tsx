@@ -5,106 +5,85 @@ import { Allura } from "next/font/google";
 import { Camera } from "lucide-react";
 import { motion } from "framer-motion";
 
+/* ================= FONT ================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 
+/* ================= DATA ================= */
 const gallery = [
-  { src: "/bg-cover.jpeg", type: "double" },
-  { src: "/bg-ines.jpeg", type: "double" },
-
-  { src: "/bg-cvr.jpeg", type: "single" },
-
-  { src: "/bg-sd2.jpeg", type: "double" },
-  { src: "/bg-rici.jpeg", type: "double" },
-
-  { src: "/bg-test.jpg", type: "single" },
-
-  { src: "/g7.jpg", type: "double" },
-  { src: "/g8.jpg", type: "double" },
-
-  { src: "/g9.jpg", type: "single" },
-
-  { src: "/g10.jpg", type: "double" },
-  { src: "/g11.jpg", type: "double" },
-
-  { src: "/g12.jpg", type: "single" },
-
-  { src: "/g13.jpg", type: "double" },
-  { src: "/g14.jpg", type: "double" },
-
-  { src: "/g15.jpg", type: "single" },
+  { src: "/bg-cover.jpeg", featured: true },
+  { src: "/bg-ines.jpeg" },
+  { src: "/bg-cvr.jpeg" },
+  { src: "/bg-sd2.jpeg", featured: true },
+  { src: "/bg-rici.jpeg" },
+  { src: "/bg-test.jpg" },
+  { src: "/g7.jpg" },
+  { src: "/g8.jpg", featured: true },
+  { src: "/g9.jpg" },
+  { src: "/g10.jpg" },
+  { src: "/g11.jpg" },
+  { src: "/g12.jpg", featured: true },
+  { src: "/g13.jpg" },
+  { src: "/g14.jpg" },
+  { src: "/g15.jpg" },
 ];
 
+/* ================= MAIN ================= */
 export default function PageFive() {
   return (
-    <section className="relative w-full py-16 px-3 overflow-hidden">
-
-      {/* BACKGROUND */}
-      <div className="bg-black-100 absolute inset-0">
-       
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-[1px]" />
-      </div>
-
-      {/* TITLE */}     
+    <section className="w-full py-16 px-4">
+      {/* TITLE */}
       <div
-        className={`flex items-center justify-center gap-2 mb-12 ${titleFont.className}`}
+        className={`flex items-center justify-center gap-2 mb-10 ${titleFont.className}`}
       >
         <h2 className="text-3xl text-gray-800">Portrait Of Us</h2>
-        <Camera className="w-5 h-5 text-gray-700" />
+        <Camera className="w-5 h-5 text-gray-600" />
       </div>
 
       {/* GALLERY */}
-      <div className="max-w-md mx-auto flex flex-col gap-2 relative z-10">
-        {gallery.map((item, index) =>
-          item.type === "single" ? (
-            <SingleImage key={index} src={item.src} />
-          ) : (
-            <DoubleImageRow
-              key={index}
-              left={gallery[index].src}
-              right={gallery[index + 1]?.src}
-            />
-          )
-        )}
+      <div className="max-w-md mx-auto columns-2 gap-4 space-y-4">
+        {gallery.map((item, i) => (
+          <GalleryItem key={i} {...item} />
+        ))}
       </div>
     </section>
   );
 }
 
-/* ================= COMPONENTS ================= */
-
-function DoubleImageRow({ left, right }: { left: string; right?: string }) {
-  if (!right) return null;
-
+/* ================= ITEM ================= */
+function GalleryItem({
+  src,
+  featured,
+}: {
+  src: string;
+  featured?: boolean;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="grid grid-cols-2 gap-2"
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="break-inside-avoid"
     >
-      {[left, right].map((img, i) => (
-        <div
-          key={i}
-          className="relative h-[160px] rounded-md overflow-hidden"
-        >
-          <Image src={img} alt="Gallery" fill className="object-cover" />
-        </div>
-      ))}
-    </motion.div>
-  );
-}
-
-function SingleImage({ src }: { src: string }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative h-[260px] rounded-md overflow-hidden"
-    >
-      <Image src={src} alt="Gallery Highlight" fill className="object-cover" />
+      <div
+        className={`
+          overflow-hidden rounded-xl bg-gray-100
+          ${featured ? "p-0" : ""}
+        `}
+      >
+        <Image
+          src={src}
+          alt="Gallery"
+          width={800}
+          height={1000}
+          className={`
+            w-full h-auto object-contain
+            transition duration-500 ease-out
+            hover:scale-[1.04]
+            ${featured ? "scale-100" : "scale-[0.96]"}
+          `}
+        />
+      </div>
     </motion.div>
   );
 }
