@@ -8,6 +8,7 @@ import PageSix from "@/components/PageSix";
 import PageTempatNikah from "@/components/PageTempat";
 import PageTerakhir from "@/components/PageTerakhir";
 import PageCover from "@/components/PageCover";
+import PageGift from "./PageGift";
 
 export default function MainContent() {
   return (
@@ -36,6 +37,10 @@ export default function MainContent() {
 
       <section className="min-h-screen">
         <PageSix />
+      </section>
+
+      <section className="min-h-screen">  
+        <PageGift />
       </section>
 
       <section className="min-h-screen">
