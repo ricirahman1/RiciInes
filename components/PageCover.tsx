@@ -88,7 +88,7 @@ const titleLetter: Variants = {
 ======================= */
 export default function Cover() {
   return (
-    <section className="relative h-[100dvh] w-full overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden mb-0">
 
       {/* BACKGROUND */}
       <motion.div
