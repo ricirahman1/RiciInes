@@ -18,11 +18,11 @@ const TITLE_TEXT = "Rici & Ines";
    ANIMATION
 ======================= */
 const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.08 },
+  hidden: { opacity: 0, scale: 1.05 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 1.6, ease: "easeOut" },
+    transition: { duration: 1.4, ease: "easeOut" },
   },
 };
 
@@ -30,7 +30,7 @@ const overlayVariant: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { duration: 1.2 },
+    transition: { duration: 1 },
   },
 };
 
@@ -38,8 +38,8 @@ const contentVariant: Variants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 1,
-      staggerChildren: 0.18,
+      delayChildren: 0.8,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -50,7 +50,7 @@ const itemVariant: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
@@ -58,8 +58,8 @@ const titleContainer: Variants = {
   hidden: {},
   visible: {
     transition: {
-      delayChildren: 1.2,
-      staggerChildren: 0.08,
+      delayChildren: 1,
+      staggerChildren: 0.07,
     },
   },
 };
@@ -67,9 +67,9 @@ const titleContainer: Variants = {
 const titleLetter: Variants = {
   hidden: {
     opacity: 0,
-    y: 50,
+    y: 40,
     scale: 0.95,
-    filter: "blur(10px)",
+    filter: "blur(8px)",
   },
   visible: {
     opacity: 1,
@@ -77,7 +77,7 @@ const titleLetter: Variants = {
     scale: 1,
     filter: "blur(0px)",
     transition: {
-      duration: 0.6,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -88,7 +88,7 @@ const titleLetter: Variants = {
 ======================= */
 export default function Cover() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative h-[100dvh] w-full overflow-hidden">
 
       {/* BACKGROUND */}
       <motion.div
@@ -98,20 +98,21 @@ export default function Cover() {
         className="absolute inset-0"
       >
         <Image
-          src="/B-S5.jpeg"
+          src="/BG-SD2.jpeg"
           alt="Wedding Cover"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center"
         />
       </motion.div>
 
-      {/* OVERLAY */}
+      {/* OVERLAY (biar teks kebaca) */}
       <motion.div
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/30"
+        className="absolute inset-0 bg-black/20"
       />
 
       {/* CONTENT */}
@@ -120,15 +121,16 @@ export default function Cover() {
         initial="hidden"
         animate="visible"
         className="
-          relative z-10 min-h-screen
+          relative z-10 h-full
           flex items-center md:items-start
           justify-start
-          px-10 md:px-20
-          pt-12 md:pt-32
+          px-6 md:px-10
+          pt-0 md:pt-18
         "
       >
-        <div>
+        <div className="max-w-xl">
 
+          {/* SUBTITLE */}
           <motion.p
             variants={itemVariant}
             className={`${oregano.className} mb-3 text-xs md:text-sm uppercase tracking-[0.3em] text-white/80`}
@@ -136,31 +138,38 @@ export default function Cover() {
             Wedding Invitation
           </motion.p>
 
+          {/* TITLE */}
           <motion.h1
             variants={titleContainer}
-            className={`${oregano.className} flex flex-wrap items-center text-white leading-none text-[clamp(5rem,10vw,10rem)]`}
+            className={`${oregano.className} flex flex-wrap items-center text-white leading-none text-[clamp(4rem,10vw,9rem)]`}
+            style={{
+              textShadow:
+                "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
+            }}
           >
             {TITLE_TEXT.split("").map((char, i) => (
               <motion.span
                 key={i}
                 variants={titleLetter}
-                className={char === "&" ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,6vw,4rem)]" : ""}
+                className={char === "&" ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,5vw,3.5rem)]" : ""}
               >
                 {char === " " ? "\u00A0" : char}
               </motion.span>
             ))}
           </motion.h1>
 
+          {/* HASHTAG */}
           <motion.p
             variants={itemVariant}
-            className={`${oregano.className} mt-4 text-lg md:text-3xl text-white/85`}
+            className={`${oregano.className} mt-4 text-lg md:text-2xl text-white/85`}
           >
             #RICIwithhappINESs
           </motion.p>
 
+          {/* LINE */}
           <motion.div
             variants={itemVariant}
-            className="mt-6 w-24 h-[2px] bg-white/50"
+            className="mt-6 w-20 h-[2px] bg-white/50"
           />
 
         </div>

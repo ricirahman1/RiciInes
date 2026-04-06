@@ -3,58 +3,71 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Allura, Poppins, Oregano } from "next/font/google";
+import { Allura, Poppins } from "next/font/google";
 
 const Countdown = dynamic(() => import("react-countdown"), { ssr: false });
 
+/* =======================
+   FONT
+======================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const bodyFont = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
-const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
+
+/* =======================
+   DATE
+======================= */
 const WEDDING_DATE = new Date("2026-05-31T00:00:00");
 
+/* =======================
+   COMPONENT
+======================= */
 export default function PageFour() {
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
 
-      {/* Background */}
+      {/* BACKGROUND */}
       <Image
-        src="/B-S5.jpeg"
+        src="/BG-SVT.jpeg"
         alt="Wedding Date"
         fill
-        className="object-cover"
         priority
+        sizes="100vw"
+        className="object-cover object-center"
       />
-      <div className="absolute inset-0" />
 
-      <div className="relative z-10 w-full max-w-md px-6 text-center">
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/40" />
 
-        {/* Judul */}
+      {/* CONTENT */}
+      <div className="relative z-10 w-full max-w-sm px-5 text-center">
+
+        {/* TITLE */}
         <motion.h2
-          className={`${titleFont.className} text-white text-5xl mb-2`}
+          className={`${titleFont.className} text-white text-3xl md:text-4xl mb-1`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           Save The Date
         </motion.h2>
 
-        <p className={`${bodyFont.className} text-white/90 mb-8`}>
+        <p className={`${bodyFont.className} text-white/80 mb-6 text-xs md:text-sm`}>
           31 Mei 2026
         </p>
 
-        {/* COUNTDOWN (CLIENT ONLY) */}
+        {/* COUNTDOWN MINI */}
         <Countdown
           date={WEDDING_DATE}
           renderer={({ days, hours, minutes, seconds }) => (
-            <div className="grid grid-cols-4 gap-3 mb-10">
+            <div className="grid grid-cols-4 gap-2 mb-6">
               {[days, hours, minutes, seconds].map((val, i) => (
                 <div
                   key={i}
-                  className="bg-white/20 backdrop-blur-md rounded-xl py-4"
+                  className="bg-white/15 backdrop-blur-sm rounded-md py-2"
                 >
-                  <div className="text-white text-2xl font-semibold">
+                  <div className="text-white text-lg font-medium">
                     {val}
                   </div>
-                  <div className="text-white/70 text-xs mt-1">
+                  <div className="text-white/60 text-[9px] mt-[2px]">
                     {["Hari", "Jam", "Menit", "Detik"][i]}
                   </div>
                 </div>
@@ -63,22 +76,32 @@ export default function PageFour() {
           )}
         />
 
-        {/* 🔽 KALENDER (STATIC – TIDAK HILANG) */}
-        <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <h3 className="mb-4 font-semibold">Mei 2026</h3>
+        {/* CALENDAR MINI */}
+        <div className="bg-white/20 backdrop-blur-lg border border-white/20 rounded-xl p-4 text-white max-w-xs mx-auto shadow-lg shadow-black/20">
 
-          <div className="grid grid-cols-7 gap-2 text-xs">
+          <h3 className="mb-3 text-sm font-medium">
+            Mei 2026
+          </h3>
+
+          {/* HARI */}
+          <div className="grid grid-cols-7 gap-1 text-[10px] mb-1">
             {["M", "S", "S", "R", "K", "J", "S"].map((d, i) => (
-  <div key={i} className="font-medium">
-    {d}
-  </div>
-))}
+              <div key={i} className="opacity-80">
+                {d}
+              </div>
+            ))}
+          </div>
 
+          {/* TANGGAL */}
+          <div className="grid grid-cols-7 gap-1">
             {[...Array(31)].map((_, i) => (
               <div
                 key={i}
-                className={`w-8 h-8 flex items-center justify-center rounded-full
-                  ${i + 1 === 31 ? "bg-rose-500 font-bold" : "opacity-70"}
+                className={`
+                  w-6 h-6 flex items-center justify-center rounded-full text-[10px]
+                  ${i + 1 === 31
+                    ? "bg-rose-500 text-white font-bold"
+                    : "text-white/70"}
                 `}
               >
                 {i + 1}
