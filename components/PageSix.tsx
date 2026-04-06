@@ -105,7 +105,7 @@ export default function PageSix() {
 
     {/* NOTE */}
     <div className="
-      bg-yellow-200/90
+      bg-white/60
       w-[280px]
       rounded-xl
       p-5 pt-6
@@ -177,11 +177,11 @@ export default function PageSix() {
 <div className="w-full max-w-md flex flex-wrap justify-center gap-4">
   {wishes.map((wish, i) => {
     const colors = [
-      "bg-yellow-200/90",
-      "bg-pink-200/90",
-      "bg-blue-200/90",
-      "bg-green-200/90",
-      "bg-rose-200/90",
+      "bg-yellow-200/60",
+      "bg-pink-200/60",
+      "bg-blue-200/60",
+      "bg-green-200/70",
+      "bg-rose-200/60",
     ];
 
     const rotations = ["rotate-[-2deg]", "rotate-[2deg]", "rotate-[-1deg]", "rotate-[1deg]"];

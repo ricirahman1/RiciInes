@@ -112,7 +112,7 @@ export default function Cover() {
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/20"
+        className="absolute inset-0 bg-black/15"
       />
 
       {/* CONTENT */}
