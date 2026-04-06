@@ -18,13 +18,13 @@ export default function PageFour() {
 
       {/* Background */}
       <Image
-        src="/bg-cover.jpeg"
+        src="/B-S5.jpeg"
         alt="Wedding Date"
         fill
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0" />
 
       <div className="relative z-10 w-full max-w-md px-6 text-center">
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Oregano } from "next/font/google";
 
@@ -89,22 +90,20 @@ export default function Cover() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
 
-      {/* BACKGROUND VIDEO */}
+      {/* BACKGROUND */}
       <motion.div
         variants={bgVariant}
         initial="hidden"
         animate="visible"
         className="absolute inset-0"
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/bg.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/B-S5.jpeg"
+          alt="Wedding Cover"
+          fill
+          priority
+          className="object-cover object-center"
+        />
       </motion.div>
 
       {/* OVERLAY */}
@@ -112,105 +111,8 @@ export default function Cover() {
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 "
+        className="absolute inset-0 bg-black/30"
       />
-
-      {/* ANIMATED LINES */}
-      {/* ANIMATED ELEGANT LINES */}
-<div className="absolute inset-0 pointer-events-none overflow-hidden">
-
-  {/* === HORIZONTAL LINES === */}
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{ width: "70%", opacity: 0.35 }}
-    transition={{ duration: 1.6, delay: 1 }}
-    className="absolute top-[20%] left-0 h-[4px] bg-white"
-  />
-
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{ width: "70%", opacity: 0.35 }}
-    transition={{ duration: 1.6, delay: 1 }}
-    className="absolute top-[20%] left-0 h-[4px] bg-white"
-  />
-
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{ width: "50%", opacity: 0.25 }}
-    transition={{ duration: 1.6, delay: 1.2 }}
-    className="absolute top-[35%] right-0 h-[6px] bg-white"
-  />
-
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{ width: "60%", opacity: 0.3 }}
-    transition={{ duration: 1.6, delay: 1.4 }}
-    className="absolute top-[55%] left-0 h-[6px] bg-white"
-  />
-
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{ width: "40%", opacity: 0.2 }}
-    transition={{ duration: 1.6, delay: 1.6 }}
-    className="absolute top-[75%] right-0 h-[6px] bg-white"
-  />
-
-  {/* === VERTICAL LINES === */}
-  <motion.div
-    initial={{ height: 0, opacity: 0 }}
-    animate={{ height: "60%", opacity: 0.25 }}
-    transition={{ duration: 1.6, delay: 1.3 }}
-    className="absolute left-[8%] top-0 w-[6px] bg-white"
-  />
-
-  <motion.div
-    initial={{ height: 0, opacity: 0 }}
-    animate={{ height: "50%", opacity: 0.2 }}
-    transition={{ duration: 1.6, delay: 1.5 }}
-    className="absolute right-[50%] bottom-0 w-[2px] bg-white"
-  />
-
-  <motion.div
-    initial={{ height: 0, opacity: 0 }}
-    animate={{ height: "40%", opacity: 0.15 }}
-    transition={{ duration: 1.6, delay: 1.7 }}
-    className="absolute left-[20%] bottom-0 w-[4px] bg-white"
-  />
-
-  {/* === FLOATING LINES (GERAK HALUS) === */}
-  <motion.div
-    initial={{ width: 0, opacity: 0 }}
-    animate={{
-      width: "50%",
-      opacity: 0.2,
-      x: [0, 40, 0],
-    }}
-    transition={{
-      duration: 8,
-      delay: 2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute top-[45%] left-0 h-[4px] bg-white"
-  />
-
-  <motion.div
-    initial={{ height: 0, opacity: 0 }}
-    animate={{
-      height: "50%",
-      opacity: 0.15,
-      y: [0, 30, 0],
-    }}
-    transition={{
-      duration: 9,
-      delay: 2.2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute right-[25%] top-0 w-[2px] bg-white"
-  />
-
-</div>
 
       {/* CONTENT */}
       <motion.div
@@ -225,66 +127,37 @@ export default function Cover() {
           pt-12 md:pt-32
         "
       >
-        <div className="">
+        <div>
 
-          {/* SUBTITLE */}
           <motion.p
             variants={itemVariant}
-            className={`
-              ${oregano.className}
-              mb-3
-              text-xs md:text-sm
-              uppercase tracking-[0.3em]
-              text-white/80
-            `}
+            className={`${oregano.className} mb-3 text-xs md:text-sm uppercase tracking-[0.3em] text-white/80`}
           >
             Wedding Invitation
           </motion.p>
 
-<motion.h1
-  variants={titleContainer}
-  className={`
-    ${oregano.className}
-    flex flex-wrap items-center justify-center md:justify-start
-    text-white
-    leading-none
-    text-[clamp(5rem,10vw,10rem)]
-  `}
-  style={{
-    textShadow:
-      "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
-  }}
->
-  {TITLE_TEXT.split("").map((char, i) => (
-    <motion.span
-      key={i}
-      variants={titleLetter}
-      className={`
-        inline-flex items-center justify-center
-        ${char === "&"
-          ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,6vw,4rem)]"
-          : ""}
-      `}
-    >
-      {char === " " ? "\u00A0" : char}
-    </motion.span>
-  ))}
-</motion.h1>
+          <motion.h1
+            variants={titleContainer}
+            className={`${oregano.className} flex flex-wrap items-center text-white leading-none text-[clamp(5rem,10vw,10rem)]`}
+          >
+            {TITLE_TEXT.split("").map((char, i) => (
+              <motion.span
+                key={i}
+                variants={titleLetter}
+                className={char === "&" ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,6vw,4rem)]" : ""}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.h1>
 
-          {/* HASHTAG */}
           <motion.p
             variants={itemVariant}
-            className={`
-              ${oregano.className}
-              mt-4
-              text-lg md:text-3xl
-              text-white/85
-            `}
+            className={`${oregano.className} mt-4 text-lg md:text-3xl text-white/85`}
           >
             #RICIwithhappINESs
           </motion.p>
 
-          {/* DECOR LINE */}
           <motion.div
             variants={itemVariant}
             className="mt-6 w-24 h-[2px] bg-white/50"
