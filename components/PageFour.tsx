@@ -23,7 +23,7 @@ const WEDDING_DATE = new Date("2026-05-31T00:00:00");
 ======================= */
 export default function PageFour() {
   return (
-    <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden mb-0">
 
       {/* BACKGROUND */}
       <Image
