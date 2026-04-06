@@ -161,7 +161,7 @@ export default function Cover() {
           {/* HASHTAG */}
           <motion.p
             variants={itemVariant}
-            className={`${oregano.className} mt-4 text-lg md:text-2xl text-white/85`}
+            className={`${oregano.className} mt-12 text-lg md:text-2xl text-white/85`}
           >
             #RICIwithhappINESs
           </motion.p>
@@ -169,7 +169,7 @@ export default function Cover() {
           {/* LINE */}
           <motion.div
             variants={itemVariant}
-            className="mt-6 w-20 h-[2px] bg-white/50"
+            className="mt-4 w-20 h-[2px] bg-white/50"
           />
 
         </div>
