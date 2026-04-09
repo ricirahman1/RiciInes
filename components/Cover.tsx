@@ -96,7 +96,7 @@ export default function Cover({
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/30"
+        className="absolute inset-0 bg-black/10"
       />
 
       {/* CONTENT */}
@@ -112,10 +112,10 @@ export default function Cover({
           <Image
             src="/LOGO.png"
             alt="Wedding Logo"
-            width={220}
-            height={200}
+            width={260}
+            height={240}
             priority
-            className="mx-auto w-[160px] sm:w-[200px] md:w-[260px]"
+            className="mx-auto w-[180px] sm:w-[200px] md:w-[260px]"
           />
         </motion.div>
 
@@ -144,7 +144,7 @@ export default function Cover({
             flex flex-wrap justify-center
             text-white
             leading-none
-            text-[clamp(2.8rem,10vw,6rem)]
+            text-[clamp(5rem,13vw,8rem)]
           `}
         >
           {TITLE_TEXT.split("").map((char, i) => (
