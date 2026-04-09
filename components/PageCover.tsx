@@ -88,7 +88,7 @@ const titleLetter: Variants = {
 ======================= */
 export default function Cover() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden mb-0">
+    <section className="relative min-h-screen w-full overflow-hidden">
 
       {/* BACKGROUND */}
       <motion.div
@@ -103,16 +103,16 @@ export default function Cover() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center scale-105"
         />
       </motion.div>
 
-      {/* OVERLAY (biar teks kebaca) */}
+      {/* OVERLAY */}
       <motion.div
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/15"
+        className="absolute inset-0 bg-black/30"
       />
 
       {/* CONTENT */}
@@ -121,11 +121,10 @@ export default function Cover() {
         initial="hidden"
         animate="visible"
         className="
-          relative z-10 h-full
-          flex items-center md:items-start
-          justify-start
-          px-6 md:px-10
-          pt-0 md:pt-18
+          relative z-10 min-h-screen
+          flex items-start justify-start
+          px-16 md:px-12
+          pt-[32vh] md:pt-[34vh]
         "
       >
         <div className="max-w-xl">
@@ -133,7 +132,12 @@ export default function Cover() {
           {/* SUBTITLE */}
           <motion.p
             variants={itemVariant}
-            className={`${oregano.className} mb-3 text-xs md:text-sm uppercase tracking-[0.3em] text-white/80`}
+            className={`
+              ${oregano.className}
+              text-xs md:text-sm
+              uppercase tracking-[0.3em]
+              text-white/90
+            `}
           >
             Wedding Invitation
           </motion.p>
@@ -141,19 +145,40 @@ export default function Cover() {
           {/* TITLE */}
           <motion.h1
             variants={titleContainer}
-            className={`${oregano.className} flex flex-wrap items-center text-white leading-none text-[clamp(4rem,10vw,9rem)]`}
+            className={`
+              ${oregano.className}
+              flex items-end
+              text-white
+              leading-none
+              text-[clamp(6rem,12vw,11rem)]
+            `}
             style={{
               textShadow:
                 "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
             }}
           >
-            {TITLE_TEXT.split("").map((char, i) => (
-              <motion.span
-                key={i}
-                variants={titleLetter}
-                className={char === "&" ? "mx-3 md:mx-6 text-rose-300 text-[clamp(2rem,5vw,3.5rem)]" : ""}
-              >
-                {char === " " ? "\u00A0" : char}
+            {"Rici".split("").map((char, i) => (
+              <motion.span key={i} variants={titleLetter}>
+                {char}
+              </motion.span>
+            ))}
+
+            {/* FIXED & */}
+            <motion.span
+              variants={titleLetter}
+              className="
+                mx-4 md:mx-6
+                text-rose-300
+                text-[0.4em]
+                self-center
+              "
+            >
+              &
+            </motion.span>
+
+            {"Ines".split("").map((char, i) => (
+              <motion.span key={i + 10} variants={titleLetter}>
+                {char}
               </motion.span>
             ))}
           </motion.h1>
@@ -161,7 +186,12 @@ export default function Cover() {
           {/* HASHTAG */}
           <motion.p
             variants={itemVariant}
-            className={`${oregano.className} mt-12 text-lg md:text-2xl text-white/85`}
+            className={`
+              ${oregano.className}
+              mt-3
+              text-lg md:text-2xl
+              text-white/90
+            `}
           >
             #RICIwithhappINESs
           </motion.p>
@@ -169,7 +199,7 @@ export default function Cover() {
           {/* LINE */}
           <motion.div
             variants={itemVariant}
-            className="mt-4 w-20 h-[2px] bg-white/50"
+            className="mt-4 w-20 h-px bg-white/50"
           />
 
         </div>

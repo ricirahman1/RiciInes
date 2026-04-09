@@ -129,7 +129,7 @@ export default function PageThree() {
             ${titleFont.className}
             text-center
             text-[clamp(3rem,6vw,6rem)]
-            mb-20
+            
           `}
           style={{
             textShadow:
@@ -138,6 +138,57 @@ export default function PageThree() {
         >
           The Wedding Of
         </motion.h1>
+
+        {/* ORNAMENT */}
+        <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      className="flex items-center justify-center gap-4 mb-8 "
+    >
+      {/* LINE LEFT */}
+      <div className="relative w-16 md:w-24 h-px bg-white/40 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
+
+      {/* SPARKLE */}
+      <motion.span
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.6, 1, 0.6],
+          rotate: [0, 15, -15, 0],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="text-white/80 text-lg md:text-xl"
+      >
+        ✦
+      </motion.span>
+
+      {/* LINE RIGHT */}
+      <div className="relative w-16 md:w-24 h-px bg-white/40 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent"
+          animate={{ x: ["100%", "-100%"] }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
+    </motion.div>
 
         {/* ===== GRID 3 KOLOM ===== */}
         <div className="grid md:grid-cols-3 gap-10 items-center">

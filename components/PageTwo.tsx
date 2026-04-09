@@ -47,7 +47,14 @@ export default function PageTwo() {
           bg-white/10
           backdrop-blur-md
           px-4 py-5
-          shadow-[0_4px_18px_rgba(0,0,0,0.12)]
+
+          border border-white/20
+          shadow-[0_8px_30px_rgba(0,0,0,0.2)]
+          before:absolute before:inset-0 before:rounded-xl
+          before:border before:border-white/10
+          before:pointer-events-none
+          after:absolute after:inset-0 after:rounded-xl
+          after:border after:border-white/10 after:blur
         "
       >
         {/* AYAT */}

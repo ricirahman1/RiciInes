@@ -132,7 +132,7 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-          src="/bg-fixcvr.jpeg"
+          src="/BG-CVRR.png"
           alt="Wedding Cover"
           fill
           priority
@@ -162,7 +162,7 @@ export default function Cover({
           className="mb-6 -translate-y-20 md:-translate-y-24"
         >
           <Image
-            src="/test.png"
+            src="/LOGO.png"
             alt="Wedding Logo"
             width={300}
             height={260}
@@ -172,13 +172,45 @@ export default function Cover({
         </motion.div>
 
         {/* TITLE */}
+
+        <motion.div
+          variants={titleContainer}
+          initial="hidden"
+          animate="visible"
+          className="flex items-center justify-center gap-3 mt-1 mb-2"
+      >
+        {/* GARIS KIRI */}
+        <div className="w-10 sm:w-14 h-px bg-white/80" />
+
+        {/* TEXT */}
+        <p
+          className={`
+            ${oregano.className}
+            text-white
+            text-xs sm:text-sm
+            tracking-[0.3em]
+            whitespace-nowrap
+          `}
+          style={{
+            textShadow:
+              "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
+          }}
+        >
+          THE WEDDING OF
+        </p>
+
+        {/* GARIS KANAN */}
+        <div className="w-10 sm:w-14 h-px bg-white/80" />
+      </motion.div>
+
         <motion.h1
           variants={titleContainer}
           initial="hidden"
           animate="visible"
           className={`
             ${oregano.className}
-            flex flex-wrap justify-center
+            flex justify-center
+            whitespace-nowrap
             text-white
             leading-none
             text-[clamp(5.5rem,14vw,12rem)]
@@ -187,7 +219,7 @@ export default function Cover({
             textShadow:
               "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
           }}
-        >
+      >
           {TITLE_TEXT.split("").map((char, i) => (
             <motion.span
               key={i}
@@ -197,7 +229,7 @@ export default function Cover({
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
-        </motion.h1>
+    </motion.h1>
 
         {/* NAMA TAMU */}
         <motion.div variants={itemVariant} className="mt-10">
@@ -226,10 +258,11 @@ export default function Cover({
           className={`
             ${poppins.className}
             mt-16
-            px-12 md:px-16
+            px-6 md:px-16
             py-3
             rounded-full
             bg-gradient-to-r from-rose-500 to-pink-500
+            border border-rose-500/50
             text-white
             font-medium
             shadow-[0_10px_40px_rgba(244,63,94,0.35)]
