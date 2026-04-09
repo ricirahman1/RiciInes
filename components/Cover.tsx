@@ -6,9 +6,7 @@ import { motion, type Variants } from "framer-motion";
 import { Oregano, Poppins } from "next/font/google";
 import { BookOpen } from "lucide-react";
 
-/* =======================
-   FONTS
-======================= */
+/* ======================= FONTS ======================= */
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -21,9 +19,7 @@ const oregano = Oregano({
 
 const TITLE_TEXT = "Rici & Ines";
 
-/* =======================
-   ANIMATION
-======================= */
+/* ======================= ANIMATION ======================= */
 const bgVariant: Variants = {
   hidden: { opacity: 0, scale: 1.1 },
   visible: {
@@ -35,20 +31,7 @@ const bgVariant: Variants = {
 
 const overlayVariant: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 1.2 },
-  },
-};
-
-const contentVariant: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 1,
-      staggerChildren: 0.2,
-    },
-  },
+  visible: { opacity: 1, transition: { duration: 1.2 } },
 };
 
 const itemVariant: Variants = {
@@ -57,58 +40,26 @@ const itemVariant: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
-const logoVariant: Variants = {
-  hidden: { opacity: 0, y: -60, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 1, ease: "easeOut" },
-  },
-};
-
-const titleContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 1.2,
-      staggerChildren: 0.08,
-    },
+    transition: { duration: 0.8 },
   },
 };
 
 const titleLetter: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.9,
-    filter: "blur(10px)",
-  },
+  hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
     filter: "blur(0px)",
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
+    transition: { duration: 0.6 },
   },
 };
 
-/* =======================
-   COMPONENT
-======================= */
+/* ======================= COMPONENT ======================= */
 export default function Cover({
   onOpenAction,
 }: {
   onOpenAction: () => void;
 }) {
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [guestName, setGuestName] = useState("");
 
   useEffect(() => {
@@ -122,7 +73,7 @@ export default function Cover({
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative w-full min-h-[100svh] overflow-hidden">
 
       {/* BACKGROUND */}
       <motion.div
@@ -136,111 +87,83 @@ export default function Cover({
           alt="Wedding Cover"
           fill
           priority
-          className="object-cover scale-105"
+          className="object-cover object-center"
         />
       </motion.div>
 
-      {/* OVERLAY biar teks kebaca */}
+      {/* OVERLAY */}
       <motion.div
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 "
+        className="absolute inset-0 bg-black/30"
       />
 
       {/* CONTENT */}
-      <motion.div
-        variants={contentVariant}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6"
-      >
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 sm:px-6 min-h-[100svh]">
 
         {/* LOGO */}
         <motion.div
-          variants={logoVariant}
-          className="mb-6 -translate-y-20 md:-translate-y-24"
+          variants={itemVariant}
+          initial="hidden"
+          animate="visible"
+          className="mb-4 sm:mb-6 translate-y-[-40px] sm:translate-y-[-60px]"
         >
           <Image
             src="/LOGO.png"
             alt="Wedding Logo"
-            width={300}
-            height={260}
+            width={220}
+            height={200}
             priority
-            className="mx-auto drop-shadow-[0_10px_40px_rgba(255,255,255,0.4)]"
+            className="mx-auto w-[160px] sm:w-[200px] md:w-[260px]"
           />
         </motion.div>
 
+        {/* GARIS + TEXT */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+          <div className="w-6 sm:w-10 h-px bg-white/70" />
+
+          <p
+            className={`
+              ${oregano.className}
+              text-white
+              text-[10px] sm:text-xs
+              tracking-[0.25em]
+            `}
+          >
+            THE WEDDING OF
+          </p>
+
+          <div className="w-6 sm:w-10 h-px bg-white/70" />
+        </div>
+
         {/* TITLE */}
-
-        <motion.div
-          variants={titleContainer}
-          initial="hidden"
-          animate="visible"
-          className="flex items-center justify-center gap-3 mt-1 mb-2"
-      >
-        {/* GARIS KIRI */}
-        <div className="w-10 sm:w-14 h-px bg-white/80" />
-
-        {/* TEXT */}
-        <p
+        <h1
           className={`
             ${oregano.className}
-            text-white
-            text-xs sm:text-sm
-            tracking-[0.3em]
-            whitespace-nowrap
-          `}
-          style={{
-            textShadow:
-              "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
-          }}
-        >
-          THE WEDDING OF
-        </p>
-
-        {/* GARIS KANAN */}
-        <div className="w-10 sm:w-14 h-px bg-white/80" />
-      </motion.div>
-
-        <motion.h1
-          variants={titleContainer}
-          initial="hidden"
-          animate="visible"
-          className={`
-            ${oregano.className}
-            flex justify-center
-            whitespace-nowrap
+            flex flex-wrap justify-center
             text-white
             leading-none
-            text-[clamp(5.5rem,14vw,12rem)]
+            text-[clamp(2.8rem,10vw,6rem)]
           `}
-          style={{
-            textShadow:
-              "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
-          }}
-      >
+        >
           {TITLE_TEXT.split("").map((char, i) => (
-            <motion.span
-              key={i}
-              variants={titleLetter}
-              className={char === "&" ? " mt-4 text-6xl mx-4 text-rose-300" : ""}
-            >
+            <motion.span key={i} variants={titleLetter}>
               {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
-    </motion.h1>
+        </h1>
 
-        {/* NAMA TAMU */}
-        <motion.div variants={itemVariant} className="mt-10">
-          <p className={`${poppins.className} text-white/80 text-sm`}>
+        {/* GUEST */}
+        <motion.div variants={itemVariant} className="mt-6 sm:mt-8">
+          <p className={`${poppins.className} text-white/80 text-xs sm:text-sm`}>
             Dear
           </p>
           <p
             className={`
               ${poppins.className}
               text-white
-              text-xl md:text-2xl
+              text-lg sm:text-xl md:text-2xl
               font-medium
               mt-1
             `}
@@ -252,27 +175,24 @@ export default function Cover({
         {/* BUTTON */}
         <motion.button
           variants={itemVariant}
-          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={onOpenAction}
           className={`
             ${poppins.className}
-            mt-16
-            px-6 md:px-16
+            mt-10 sm:mt-14
+            px-6 sm:px-10
             py-3
             rounded-full
             bg-gradient-to-r from-rose-500 to-pink-500
-            border border-rose-500/50
             text-white
-            font-medium
-            shadow-[0_10px_40px_rgba(244,63,94,0.35)]
-            flex items-center gap-3
+            text-sm sm:text-base
+            flex items-center gap-2 sm:gap-3
           `}
         >
-          <BookOpen size={20} />
+          <BookOpen size={18} />
           Open Invitation
         </motion.button>
-      </motion.div>
+      </div>
     </section>
   );
 }
