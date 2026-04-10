@@ -36,33 +36,39 @@ export default function PageFour() {
       />
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* CONTENT */}
-      <div className="relative z-10 w-full max-w-sm px-5 text-center">
+      <div className="relative z-10 w-full max-w-sm px-8 text-center">
 
         {/* TITLE */}
         <motion.h2
-          className={`${titleFont.className} text-white text-3xl md:text-4xl mb-1`}
+          className={`${titleFont.className} text-white text-6xl md:text-6xl mb-2`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           Save The Date
         </motion.h2>
 
-        <p className={`${bodyFont.className} text-white/80 mb-6 text-xs md:text-sm`}>
-          31 Mei 2026
-        </p>
+       <div className="flex items-center justify-center gap-4 mb-6">
+  <span className="w-10 h-[1px] bg-white/40" />
+  
+  <p className={`${bodyFont.className} text-white/90 text-sm md:text-base tracking-[0.2em] uppercase`}>
+    31 Mei 2026
+  </p>
+  
+  <span className="w-10 h-[1px] bg-white/40" />
+</div>
 
         {/* COUNTDOWN MINI */}
         <Countdown
           date={WEDDING_DATE}
           renderer={({ days, hours, minutes, seconds }) => (
-            <div className="grid grid-cols-4 gap-2 mb-6">
+            <div className="grid grid-cols-4 gap-2 mb-6 ">
               {[days, hours, minutes, seconds].map((val, i) => (
                 <div
                   key={i}
-                  className="bg-white/15 backdrop-blur-sm rounded-md py-2"
+                  className="bg-white/15 backdrop-blur-sm rounded-md py-2 border border-white/20"
                 >
                   <div className="text-white text-lg font-medium">
                     {val}

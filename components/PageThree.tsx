@@ -45,7 +45,7 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
       <div className="absolute -inset-4 rounded-2xl bg-white blur-xl group-hover:bg-[#d4af37]/20 transition" />
 
       {/* GOLD FRAME */}
-      <div className="absolute -inset-2 rounded-2xl border border-rose-500" />
+      
 
       {/* GLASS */}
       <div className="absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.4)]" />
@@ -73,28 +73,30 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
         {item.name}
       </h2>
 
-      <p className={`${bodyFont.className} text-white/80 text-sm mt-2`}>
+      <p className={`${bodyFont.className} text-white/80 text-2xl mt-2`}>
         {item.full}
       </p>
 
-      <p className={`${bodyFont.className} text-white/70 text-sm mt-3 max-w-xs`}>
+      <p className={`${bodyFont.className} text-white/100 text-xl mt-3 max-w-xs`}>
         {item.desc}
       </p>
 
       {/* IG */}
       <div className="flex flex-col items-center mt-4">
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-rose-600 text-sm hover:scale-105 hover:text-white transition"
-        >
-          <Instagram size={16} />
-          @{item.ig}
-        </a>
+  <div className="px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-white/30 shadow-md">
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-rose-600 text-sm hover:scale-105 hover:text-white transition"
+    >
+      <Instagram size={16} />
+      @{item.ig}
+    </a>
+  </div>
 
-        <span className="mt-1 w-10 h-[1px] bg-rose-500/70" />
-      </div>
+  <span className="mt-2 w-10 h-[1px] bg-rose-500/70" />
+</div>
 
     </div>
   </motion.div>
@@ -114,7 +116,7 @@ export default function PageThree() {
           priority
           className="object-cover scale-105"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* ===== CONTENT ===== */}

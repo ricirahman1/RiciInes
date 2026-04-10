@@ -39,9 +39,7 @@ export default function MainContent() {
         <PageSix />
       </section>
 
-      <section className="min-h-screen">  
-        <PageGift />
-      </section>
+      
 
       <section className="min-h-screen">
         <PageTerakhir />

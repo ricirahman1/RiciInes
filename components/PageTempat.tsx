@@ -4,13 +4,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Allura, Caveat, Oregano } from "next/font/google";
 import { MapPin } from "lucide-react";
-
+import { Poppins } from "next/font/google";
 
 
 
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const caveatFont = Caveat({ subsets: ["latin"], weight: ["400"] });
 const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
 
 
 
@@ -79,7 +80,7 @@ export default function PageWeddingLocation() {
               Wedding Venue
             </h4>
 
-            <p className={`${oregano.className} text-white/80 text-lg`}>
+            <p className={`${poppins.className} text-white/80 text-sm md:text-base`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
@@ -142,7 +143,7 @@ export default function PageWeddingLocation() {
               Resepsi
             </h3>
 
-            <p className={`${oregano.className} text-white/80 text-lg`}>
+            <p className={`${poppins.className} text-white/80 text-sm md:text-base`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
