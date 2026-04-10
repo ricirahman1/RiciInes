@@ -174,46 +174,56 @@ export default function PageSix() {
 </div>
 
         {/* LIST UCAPAN - NOTE STYLE */}
-<div className="w-full max-w-md flex flex-wrap justify-center gap-4">
-  {wishes.map((wish, i) => {
-    const colors = [
-      "bg-yellow-200/60",
-      "bg-pink-200/60",
-      "bg-blue-200/60",
-      "bg-green-200/70",
-      "bg-rose-200/60",
-    ];
+<div className="w-full max-w-md flex flex-col gap-4 justify-center">
+{wishes.map((wish, i) => {
+  const colors = [
+    "bg-yellow-200/70",
+    "bg-pink-200/70",
+    "bg-blue-200/70",
+    "bg-green-200/70",
+    "bg-rose-200/70",
+  ];
 
-    const rotations = ["rotate-[-2deg]", "rotate-[2deg]", "rotate-[-1deg]", "rotate-[1deg]"];
+  const rotations = [
+    "rotate-[-1deg]",
+    "rotate-[1deg]",
+    "rotate-0",
+  ];
 
-    return (
-      <motion.div
-        key={wish.id}
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: i * 0.08 }}
-        className={`
-          ${colors[i % colors.length]}
-          ${rotations[i % rotations.length]}
-          w-[140px] min-h-[120px]
-          rounded-xl p-3
-          shadow-lg
-          text-gray-800
-          flex flex-col justify-between
-          hover:scale-105 hover:rotate-0
-          transition-all duration-300
-        `}
-      >
-        <p className="text-[10px] mb-1 opacity-70 italic">
-          — {wish.name}
-        </p>
+  return (
+    <motion.div
+      key={wish.id}
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: i * 0.08 }}
+      className={`
+        ${colors[i % colors.length]}
+        ${rotations[i % rotations.length]}
+        w-[280px]   // 🔥 samakan dengan form
+        rounded-xl p-4 pt-6
+        shadow-[0_10px_25px_rgba(0,0,0,0.2)]
+        text-gray-800
+        flex flex-col
+        hover:scale-[1.03] hover:rotate-0
+        transition-all duration-300
+        relative
+      `}
+    >
+      {/* PIN */}
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-white rounded-full shadow" />
 
-        <p className={`${oregano.className} text-xs leading-relaxed`}>
-          {wish.message}
-        </p>
-      </motion.div>
-    );
-  })}
+      {/* NAME */}
+      <p className="text-xs mb-2 opacity-70 italic">
+        — {wish.name}
+      </p>
+
+      {/* MESSAGE */}
+      <p className={`${oregano.className} text-sm leading-relaxed`}>
+        {wish.message}
+      </p>
+    </motion.div>
+  );
+})}
 </div>
       </div>
     </section>
