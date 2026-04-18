@@ -120,7 +120,7 @@ export default function Cover({
         </motion.div>
 
         {/* GARIS + TEXT */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-0">
           <div className="w-6 sm:w-10 h-px bg-white/70" />
 
           <p

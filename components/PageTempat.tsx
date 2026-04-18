@@ -99,7 +99,7 @@ export default function PageWeddingLocation() {
 
   {/* MAIN TEXT */}
   <h3
-    className={`${oregano.className} relative font-extrabold text-6xl text-white`}
+    className={`${oregano.className} relative font-extrabold text-6xl text-white mt-10`}
       
   >
     31 <br /> 05 <br /> 26
