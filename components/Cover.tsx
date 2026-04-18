@@ -17,7 +17,7 @@ const oregano = Oregano({
   weight: ["400"],
 });
 
-const TITLE_TEXT = "Rici & Ines";
+const TITLE_TEXT = ["Rici", " & ", "Ines"];
 
 /* ======================= ANIMATION ======================= */
 const bgVariant: Variants = {
@@ -112,10 +112,10 @@ export default function Cover({
           <Image
             src="/LOGO.png"
             alt="Wedding Logo"
-            width={260}
-            height={240}
+            width={280}
+            height={260}
             priority
-            className="mx-auto w-[180px] sm:w-[200px] md:w-[260px]"
+            className="mx-auto w-[200px] sm:w-[200px] md:w-[260px]"
           />
         </motion.div>
 
@@ -125,9 +125,9 @@ export default function Cover({
 
           <p
             className={`
-              ${oregano.className}
+              ${poppins.className}
               text-white
-              text-[10px] sm:text-xs
+              text-[14px] sm:text-xs
               tracking-[0.25em]
             `}
           >
@@ -138,21 +138,61 @@ export default function Cover({
         </div>
 
         {/* TITLE */}
-        <h1
-          className={`
-            ${oregano.className}
-            flex flex-wrap justify-center
-            text-white
-            leading-none
-            text-[clamp(5rem,13vw,8rem)]
-          `}
-        >
-          {TITLE_TEXT.split("").map((char, i) => (
-            <motion.span key={i} variants={titleLetter}>
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </h1>
+<h1
+  className={`
+    ${oregano.className}
+    w-full max-w-[900px] mx-auto
+    text-white
+    leading-none
+    text-[clamp(5rem,13vw,8rem)]
+    mt-1
+  `}
+>
+  {/* Rici */}
+  <div className="flex justify-center -translate-x-8">
+    {"Rici".split("").map((char, i) => (
+      <motion.span key={i} variants={titleLetter}>
+        {char}
+      </motion.span>
+    ))}
+  </div>
+
+  {/* & */}
+  <div className="flex justify-center text-[0.4em] translate-x-2 my-1">
+    {"&".split("").map((char, i) => (
+      <motion.span key={i} variants={titleLetter}>
+        {char}
+      </motion.span>
+    ))}
+  </div>
+
+  {/* Ines */}
+  <div className="flex justify-center translate-x-8">
+    {"Ines".split("").map((char, i) => (
+      <motion.span key={i} variants={titleLetter}>
+        {char}
+      </motion.span>
+    ))}
+  </div>
+</h1>
+
+{/* GARIS + TEXT */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+          
+
+          <p
+            className={`
+              ${poppins.className}
+              text-white
+              text-[14px] sm:text-xs
+              tracking-[0.25em]
+            `}
+          >
+            SUNDAY, 31 MAY 2026
+          </p>
+
+          
+        </div>
 
         {/* GUEST */}
         <motion.div variants={itemVariant} className="mt-6 sm:mt-8">
