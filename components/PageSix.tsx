@@ -126,7 +126,7 @@ export default function PageSix() {
         </div>
 
         {/* LIST */}
-        <div className="w-full max-w-md flex flex-col items-center gap-4">
+        <div className="w-full max-w-md max-h-[60vh] overflow-y-auto flex flex-col items-center gap-4 pr-2 m-2">
           {wishes.map((wish, i) => {
             const colors = [
               "bg-yellow-200/70",
