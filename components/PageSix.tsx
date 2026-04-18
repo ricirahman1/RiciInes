@@ -98,7 +98,7 @@ export default function PageSix() {
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 bg-rose-400 rounded-full shadow-md" />
 
             {/* CARD */}
-            <div className="bg-white/50 backdrop-blur-sm w-[380px] rounded-xl p-5 pt-6 shadow-lg border border-white/90">
+            <div className="bg-white/50 backdrop-blur-sm w-[300px] rounded-xl p-5 pt-6 shadow-lg border border-white/90">
 
               <input
                 value={name}
@@ -126,7 +126,7 @@ export default function PageSix() {
         </div>
 
         {/* LIST */}
-        <div className="w-full max-w-md max-h-[60vh] overflow-y-auto flex flex-col items-center gap-4 pr-2 m-2">
+        <div className="w-full max-w-md max-h-[60vh] overflow-y-auto flex flex-col items-center gap-4 pr-2 ">
           {wishes.map((wish, i) => {
             const colors = [
               "bg-yellow-200/70",
@@ -141,7 +141,7 @@ export default function PageSix() {
                 key={wish.id}
                 className={`
                   ${colors[i % colors.length]}
-                  w-[380px]
+                  w-[360px]
                   rounded-xl p-4 pt-6
                   shadow-lg
                   text-gray-800
