@@ -141,7 +141,7 @@ export default function PageSix() {
                 key={wish.id}
                 className={`
                   ${colors[i % colors.length]}
-                  w-[360px]
+                  w-[300px]
                   rounded-xl p-4 pt-6
                   shadow-lg
                   text-gray-800
