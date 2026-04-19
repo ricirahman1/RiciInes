@@ -12,7 +12,8 @@ const oregano = Oregano({
   weight: ["400"],
 });
 
-const TITLE_TEXT = "Rici & Ines";
+
+const TITLE_TEXT = ["Rici", " & ", "Ines"];
 
 /* =======================
    ANIMATION
@@ -124,7 +125,7 @@ export default function Cover() {
           relative z-10 min-h-screen
           flex items-start justify-start
           px-16 md:px-12
-          pt-[32vh] md:pt-[34vh]
+          pt-[36vh] md:pt-[34vh]
         "
       >
         <div className="max-w-xl">
@@ -143,45 +144,43 @@ export default function Cover() {
           </motion.p>
 
           {/* TITLE */}
-          <motion.h1
-            variants={titleContainer}
+          <h1
             className={`
               ${oregano.className}
-              flex items-end
+              w-full max-w-[900px] mx-auto
               text-white
               leading-none
-              text-[clamp(6rem,12vw,11rem)]
+              text-[clamp(5rem,13vw,8rem)]
+              mt-1
             `}
-            style={{
-              textShadow:
-                "0 5px 25px rgba(0,0,0,0.4), 0 10px 50px rgba(255,105,180,0.25)",
-            }}
           >
-            {"Rici".split("").map((char, i) => (
-              <motion.span key={i} variants={titleLetter}>
-                {char}
-              </motion.span>
-            ))}
-
-            {/* FIXED & */}
-            <motion.span
-              variants={titleLetter}
-              className="
-                mx-4 md:mx-6
-                text-rose-300
-                text-[0.4em]
-                self-center
-              "
-            >
-              &
-            </motion.span>
-
-            {"Ines".split("").map((char, i) => (
-              <motion.span key={i + 10} variants={titleLetter}>
-                {char}
-              </motion.span>
-            ))}
-          </motion.h1>
+            {/* Rici */}
+            <div className="flex justify-center -translate-x-8">
+              {"Rici".split("").map((char, i) => (
+                <motion.span key={i} variants={titleLetter}>
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+          
+            {/* & */}
+            <div className="flex justify-center text-[0.4em] translate-x-2 my-1">
+              {"&".split("").map((char, i) => (
+                <motion.span key={i} variants={titleLetter}>
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+          
+            {/* Ines */}
+            <div className="flex justify-center translate-x-8">
+              {"Ines".split("").map((char, i) => (
+                <motion.span key={i} variants={titleLetter}>
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+          </h1>
 
           {/* HASHTAG */}
           <motion.p

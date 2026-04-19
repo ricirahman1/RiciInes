@@ -30,84 +30,137 @@ const data = [
   },
 ];
 
-/* ================= ITEM COMPONENT ================= */
+/* ================= ITEM ================= */
 const RenderItem = ({ item }: { item: typeof data[0] }) => (
   <motion.div
     initial={{ opacity: 0, y: 80, filter: "blur(10px)" }}
     whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-    transition={{ duration: 1 }}
+    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
     className="flex flex-col items-center"
   >
-    {/* FOTO */}
-    <div className="relative w-[260px] md:w-[320px] h-[340px] md:h-[420px] group">
+    {/* ================= FOTO ================= */}
+    <div className="relative w-[260px] md:w-[320px] h-[380px] md:h-[460px] group">
 
-      {/* GLOW */}
-      <div className="absolute -inset-4 rounded-2xl bg-white blur-xl group-hover:bg-[#d4af37]/20 transition" />
+      {/* OUTER FRAME */}
+      <div className="absolute inset-0 rounded-t-[160px] rounded-b-[20px] border border-white/30" />
 
-      {/* GOLD FRAME */}
-      
+      {/* INNER FRAME (GOLD) */}
+      <div className="absolute inset-[8px] rounded-t-[150px] rounded-b-[16px] border border-[#d4af37]/40 shadow-[0_0_25px_rgba(212,175,55,0.25)]" />
 
       {/* GLASS */}
-      <div className="absolute inset-0 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.4)]" />
+      <div className="absolute inset-[8px] rounded-t-[150px] rounded-b-[16px] bg-white/5 backdrop-blur-[2px]" />
+
+      {/* GLASS REFLECTION */}
+      <div className="absolute inset-[8px] rounded-t-[150px] rounded-b-[16px] overflow-hidden pointer-events-none">
+        <div className="absolute -top-1/2 left-[-30%] w-[160%] h-[200%] rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition duration-700" />
+      </div>
 
       {/* IMAGE */}
-      <Image
-        src={item.img}
-        alt={item.name}
-        fill
-        className="object-cover rounded-2xl p-[6px] transition-transform duration-700 group-hover:scale-110"
-      />
+      <div className="absolute inset-[8px] overflow-hidden rounded-t-[150px] rounded-b-[16px]">
+        <Image
+          src={item.img}
+          alt={item.name}
+          fill
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+        />
+      </div>
+
+      {/* SHADOW */}
+      <div className="absolute inset-0 rounded-t-[160px] rounded-b-[20px] shadow-[0_25px_70px_rgba(0,0,0,0.45)] pointer-events-none" />
     </div>
 
-    {/* TEXT */}
-    <div className="mt-8 text-center">
-
-      <h2
+    {/* ================= TEXT ================= */}
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.15 },
+        },
+      }}
+      className="mt-10 text-center max-w-sm"
+    >
+      {/* NAME */}
+      <motion.h2
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+        }}
         className={`
           ${oregano.className}
-          text-5xl md:text-6xl
-          bg-rose-500/80 bg-clip-text text-transparent
-          bg-clip-text text-transparent
+          text-4xl md:text-5xl
+          text-white
+          tracking-[0.08em]
         `}
       >
         {item.name}
-      </h2>
+      </motion.h2>
 
-      <p className={`${bodyFont.className} text-white/80 text-2xl mt-2`}>
+      {/* FULL NAME */}
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 15 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+        }}
+        className={`
+          ${bodyFont.className}
+          text-white/90
+          text-base md:text-lg
+          mt-3
+        `}
+      >
         {item.full}
-      </p>
+      </motion.p>
 
-      <p className={`${bodyFont.className} text-white/100 text-xl mt-3 max-w-xs`}>
+      {/* DESC */}
+      <motion.p
+        variants={{
+          hidden: { opacity: 0, y: 15 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+        }}
+        className={`
+          ${bodyFont.className}
+          text-white/85
+          text-sm md:text-base
+          mt-4
+          leading-relaxed
+        `}
+      >
         {item.desc}
-      </p>
+      </motion.p>
 
       {/* IG */}
-      <div className="flex flex-col items-center mt-4">
-  <div className="px-4 py-2 rounded-full bg-white/80 backdrop-blur-md border border-white/30 shadow-md">
-    <a
-      href={item.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 text-rose-600 text-sm hover:scale-105 hover:text-white transition"
-    >
-      <Instagram size={16} />
-      @{item.ig}
-    </a>
-  </div>
+      <motion.div
+  variants={{
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  }}
+  className="mt-6 px-3 py-2 rounded-lg border border-white/25 bg-white/5 backdrop-blur-sm inline-flex flex-col items-center"
+>
+  <a
+    href={item.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-white/70 text-sm hover:text-white transition"
+  >
+    <Instagram size={14} />
+    @{item.ig}
+  </a>
 
-  <span className="mt-2 w-10 h-[1px] bg-rose-500/70" />
-</div>
-
-    </div>
+  <span className="mt-2 w-6 h-[1px] bg-white/30" />
+</motion.div>
+    </motion.div>
   </motion.div>
 );
 
-/* ================= MAIN COMPONENT ================= */
+/* ================= MAIN ================= */
 export default function PageThree() {
   return (
     <section className="relative w-full">
 
-      {/* ===== BACKGROUND (STICKY) ===== */}
+      {/* BACKGROUND */}
       <div className="sticky top-0 h-screen w-full">
         <Image
           src="/bg-sd2.jpg"
@@ -119,7 +172,7 @@ export default function PageThree() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* ===== CONTENT ===== */}
+      {/* CONTENT */}
       <div className="relative z-10 -mt-[100vh] px-6 md:px-16 py-20 text-white">
 
         {/* TITLE */}
@@ -131,7 +184,6 @@ export default function PageThree() {
             ${titleFont.className}
             text-center
             text-[clamp(3rem,6vw,6rem)]
-            
           `}
           style={{
             textShadow:
@@ -143,62 +195,22 @@ export default function PageThree() {
 
         {/* ORNAMENT */}
         <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8 }}
-      className="flex items-center justify-center gap-4 mb-8 "
-    >
-      {/* LINE LEFT */}
-      <div className="relative w-16 md:w-24 h-px bg-white/40 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent"
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </div>
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="flex items-center justify-center gap-4 mb-12"
+        >
+          <div className="w-16 md:w-24 h-px bg-white/40" />
+          <span className="text-white/80 text-lg">✦</span>
+          <div className="w-16 md:w-24 h-px bg-white/40" />
+        </motion.div>
 
-      {/* SPARKLE */}
-      <motion.span
-        animate={{
-          scale: [1, 1.4, 1],
-          opacity: [0.6, 1, 0.6],
-          rotate: [0, 15, -15, 0],
-        }}
-        transition={{
-          duration: 2.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="text-white/80 text-lg md:text-xl"
-      >
-        ✦
-      </motion.span>
-
-      {/* LINE RIGHT */}
-      <div className="relative w-16 md:w-24 h-px bg-white/40 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent"
-          animate={{ x: ["100%", "-100%"] }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
-      </div>
-    </motion.div>
-
-        {/* ===== GRID 3 KOLOM ===== */}
+        {/* GRID */}
         <div className="grid md:grid-cols-3 gap-10 items-center">
 
-          {/* RICI */}
           <RenderItem item={data[0]} />
 
-          {/* PEMISAH */}
+          {/* & */}
           <div className="flex justify-center items-center">
             <div className="flex items-center gap-4 md:gap-6">
               <span className="w-10 md:w-16 h-[1px] bg-[#d4af37]/40" />
@@ -209,11 +221,9 @@ export default function PageThree() {
             </div>
           </div>
 
-          {/* INES */}
           <RenderItem item={data[1]} />
 
         </div>
-
       </div>
     </section>
   );
