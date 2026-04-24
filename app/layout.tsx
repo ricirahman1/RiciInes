@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "Wedding Invitation",
     images: [
       {
-        url: "https://rici-ines.vercel.app/bg9.jpg", // WAJIB FULL URL
+        url: "https://rici-ines.vercel.app/g2.jpeg", // WAJIB FULL URL
         width: 1200,
         height: 630,
       },

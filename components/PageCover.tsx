@@ -99,7 +99,7 @@ export default function Cover() {
         className="absolute inset-0"
       >
         <Image
-          src="/BG-SD2.jpeg"
+          src="/g12.jpeg"
           alt="Wedding Cover"
           fill
           priority
@@ -113,7 +113,7 @@ export default function Cover() {
         variants={overlayVariant}
         initial="hidden"
         animate="visible"
-        className="absolute inset-0 bg-black/30"
+        className="absolute inset-0 bg-black/20"
       />
 
       {/* CONTENT */}
@@ -150,6 +150,7 @@ export default function Cover() {
               w-full max-w-[900px] mx-auto
               text-white
               leading-none
+              
               text-[clamp(5rem,13vw,8rem)]
               mt-1
             `}

@@ -65,7 +65,7 @@ export default function PageSix() {
 
       {/* BACKGROUND */}
       <Image
-        src="/bg-cvrr.jpeg"
+        src="/g5.jpeg"
         alt="Wedding Wishes"
         fill
         priority

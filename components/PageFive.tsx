@@ -34,6 +34,8 @@ const gallery = [
 export default function PageFive() {
   return (
     <section className="w-full py-16 px-4">
+
+      
       {/* TITLE */}
       <div
         className={`flex items-center justify-center gap-2 mb-10 ${titleFont.className}`}

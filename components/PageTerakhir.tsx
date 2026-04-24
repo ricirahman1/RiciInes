@@ -11,7 +11,7 @@ export default function PageLast() {
       className="min-h-screen w-full flex items-center justify-center bg-cover bg-center px-6"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/BG-SLD.jpeg')",
+          "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/g1.jpeg')",
       }}
     >
       <motion.div
@@ -31,7 +31,7 @@ export default function PageLast() {
           We write this invitation to invite all of you to share the joy with us on our wedding
         </p>
 
-        <div className="mt-10 text-sm tracking-widest opacity-80">
+        <div className="mt-10 text-sm tracking-widest opacity-100">
           WITH LOVE
         </div>
       </motion.div>

@@ -22,7 +22,7 @@ export default function PageWeddingLocation() {
       {/* BACKGROUND */}
       <div className="sticky top-0 h-screen w-full">
         <Image
-          src="/bg-s-55.jpeg"
+          src="/g11.png"
           alt="Wedding Location"
           fill
           priority

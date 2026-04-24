@@ -83,7 +83,7 @@ export default function Cover({
         className="absolute inset-0"
       >
         <Image
-          src="/BG-CVRR.png"
+          src="/g2.jpeg"
           alt="Wedding Cover"
           fill
           priority
@@ -98,6 +98,9 @@ export default function Cover({
         animate="visible"
         className="absolute inset-0 bg-black/10"
       />
+
+      {/* FRAME BORDER */}
+      <div className="pointer-events-none absolute inset-8 sm:inset-8 md:inset-8 rounded-3xl border border-white/90" />
 
       {/* CONTENT */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-5 sm:px-6 min-h-[100svh]">
