@@ -11,16 +11,23 @@ const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 /* ================= DATA ================= */
 const gallery = [
   { src: "/bg1.jpeg", featured: true },
-  { src: "/bg2.jpeg" },
-  { src: "/bg3.jpeg" },
-  { src: "/bg4.jpeg", featured: true },
-  { src: "/bg5.jpeg" },
-  { src: "/bg6.jpeg" },
-  { src: "/bg7.jpeg" },
-  { src: "/bg8.jpeg", featured: true },
-  { src: "/bg9.jpeg" },
-  { src: "/bg10.jpeg" },
+  { src: "/bg2.jpeg", featured: true },
   
+  { src: "/bg4.jpeg", featured: true },
+  { src: "/bg5.jpeg", featured: true },
+  { src: "/bg6.jpeg", featured: true },
+  { src: "/bg7.jpeg", featured: true },
+  { src: "/bg8.jpeg", featured: true },
+  
+  { src: "/bg10.jpeg", featured: true },
+  { src: "/g1.jpeg", featured: true },
+  { src: "/g2.jpeg", featured: true },
+  { src: "/g3.jpeg",featured: true },
+  { src: "/g4.jpeg", featured: true },
+  { src: "/g5.jpeg", featured: true },
+  { src: "/g6.jpeg", featured: true },
+  { src: "/g9.jpg", featured: true },
+ 
 ];
 
 /* ================= MAIN ================= */
