@@ -5,75 +5,83 @@ import { Allura } from "next/font/google";
 import { Camera } from "lucide-react";
 import { motion } from "framer-motion";
 
-/* ================= FONT ================= */
 const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 
-/* ================= DATA ================= */
 const gallery = [
-  { src: "/bg1.jpeg", featured: true },
-  { src: "/bg2.jpeg", featured: true },
-  
+  { src: "/bg3.jpeg", featured: true },
+  { src: "/bg1.jpeg" },
+  { src: "/bg2.jpeg" },
   { src: "/bg4.jpeg", featured: true },
-  { src: "/bg5.jpeg", featured: true },
-  { src: "/bg6.jpeg", featured: true },
-  { src: "/bg7.jpeg", featured: true },
-  { src: "/bg8.jpeg", featured: true },
-  
-  { src: "/bg10.jpeg", featured: true },
-  { src: "/g1.jpeg", featured: true },
-  { src: "/g2.jpeg", featured: true },
-  { src: "/g3.jpeg",featured: true },
-  { src: "/g4.jpeg", featured: true },
-  { src: "/g5.jpeg", featured: true },
-  { src: "/g6.jpeg", featured: true },
-  { src: "/g9.jpg", featured: true },
- 
+  { src: "/bg5.jpeg" },
+  { src: "/bg7.jpeg" },
+  { src: "/bg-wedding.jpg", featured: true },
+  { src: "/bg10.jpeg" },
+  { src: "/g9.jpg" },
+  { src: "/g1.jpeg" },
+  { src: "/g6.jpeg" },
 ];
 
-/* ================= MAIN ================= */
 export default function PageFive() {
   return (
-    <section className="w-full py-16 px-4">
+    <section className="relative w-full py-24 px-4 bg-[#fafafa]">
 
-      
-      {/* TITLE */}
-      <div
-        className={`flex items-center justify-center gap-2 mb-10 ${titleFont.className}`}
-      >
-        <h2 className="text-3xl text-gray-800">Portrait Of Us</h2>
-        <Camera className="w-5 h-5 text-gray-600" />
+      {/* BACKGROUND GARIS HALUS */}
+      <div className="absolute inset-0 opacity-[0.15] pointer-events-none">
+        <div className="w-full h-full bg-[linear-gradient(to_right,#d4d4d4_1px,transparent_1px),linear-gradient(to_bottom,#d4d4d4_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      {/* GALLERY */}
-      <div className="max-w-md mx-auto columns-2 gap-4 space-y-4">
-        {gallery.map((item, i) => (
-          <GalleryItem key={i} {...item} />
-        ))}
+      {/* FRAME UTAMA */}
+      <div className="relative max-w-md mx-auto border border-gray-200 rounded-[28px] p-8 bg-white">
+
+        {/* TITLE */}
+        <div className="flex flex-col items-center gap-4 mb-14">
+
+          <div className="w-20 h-[1px] bg-gray-300" />
+
+          <div className={`flex items-center gap-2 ${titleFont.className}`}>
+            <h2 className="text-4xl text-gray-800 tracking-wide">
+              Portrait Of Us
+            </h2>
+            <Camera className="w-5 h-5 text-gray-500" />
+          </div>
+
+          <div className="w-20 h-[1px] bg-gray-300" />
+        </div>
+
+        {/* GALLERY */}
+        <div className="columns-2 gap-4 space-y-4">
+          {gallery.map((item, i) => (
+            <GalleryItem key={i} {...item} index={i} />
+          ))}
+        </div>
+
       </div>
     </section>
   );
 }
 
-/* ================= ITEM ================= */
 function GalleryItem({
   src,
   featured,
+  index,
 }: {
   src: string;
   featured?: boolean;
+  index: number;
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 15 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6, delay: index * 0.05 }}
       className="break-inside-avoid"
     >
       <div
         className={`
-          overflow-hidden rounded-xl bg-gray-100
-          ${featured ? "p-0" : ""}
+          overflow-hidden rounded-xl
+          border border-gray-200
+          bg-white
         `}
       >
         <Image
@@ -82,10 +90,8 @@ function GalleryItem({
           width={800}
           height={1000}
           className={`
-            w-full h-auto object-contain
-            transition duration-500 ease-out
-            hover:scale-[1.04]
-            ${featured ? "scale-100" : "scale-[0.96]"}
+            w-full h-auto object-cover
+            ${featured ? "aspect-[3/4]" : "aspect-auto"}
           `}
         />
       </div>

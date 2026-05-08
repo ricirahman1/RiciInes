@@ -3,22 +3,26 @@
 import { useState, useRef } from "react";
 import Cover from "@/components/Cover";
 import MainContent from "@/components/MainContent";
+import MusicControl from "@/components/MusicControl";
 
 export default function Home() {
   const [opened, setOpened] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // ✅ FIX: explicit nullable type
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleOpenInvitation = async () => {
     setOpened(true);
 
-    // PLAY AUDIO (valid user interaction)
-    try {
-      await audioRef.current?.play();
-    } catch (e) {
-      console.log("Audio gagal play:", e);
+    // ✅ extra safety check
+    if (audioRef.current) {
+      try {
+        await audioRef.current.play();
+      } catch (e) {
+        console.log("Audio gagal play:", e);
+      }
     }
 
-    // scroll ke konten
     setTimeout(() => {
       document.getElementById("page-two")?.scrollIntoView({
         behavior: "smooth",
@@ -33,7 +37,7 @@ export default function Home() {
         ${opened ? "overflow-y-auto" : "overflow-hidden"}
       `}
     >
-      {/* AUDIO GLOBAL */}
+      {/* AUDIO */}
       <audio
         ref={audioRef}
         src="/audio/music.mp3"
@@ -41,12 +45,16 @@ export default function Home() {
         preload="auto"
       />
 
+      {/* CONTROL BUTTON */}
+      {opened && <MusicControl audioRef={audioRef} />}
+      
+
       {/* COVER */}
       <section className="min-h-screen">
         <Cover onOpenAction={handleOpenInvitation} />
       </section>
 
-      {/* MAIN CONTENT */}
+      {/* MAIN */}
       <MainContent />
     </div>
   );

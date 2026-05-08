@@ -11,26 +11,20 @@ const poppins = Poppins({
 
 export default function PageTwo() {
   return (
-    <section
-      className="
-        relative min-h-screen w-full
-        flex items-center justify-center
-        px-4
-        text-center
-        overflow-hidden
-      "
-    >
-      {/* BACKGROUND */}
-      <Image
-        src="/bg-qs.jpeg"
-        alt="Background Page Two"
-        fill
-        priority
-        className="object-cover scale-105"
-      />
+    <section className="relative min-h-screen w-full bg-white overflow-hidden flex items-center justify-center px-4 text-center">
 
-      {/* SOFT DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/20" />
+  
+
+  {/* BACKGROUND */}
+  <Image
+    src="/bg-qs.jpeg"
+    alt="Background Page Two"
+    fill
+    priority
+    className="object-cover scale-105 opacity-100"
+  />
+
+  
 
       {/* CONTENT */}
       <motion.div

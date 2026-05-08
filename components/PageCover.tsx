@@ -91,22 +91,28 @@ export default function Cover() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
 
+      
+
+      {/* BACKGROUND */}
       {/* BACKGROUND */}
       <motion.div
-        variants={bgVariant}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0"
-      >
-        <Image
-          src="/g12.jpeg"
-          alt="Wedding Cover"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center scale-105"
-        />
-      </motion.div>
+  variants={bgVariant}
+  initial="hidden"
+  animate="visible"
+  className="absolute inset-0"
+>
+  <Image
+    src="/g12.jpeg"
+    alt="Wedding Cover"
+    fill
+    priority
+    sizes="100vw"
+    className="
+      object-cover object-center scale-105
+      [clip-path:ellipse(90%_98%_at_60%_0%)]
+    "
+  />
+</motion.div>
 
       {/* OVERLAY */}
       <motion.div
