@@ -141,7 +141,7 @@ export default function Cover() {
             variants={itemVariant}
             className={`
               ${oregano.className}
-              text-xs md:text-sm
+              text-2xl  md:text-2xl
               uppercase tracking-[0.3em]
               text-white/90
             `}
@@ -158,7 +158,7 @@ export default function Cover() {
               leading-none
               
               text-[clamp(5rem,13vw,8rem)]
-              mt-1
+              mt-3
             `}
           >
             {/* Rici */}
@@ -195,19 +195,17 @@ export default function Cover() {
             className={`
               ${oregano.className}
               mt-3
-              text-lg md:text-2xl
+              text-4xl md:text-5xl
               text-white/90
             `}
           >
             #RICIwithhappINESs
           </motion.p>
-
           {/* LINE */}
           <motion.div
             variants={itemVariant}
             className="mt-4 w-20 h-px bg-white/50"
           />
-
         </div>
       </motion.div>
     </section>

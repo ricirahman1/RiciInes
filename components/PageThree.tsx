@@ -91,7 +91,7 @@ const RenderItem = ({ item }: { item: typeof data[0] }) => (
         className={`
           ${oregano.className}
           text-4xl md:text-5xl
-          text-white
+          text-pink-600
           tracking-[0.08em]
         `}
       >
