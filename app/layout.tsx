@@ -7,28 +7,37 @@ const bodyFont = Inter({
   weight: ["400", "500", "600"],
 });
 
-/* ✅ TAMBAHKAN INI */
-export const metadata = {
+export const metadata: Metadata = {
   title: "Undangan Pernikahan Rici & Ines",
   description: "Kami mengundang Anda ke hari bahagia kami - 31 Mei 2026",
+
   openGraph: {
     title: "Undangan Pernikahan Rici & Ines",
     description: "31 Mei 2026 | Rici & Ines Wedding",
-    url: "https://rici-ines.vercel.app/", // ganti domain kamu
+    url: "https://rici-ines.vercel.app",
     siteName: "Wedding Invitation",
+
     images: [
       {
-        url: "https://rici-ines.vercel.app/bg-cvrr.jpeg", // WAJIB FULL URL
-        width: 1200,
-        height: 630,
+        url: "https://rici-ines.vercel.app/bg3.jpeg",
+         width: 3563,
+        height: 4510,
+        alt: "Wedding Invitation",
       },
     ],
+
     locale: "id_ID",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Undangan Pernikahan Rici & Ines",
+    description: "31 Mei 2026 | Rici & Ines Wedding",
+    images: ["https://rici-ines.vercel.app/bg3.jpeg"],
+  },
 };
 
-/* ================= LAYOUT ================= */
 export default function RootLayout({
   children,
 }: {
