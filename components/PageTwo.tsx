@@ -28,7 +28,7 @@ export default function PageTwo() {
 
       {/* CONTENT */}
 
-      <div className="absolute inset-0 opacity-[0.15] pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.5] pointer-events-none">
         <div className="w-full h-full bg-[linear-gradient(to_right,#d4d4d4_1px,transparent_1px),linear-gradient(to_bottom,#d4d4d4_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
       <motion.div
