@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Allura, Caveat, Oregano } from "next/font/google";
 import { MapPin } from "lucide-react";
 import { Poppins } from "next/font/google";
+import {Cormorant_Garamond} from "next/font/google";
 
 
 
@@ -12,6 +13,10 @@ const titleFont = Allura({ subsets: ["latin"], weight: ["400"] });
 const caveatFont = Caveat({ subsets: ["latin"], weight: ["400"] });
 const oregano = Oregano({ subsets: ["latin"], weight: ["400"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500"] });
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 
 
 
@@ -63,7 +68,7 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-6 text-left"
           >
-            <h3 className={`${oregano.className} text-6xl text-white`}>
+            <h3 className={`${cormorant.className} text-6xl text-white`}>
               Akad Nikah
             </h3>
           </motion.div>
@@ -76,11 +81,11 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-4 text-right"
           >
-            <h4 className={`${oregano.className} text-white/90 text-2xl`}>
+            <h4 className={`${cormorant.className} text-white/90 text-2xl`}>
               Wedding Venue
             </h4>
 
-            <p className={`${poppins.className} text-white/80 text-sm md:text-base`}>
+            <p className={`${cormorant.className} text-white/80 text-lg md:text-base`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>
@@ -99,7 +104,7 @@ export default function PageWeddingLocation() {
 
   {/* MAIN TEXT */}
   <h3
-    className={`${oregano.className} relative font-extrabold text-6xl text-white mt-10`}
+    className={`${cormorant.className} relative font-extrabold text-6xl text-white mt-10`}
       
   >
     31 <br /> 05 <br /> 26
@@ -116,10 +121,10 @@ export default function PageWeddingLocation() {
             <a
               href="https://www.google.com/maps/search/?api=1&query=Gedung+Pramuka+Padang"
               target="_blank"
-              className="inline-flex items-center gap-2
+              className={`${cormorant.className} inline-flex items-center gap-2
                          px-6 py-3 rounded-full
                          bg-rose-500 text-white font-medium
-                         hover:bg-rose-600 transition"
+                         hover:bg-rose-600 transition`}
             >
               <MapPin size={18} />
               View Maps
@@ -139,11 +144,11 @@ export default function PageWeddingLocation() {
             transition={{ duration: 0.7 }}
             className="space-y-6 text-left"
           >
-            <h3 className={`${oregano.className} text-5xl text-white`}>
+            <h3 className={`${cormorant.className} text-5xl text-white`}>
               Resepsi
             </h3>
 
-            <p className={`${poppins.className} text-white/80 text-sm md:text-base`}>
+            <p className={`${cormorant.className} text-white/80 text-lg md:text-base`}>
               Gedung Pramuka <br />
               Jl. Pramuka Raya No.10, Lolong Belanti,<br /> Kec. Padang Utara, Kota Padang, Sumatera Barat
             </p>

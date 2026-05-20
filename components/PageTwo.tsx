@@ -2,89 +2,209 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Poppins } from "next/font/google";
+import {
+  Great_Vibes,
+  Poppins,
+  Cormorant_Garamond,
+} from "next/font/google";
+
+const vibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export default function PageTwo() {
   return (
-    <section className="relative min-h-screen w-full bg-white overflow-hidden flex items-center justify-center px-4 text-center">
+    <section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
 
-  
-
-  {/* BACKGROUND */}
-  <Image
-    src="/bg-qs.jpeg"
-    alt="Background Page Two"
-    fill
-    priority
-    className="object-cover scale-105 opacity-100"
-  />
-
-  
-
-      {/* CONTENT */}
-
-      <div className="absolute inset-0 opacity-[0.5] pointer-events-none">
-        <div className="w-full h-full bg-[linear-gradient(to_right,#d4d4d4_1px,transparent_1px),linear-gradient(to_bottom,#d4d4d4_1px,transparent_1px)] bg-[size:60px_60px]" />
+      {/* BACKGROUND */}
+      <div className="absolute inset-0">
+        <Image
+          src="/bg-qs.jpeg"
+          alt="Wedding"
+          fill
+          priority
+          className="
+            object-cover
+            object-center
+            brightness-[0.88]
+            scale-105
+          "
+        />
       </div>
+
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-[#6b4d38]/25" />
+
+      {/* BLUR LIGHT */}
+      <div className="absolute top-[-100px] right-[-60px] w-[260px] h-[260px] rounded-full bg-[#ffe4d1]/30 blur-3xl" />
+
+      <div className="absolute bottom-[-120px] left-[-80px] w-[280px] h-[280px] rounded-full bg-[#fff7ef]/20 blur-3xl" />
+
+      {/* FLOATING HEARTS */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{ y: [0, -10, 0] }}
         transition={{
-          duration: 1.2,
+          repeat: Infinity,
+          duration: 4,
+        }}
+        className="absolute top-24 left-10 text-white/60 text-2xl"
+      >
+        ♡
+      </motion.div>
+
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{
+          repeat: Infinity,
+          duration: 5,
+        }}
+        className="absolute bottom-32 right-12 text-white/50 text-3xl"
+      >
+        ✿
+      </motion.div>
+
+      {/* MAIN CARD */}
+      <motion.div
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 1.1,
           ease: [0.22, 1, 0.36, 1],
         }}
         className="
           relative z-10
-          w-full max-w-sm
-          rounded-xl
-          bg-white/10
-          backdrop-blur-md
-          px-4 py-5
-
-          border border-white/20
-          shadow-[0_8px_30px_rgba(0,0,0,0.2)]
-          before:absolute before:inset-0 before:rounded-xl
-          before:border before:border-white/10
-          before:pointer-events-none
-          after:absolute after:inset-0 after:rounded-xl
-          after:border after:border-white/10 after:blur
+          w-full max-w-md
         "
       >
-        {/* AYAT */}
-        <p
-          className={`
-            ${poppins.className}
-            text-[0.85rem] md:text-[0.95rem]
-            leading-relaxed md:leading-loose
-            text-white/90
-          `}
-        >
-          “Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan untukmu
-          pasangan-pasangan dari jenismu sendiri, agar kamu merasa tenteram di sisinya,
-          dan Dia menjadikan di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu
-          benar-benar terdapat tanda-tanda bagi kaum yang berpikir.”
-        </p>
 
-        {/* SOURCE */}
-        <p
-          className={`
-            ${poppins.className}
-            mt-3
-            text-[0.75rem] md:text-xs
-            tracking-wide
-            text-white/70
-          `}
+        {/* PAPER CARD */}
+        <div
+          className="
+            relative
+            overflow-hidden
+            rounded-[3rem]
+            bg-[#fffaf6]/78
+            backdrop-blur-2xl
+            border border-white/60
+            px-8 py-12
+            shadow-[0_20px_80px_rgba(0,0,0,0.18)]
+            text-center
+          "
         >
-          — QS Ar-Rum: 21
-        </p>
 
-        {/* DECOR LINE */}
-        <div className="mx-auto mt-4 h-[1px] w-10 bg-white/40" />
+          {/* TOP ICON */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="mb-5 flex justify-center"
+          >
+            <div
+              className="
+                w-20 h-20
+                rounded-full
+                bg-[#f6e7d8]
+                flex items-center justify-center
+                shadow-inner
+                border border-[#ecd8c4]
+              "
+            >
+              <span className="text-4xl">🤍</span>
+            </div>
+          </motion.div>
+
+          {/* SMALL TITLE */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className={`
+              ${cormorant.className}
+              uppercase
+              tracking-[0.35em]
+              text-[#c1966a]
+              text-xs
+              mb-3
+            `}
+          >
+            With Love
+          </motion.p>
+
+          {/* MAIN TITLE */}
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className={`
+              ${vibes.className}
+              text-[#9c7152]
+              text-5xl
+              leading-none
+              mb-8
+            `}
+          >
+            Forever Starts Here
+          </motion.h2>
+
+          {/* AYAT */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className={`
+              ${poppins.className}
+              text-[#5e4b3f]
+              text-[0.93rem]
+              leading-[2]
+              font-light
+            `}
+          >
+            “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan
+            pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram,
+            dan dijadikan-Nya di antaramu rasa kasih dan sayang.”
+          </motion.p>
+
+          {/* MINI FLOWER */}
+          <div className="my-8 flex items-center justify-center gap-3">
+            <div className="w-8 h-px bg-[#d8b594]" />
+            <span className="text-[#d8b594] text-lg">✿</span>
+            <div className="w-8 h-px bg-[#d8b594]" />
+          </div>
+
+          {/* SOURCE */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className={`
+              ${cormorant.className}
+              text-[#a88462]
+              tracking-[0.28em]
+              uppercase
+              text-sm
+            `}
+          >
+            QS Ar-Rum • 21
+          </motion.p>
+
+          {/* BOTTOM DECOR */}
+          <div className="mt-10 flex justify-center gap-2 opacity-70">
+            <span className="text-[#d7b08a]">♡</span>
+            <span className="text-[#d7b08a]">✿</span>
+            <span className="text-[#d7b08a]">♡</span>
+          </div>
+        </div>
       </motion.div>
     </section>
   );

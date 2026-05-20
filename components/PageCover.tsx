@@ -1,213 +1,191 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
-import { Oregano } from "next/font/google";
+import { motion } from "framer-motion";
+import { Cormorant_Garamond, Great_Vibes, Oregano } from "next/font/google";
 
-/* =======================
+/* =========================
    FONT
-======================= */
+========================= */
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const vibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 const oregano = Oregano({
   subsets: ["latin"],
   weight: ["400"],
 });
 
-
-const TITLE_TEXT = ["Rici", " & ", "Ines"];
-
-/* =======================
-   ANIMATION
-======================= */
-const bgVariant: Variants = {
-  hidden: { opacity: 0, scale: 1.05 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 1.4, ease: "easeOut" },
-  },
-};
-
-const overlayVariant: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 1 },
-  },
-};
-
-const contentVariant: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 0.8,
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const itemVariant: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(6px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
-
-const titleContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 1,
-      staggerChildren: 0.07,
-    },
-  },
-};
-
-const titleLetter: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    scale: 0.95,
-    filter: "blur(8px)",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-/* =======================
+/* =========================
    COMPONENT
-======================= */
+========================= */
 export default function Cover() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-[#f8f5ef]">
 
+      {/* BACKGROUND IMAGE */}
+      <motion.div
+        initial={{ scale: 1.08, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0"
+      >
+        <Image
+          src="/g12.jpeg"
+          alt="Wedding"
+          fill
+          priority
+          sizes="100vw"
+          className="
+            object-cover
+            object-center
+            brightness-[1.03]
+            
+          "
+        />
+      </motion.div>
+
+      {/* SOFT LIGHT OVERLAY */}
+      
+      <div className="absolute inset-0 bg-black/15" />
       
 
-      {/* BACKGROUND */}
-      {/* BACKGROUND */}
-      <motion.div
-  variants={bgVariant}
-  initial="hidden"
-  animate="visible"
-  className="absolute inset-0"
->
-  <Image
-    src="/g12.jpeg"
-    alt="Wedding Cover"
-    fill
-    priority
-    sizes="100vw"
-    className="
-      object-cover object-center scale-105
-      [clip-path:ellipse(90%_98%_at_60%_0%)]
-    "
-  />
-</motion.div>
-
-      {/* OVERLAY */}
-      <motion.div
-        variants={overlayVariant}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0 bg-black/20"
+      {/* BOTTOM BLUR DECOR */}
+      <div
+        className="
+          absolute
+          -bottom-24
+          -right-20
+          w-72
+          h-72
+          bg-[#d9cbb7]/40
+          rounded-full
+          blur-3xl
+        "
       />
 
-      {/* CONTENT */}
-      <motion.div
-        variants={contentVariant}
-        initial="hidden"
-        animate="visible"
-        className="
-          relative z-10 min-h-screen
-          flex items-start justify-start
-          px-16 md:px-12
-          pt-[36vh] md:pt-[34vh]
-        "
-      >
-        <div className="max-w-xl">
+<div
+  className="
+    relative z-10
+    flex flex-col
+    items-end
+    justify-center
+    min-h-screen
+    px-8 md:px-16
+    text-right
+  "
+>
 
-          {/* SUBTITLE */}
-          <motion.p
-            variants={itemVariant}
-            className={`
-              ${oregano.className}
-              text-2xl  md:text-2xl
-              uppercase tracking-[0.3em]
-              text-white/90
-            `}
-          >
-            Wedding Invitation
-          </motion.p>
+  {/* SMALL TITLE */}
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3 }}
+    className={`
+      ${cormorant.className}
+      uppercase
+      tracking-[0.45em]
+      text-[#b67c25]
+      text-lg md:text-base
+      mb-6
+    `}
+  >
+    Wedding Invitation
+  </motion.p>
 
-          {/* TITLE */}
-          <h1
-            className={`
-              ${oregano.className}
-              w-full max-w-[900px] mx-auto
-              text-white
-              leading-none
-              
-              text-[clamp(5rem,13vw,8rem)]
-              mt-3
-            `}
-          >
-            {/* Rici */}
-            <div className="flex justify-center -translate-x-8">
-              {"Rici".split("").map((char, i) => (
-                <motion.span key={i} variants={titleLetter}>
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          
-            {/* & */}
-            <div className="flex justify-center text-[0.4em] translate-x-2 my-1">
-              {"&".split("").map((char, i) => (
-                <motion.span key={i} variants={titleLetter}>
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          
-            {/* Ines */}
-            <div className="flex justify-center translate-x-8">
-              {"Ines".split("").map((char, i) => (
-                <motion.span key={i} variants={titleLetter}>
-                  {char}
-                </motion.span>
-              ))}
-            </div>
-          </h1>
+  {/* MAIN TITLE */}
+  <motion.div
+    initial={{ opacity: 0, y: 35 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.5, duration: 1 }}
+    className="leading-[0.85]"
+  >
 
-          {/* HASHTAG */}
-          <motion.p
-            variants={itemVariant}
-            className={`
-              ${oregano.className}
-              mt-3
-              text-4xl md:text-5xl
-              text-white/90
-            `}
-          >
-            #RICIwithhappINESs
-          </motion.p>
-          {/* LINE */}
-          <motion.div
-            variants={itemVariant}
-            className="mt-4 w-20 h-px bg-white/50"
-          />
-        </div>
-      </motion.div>
+    {/* RICI */}
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5 }}
+      className={`
+        ${oregano.className}
+        text-white
+        text-[82px]
+        md:text-[118px]
+        leading-none
+        drop-shadow-[0_6px_25px_rgba(0,0,0,0.25)]
+      `}
+    >
+      Rici
+    </motion.h1>
+
+    {/* & */}
+    <motion.p
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.7 }}
+      className={`
+        ${cormorant.className}
+        text-[#e59808]
+        text-5xl
+        md:text-3xl
+        text-center
+        mt-5
+       
+      `}
+    >
+      &
+    </motion.p>
+
+    {/* INES */}
+    <motion.h1
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.9 }}
+      className={`
+        ${oregano.className}
+        text-white
+        text-[82px]
+        md:text-[118px]
+        leading-none
+        drop-shadow-[0_6px_25px_rgba(0,0,0,0.25)]
+      `}
+    >
+      Ines
+    </motion.h1>
+
+  </motion.div>
+
+  {/* HASHTAG */}
+  <motion.div
+    initial={{ opacity: 0, y: 25 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.9 }}
+    className="mt-10 flex items-center gap-4"
+  >
+    <div className="w-12 h-px bg-white/40" />
+
+    <p
+      className={`
+        ${cormorant.className}
+        text-[#ae7827]
+        text-2xl md:text-2xl
+        tracking-wide
+        text-bold
+      `}
+    >
+      #RICIwithhappINESs
+    </p>
+
+    <div className="w-12 h-px bg-white/40" />
+  </motion.div>
+
+</div>
     </section>
   );
 }
