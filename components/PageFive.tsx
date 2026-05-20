@@ -29,6 +29,15 @@ const gallery = [
   { src: "/g14.jpeg" },
   { src: "/g15.jpeg" },
   { src: "/g16.jpeg" },
+  { src: "/g21.jpg" },
+  { src: "/g22.jpg" },
+  { src: "/g23.jpg" },
+  { src: "/g24.jpg" },
+  { src: "/g25.jpg" },
+  { src: "/g26.jpg" },
+  { src: "/g27.jpg" },
+  { src: "/g28.jpg" },
+
   
 
 ];
@@ -244,9 +253,7 @@ export default function PageFive() {
           {/* FOOTER */}
           <div className="pt-14 text-center">
 
-            <p className="text-[10px] uppercase tracking-[0.45em] text-[#9a9086] mb-3">
-              Together With Our Families
-            </p>
+           
 
             <h2
               className={`
