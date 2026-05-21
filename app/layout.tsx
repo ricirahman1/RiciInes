@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/g123.jpg",
+        url: "/g2.jpeg",
         width: 1200,
         height: 630,
         alt: "Wedding Invitation Rici & Ines",

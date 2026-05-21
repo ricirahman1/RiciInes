@@ -166,34 +166,7 @@ export default function Cover() {
 
  
   {/* HASHTAG */}
-<motion.div
-  initial={{ opacity: 0, y: 25 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.9 }}
-  className="
-    mt-10
-    self-start
-    text-left
-    pl-8
-    pt-6
-  "
->
-  <div className="w-12 h-px bg-white/40 mb-3" />
 
-  <p
-    className={`
-      ${cormorant.className}
-      text-[#ae7827]
-      text-2xl md:text-3xl
-      tracking-wide
-      font-semibold
-    `}
-  >
-    #RICIwithhappINESs
-  </p>
-
-  <div className="w-12 h-px bg-white/40 mt-3" />
-</motion.div>
 
 </div>
     </section>
