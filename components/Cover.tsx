@@ -183,16 +183,6 @@ export default function Cover({
         <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
           
 
-          <p
-            className={`
-              ${poppins.className}
-              text-white
-              text-[14px] sm:text-xs
-              tracking-[0.25em]
-            `}
-          >
-            SUNDAY, 31 MAY 2026
-          </p>
 
           
         </div>
