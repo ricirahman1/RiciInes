@@ -9,7 +9,10 @@ const bodyFont = Inter({
 
 export const metadata: Metadata = {
   title: "Undangan Pernikahan Rici & Ines",
-  description: "Kami mengundang Anda ke hari bahagia kami - 31 Mei 2026",
+  description:
+    "Kami mengundang Anda ke hari bahagia kami - 31 Mei 2026",
+
+  metadataBase: new URL("https://rici-ines.vercel.app"),
 
   openGraph: {
     title: "Undangan Pernikahan Rici & Ines",
@@ -19,10 +22,10 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "https://rici-ines.vercel.app/bg3.jpeg",
-         width: 3563,
-        height: 4510,
-        alt: "Wedding Invitation",
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Wedding Invitation Rici & Ines",
       },
     ],
 
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Undangan Pernikahan Rici & Ines",
     description: "31 Mei 2026 | Rici & Ines Wedding",
-    images: ["https://rici-ines.vercel.app/bg3.jpeg"],
+    images: ["/og-image.jpg"],
   },
 };
 
