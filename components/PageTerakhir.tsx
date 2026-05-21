@@ -176,6 +176,7 @@ export default function PageLast() {
             <div className="w-10 h-px bg-[#f0d2af]/50" />
           </div>
 
+
           {/* LOVE */}
           <motion.p
             initial={{ opacity: 0 }}
@@ -191,6 +192,33 @@ export default function PageLast() {
           >
             WITH LOVE
           </motion.p>
+
+          <motion.div
+  initial={{ opacity: 0, y: 25 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.9 }}
+  className="
+    mt-2
+    text-center
+    
+  "
+>
+  
+
+  <p
+    className={`
+      ${cormorant.className}
+      text-[#dfa91f]
+      text-xl md:text-3xl
+      tracking-wide
+      font-semibold
+    `}
+  >
+    #RICIwithhappINESs
+  </p>
+
+  
+</motion.div>
 
           {/* BOTTOM ICON */}
           <div className="mt-8 flex justify-center gap-2 opacity-80">
