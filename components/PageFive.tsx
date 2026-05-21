@@ -24,22 +24,13 @@ const gallery = [
   { src: "/bg7.jpeg" },
   { src: "/bg10.jpeg" },
   { src: "/g1.jpeg" },
-  { src: "/g6.jpeg" },
+  
   { src: "/g9.jpg" },
   { src: "/g14.jpeg" },
-  { src: "/g15.jpeg" },
-  { src: "/g16.jpeg" },
-  { src: "/g21.jpg" },
-  { src: "/g22.jpg" },
-  { src: "/g23.jpg" },
   { src: "/g24.jpg" },
   { src: "/g25.jpg" },
   { src: "/g26.jpg" },
-  { src: "/g27.jpg" },
-  { src: "/g28.jpg" },
-
-  
-
+ 
 ];
 
 export default function PageFive() {
