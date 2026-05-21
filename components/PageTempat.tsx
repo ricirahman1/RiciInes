@@ -28,7 +28,7 @@ const poppins = Poppins({
 /* ================= PAGE ================= */
 export default function PageWeddingLocation() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#f7f3ee]">
+    <section className="relative w-full overflow-hidden bg-[#f5efe8]">
 
       {/* ================= BACKGROUND ================= */}
       <div className="absolute inset-0">
@@ -41,18 +41,30 @@ export default function PageWeddingLocation() {
           priority
           className="
             object-cover
-            opacity-[0.28]
+            opacity-[0.24]
             scale-105
+            saturate-[0.88]
           "
         />
 
-        {/* DARK SOFT OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-[#f7f3ee]/70 to-[#f7f3ee]" />
+        {/* DARK ELEGANT OVERLAY */}
+        <div
+          className="
+            absolute inset-0
+            bg-gradient-to-b
+            from-[#1e1611]/25
+            via-[#3b2d24]/15
+            to-[#f5efe8]
+          "
+        />
+
+        {/* EXTRA DARK LAYER */}
+        <div className="absolute inset-0 bg-[#1d1611]/8" />
 
         {/* LIGHT EFFECT */}
-        <div className="absolute -top-32 -left-32 w-[320px] h-[320px] rounded-full bg-[#e9d9ca]/50 blur-3xl" />
+        <div className="absolute -top-32 -left-32 w-[320px] h-[320px] rounded-full bg-[#ceb39a]/30 blur-3xl" />
 
-        <div className="absolute bottom-0 right-0 w-[320px] h-[320px] rounded-full bg-[#efe4d8]/60 blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[320px] h-[320px] rounded-full bg-[#b69276]/20 blur-3xl" />
 
       </div>
 
@@ -74,7 +86,7 @@ export default function PageWeddingLocation() {
               uppercase
               tracking-[0.45em]
               text-[11px]
-              text-[#8f7c6d]
+              text-[#6f5e52]
               mb-5
             `}
           >
@@ -86,17 +98,18 @@ export default function PageWeddingLocation() {
               ${allura.className}
               text-[68px]
               md:text-[96px]
-              text-[#2e2621]
+              text-[#241c17]
               leading-none
+              drop-shadow-[0_8px_30px_rgba(0,0,0,0.08)]
             `}
           >
             Save The Date
           </h1>
 
           <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="w-16 h-px bg-[#ccb8a5]" />
-            <span className="text-[#c3a78e] text-lg">✦</span>
-            <div className="w-16 h-px bg-[#ccb8a5]" />
+            <div className="w-16 h-px bg-[#b79b85]" />
+            <span className="text-[#9d7f67] text-lg">✦</span>
+            <div className="w-16 h-px bg-[#b79b85]" />
           </div>
 
         </motion.div>
@@ -118,16 +131,16 @@ export default function PageWeddingLocation() {
                 relative
                 overflow-hidden
                 rounded-[2.5rem]
-                border border-[#e8ddd2]
-                bg-white/45
-                backdrop-blur-[6px]
+                border border-[#d9cabc]
+                bg-[#f7f1eb]/75
+                backdrop-blur-[10px]
                 p-10
-                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
+                shadow-[0_20px_70px_rgba(0,0,0,0.08)]
               "
             >
 
-              {/* DECOR */}
-              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-[#efe1d5] blur-3xl opacity-60" />
+              {/* GLOW */}
+              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-[#ead8c7] blur-3xl opacity-60" />
 
               <div className="relative z-10">
 
@@ -137,7 +150,7 @@ export default function PageWeddingLocation() {
                     uppercase
                     tracking-[0.35em]
                     text-[11px]
-                    text-[#9c8572]
+                    text-[#8a7361]
                   `}
                 >
                   Sunday
@@ -148,7 +161,7 @@ export default function PageWeddingLocation() {
                     ${cormorant.className}
                     text-[120px]
                     md:text-[145px]
-                    text-[#2d241f]
+                    text-[#241c17]
                     leading-[0.82]
                     mt-5
                   `}
@@ -161,7 +174,7 @@ export default function PageWeddingLocation() {
                     className={`
                       ${cormorant.className}
                       text-4xl
-                      text-[#7c6756]
+                      text-[#6f5a4b]
                     `}
                   >
                     May 2026
@@ -172,7 +185,7 @@ export default function PageWeddingLocation() {
                   <p
                     className={`
                       ${poppins.className}
-                      text-[#6d6258]
+                      text-[#67584c]
                       text-sm
                       leading-relaxed
                     `}
@@ -199,24 +212,25 @@ export default function PageWeddingLocation() {
               viewport={{ once: true }}
               className="
                 rounded-[2.5rem]
-                border border-[#e7ddd2]
-                bg-white/40
-                backdrop-blur-[6px]
+                border border-[#ddd0c3]
+                bg-[#f8f3ee]/70
+                backdrop-blur-[10px]
                 p-8 md:p-10
-                shadow-[0_20px_60px_rgba(0,0,0,0.05)]
+                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
               "
             >
 
               <div className="flex items-start justify-between gap-5 flex-wrap">
 
                 <div>
+
                   <p
                     className={`
                       ${poppins.className}
                       uppercase
                       tracking-[0.35em]
                       text-[10px]
-                      text-[#9a846f]
+                      text-[#8f7765]
                       mb-4
                     `}
                   >
@@ -227,16 +241,17 @@ export default function PageWeddingLocation() {
                     className={`
                       ${cormorant.className}
                       text-5xl md:text-6xl
-                      text-[#2c231e]
+                      text-[#241c17]
                     `}
                   >
                     Akad Nikah
                   </h2>
+
                 </div>
 
                 <div className="text-right">
-                  <p className="text-[#8f7c6d] text-sm">
-                    09.00 WIB
+                  <p className="text-[#7d6859] text-sm">
+                    08.00 WIB
                   </p>
                 </div>
 
@@ -245,13 +260,14 @@ export default function PageWeddingLocation() {
               <div className="mt-10 grid md:grid-cols-2 gap-10">
 
                 <div>
+
                   <p
                     className={`
                       ${poppins.className}
                       uppercase
                       tracking-[0.25em]
                       text-[10px]
-                      text-[#9b8a7d]
+                      text-[#8f7c6f]
                       mb-3
                     `}
                   >
@@ -262,21 +278,23 @@ export default function PageWeddingLocation() {
                     className={`
                       ${cormorant.className}
                       text-3xl
-                      text-[#3b312a]
+                      text-[#392f28]
                     `}
                   >
                     Gedung Pramuka
                   </h3>
+
                 </div>
 
                 <div>
+
                   <p
                     className={`
                       ${poppins.className}
                       uppercase
                       tracking-[0.25em]
                       text-[10px]
-                      text-[#9b8a7d]
+                      text-[#8f7c6f]
                       mb-3
                     `}
                   >
@@ -295,6 +313,7 @@ export default function PageWeddingLocation() {
                     Lolong Belanti, Padang Utara,
                     Kota Padang, Sumatera Barat
                   </p>
+
                 </div>
 
               </div>
@@ -309,24 +328,25 @@ export default function PageWeddingLocation() {
               viewport={{ once: true }}
               className="
                 rounded-[2.5rem]
-                border border-[#e7ddd2]
-                bg-[#f4ece4]/55
-                backdrop-blur-[6px]
+                border border-[#ddd0c3]
+                bg-[#f3ebe3]/75
+                backdrop-blur-[10px]
                 p-8 md:p-10
-                shadow-[0_20px_60px_rgba(0,0,0,0.05)]
+                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
               "
             >
 
               <div className="flex items-start justify-between gap-5 flex-wrap">
 
                 <div>
+
                   <p
                     className={`
                       ${poppins.className}
                       uppercase
                       tracking-[0.35em]
                       text-[10px]
-                      text-[#8e7762]
+                      text-[#8b7562]
                       mb-4
                     `}
                   >
@@ -337,36 +357,79 @@ export default function PageWeddingLocation() {
                     className={`
                       ${cormorant.className}
                       text-5xl md:text-6xl
-                      text-[#2c231e]
+                      text-[#241c17]
                     `}
                   >
                     Resepsi
                   </h2>
+
                 </div>
 
                 <div className="text-right">
-                  <p className="text-[#8f7c6d] text-sm">
-                    11.00 WIB
+                  <p className="text-[#7d6859] text-sm">
+                    10.00 WIB
                   </p>
                 </div>
 
               </div>
 
-              <div className="mt-10">
+              <div>
+
                 <p
                   className={`
                     ${poppins.className}
-                    text-[#5f5349]
-                    text-sm
-                    leading-relaxed
-                    max-w-xl
+                    uppercase
+                    tracking-[0.25em]
+                    text-[10px]
+                    text-[#8f7c6f]
+                    mt-10
+                    mb-3
                   `}
                 >
-                  Gedung Pramuka,
+                  Venue
+                </p>
+
+                <h3
+                  className={`
+                    ${cormorant.className}
+                    text-3xl
+                    text-[#392f28]
+                  `}
+                >
+                  Gedung Pramuka
+                </h3>
+
+              </div>
+
+              <div>
+
+                <p
+                  className={`
+                    ${poppins.className}
+                    uppercase
+                    tracking-[0.25em]
+                    text-[10px]
+                    text-[#8f7c6f]
+                    mb-3
+                    mt-6
+                  `}
+                >
+                  Address
+                </p>
+
+                <p
+                  className={`
+                    ${poppins.className}
+                    text-[#65584d]
+                    text-sm
+                    leading-relaxed
+                  `}
+                >
                   Jl. Pramuka Raya No.10,
-                  Lolong Belanti, Kec. Padang Utara,
+                  Lolong Belanti, Padang Utara,
                   Kota Padang, Sumatera Barat
                 </p>
+
               </div>
 
               {/* BUTTON */}
@@ -380,17 +443,19 @@ export default function PageWeddingLocation() {
                     items-center
                     gap-3
                     rounded-full
-                    border border-[#d8c4b1]
+                    border border-[#d1bba8]
                     bg-[#fffaf6]
                     px-6
                     py-3
                     text-[#3a3028]
                     hover:scale-105
+                    hover:bg-[#f7efe8]
                     transition-all
                     duration-300
-                    shadow-[0_10px_25px_rgba(0,0,0,0.04)]
+                    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
                   "
                 >
+
                   <MapPin size={18} />
 
                   <span
@@ -413,6 +478,7 @@ export default function PageWeddingLocation() {
         </div>
 
       </div>
+
     </section>
   );
 }

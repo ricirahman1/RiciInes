@@ -26,10 +26,13 @@ const gallery = [
   { src: "/g1.jpeg" },
   
   { src: "/g9.jpg" },
-  { src: "/g14.jpeg" },
+  
   { src: "/g24.jpg" },
   { src: "/g25.jpg" },
   { src: "/g26.jpg" },
+  { src: "/g122.jpg" },
+  { src: "/g123.jpg" },
+  { src: "/g124.jpg" },
  
 ];
 
