@@ -33,6 +33,7 @@ const gallery = [
   { src: "/g122.jpg" },
   { src: "/g123.jpg" },
   { src: "/g124.jpg" },
+  { src: "/g234.jpg" },
  
 ];
 
