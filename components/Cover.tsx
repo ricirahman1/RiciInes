@@ -63,14 +63,19 @@ export default function Cover({
   const [guestName, setGuestName] = useState("");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("to");
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("to");
 
-    const formatName = (name: string) =>
-      name.replace(/\b\w/g, (c) => c.toUpperCase());
+  const formatName = (text: string) =>
+    text.replace(/\b\w/g, (c) => c.toUpperCase());
 
-    setGuestName(name ? formatName(decodeURIComponent(name)) : "-");
-  }, []);
+  if (name) {
+    const decoded = decodeURIComponent(name.replace(/\+/g, " "));
+    setGuestName(formatName(decoded));
+  } else {
+    setGuestName("-");
+  }
+}, []);
 
   return (
     <section className="relative w-full min-h-[100svh] overflow-hidden">
