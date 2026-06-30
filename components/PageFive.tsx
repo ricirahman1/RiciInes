@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -20,11 +19,10 @@ const cormorant = Cormorant_Garamond({
 
 const gallery = [
   "/foto/G1.JPG",
-  "/foto/G2.JPG",
+  "/foto/G2.JPEG",
   "/foto/G3.JPG",
   "/foto/G4.JPG",
   "/foto/G5.JPG",
-  "/foto/G6.JPG",
   "/foto/G7.JPG",
   "/foto/G8.JPG",
   "/foto/G9.JPG",
@@ -34,15 +32,13 @@ const gallery = [
   "/foto/G13.JPG",
   "/foto/G14.JPG",
   "/foto/G15.JPG",
-  
+  "/foto/G16.JPG",
+  "/foto/G17.JPG",
 ];
 
 export default function PageFive() {
-  const [visible, setVisible] = useState(6);
-
   return (
     <section className="relative overflow-hidden bg-[#120805] py-24">
-
       {/* GLOW */}
       <div className="absolute -top-20 -left-20 w-[450px] h-[450px] rounded-full bg-[#b87345]/10 blur-3xl" />
 
@@ -50,35 +46,33 @@ export default function PageFive() {
 
       {/* FLORAL */}
       <Image
-              src="/flowers/top-left.png"
-              alt=""
-              width={260}
-              height={260}
-              className="
-                absolute
-                top-0
-                left-0
-                opacity-68
-                rotate-90
-              "
-            />
+        src="/flowers/top-left.png"
+        alt=""
+        width={260}
+        height={260}
+        className="
+          absolute
+          top-0
+          left-0
+          opacity-68
+          rotate-90
+        "
+      />
 
       <Image
-              src="/flowers/bottom-right.png"
-              alt=""
-              width={260}
-              height={260}
-              className="
-                absolute
-                bottom-0
-                right-0
-                rotate-0
-                opacity-65
-              "
-            />
+        src="/flowers/bottom-right.png"
+        alt=""
+        width={260}
+        height={260}
+        className="
+          absolute
+          bottom-0
+          right-0
+          opacity-65
+        "
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -86,12 +80,14 @@ export default function PageFive() {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <p className="
-            uppercase
-            tracking-[0.5em]
-            text-xs
-            text-[#c9a27b]
-          ">
+          <p
+            className="
+              uppercase
+              tracking-[0.5em]
+              text-xs
+              text-[#c9a27b]
+            "
+          >
             Wedding Gallery
           </p>
 
@@ -140,71 +136,76 @@ export default function PageFive() {
             "
           />
 
-          <div className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/50
-            via-transparent
-            to-transparent
-          " />
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-black/50
+              via-transparent
+              to-transparent
+            "
+          />
         </motion.div>
 
         {/* GALLERY */}
-        <div className="
-          columns-2
-          md:columns-3
-          lg:columns-4
-          gap-5
-          space-y-5
-        ">
-          {gallery
-            .slice(1, visible)
-            .map((img, i) => (
-              <div
-                key={i}
-                className="
-                  break-inside-avoid
-                  relative
-                  overflow-hidden
-                  rounded-[28px]
-                  bg-[#24120d]
-                  shadow-xl
-                  mb-5
-                  group
+        <div
+          className="
+            columns-2
+            md:columns-3
+            lg:columns-4
+            gap-5
+            space-y-5
+          "
+        >
+          {gallery.slice(1).map((img, i) => (
+            <div
+              key={i}
+              className="
+                break-inside-avoid
+                relative
+                overflow-hidden
+                rounded-[28px]
+                bg-[#24120d]
+                shadow-xl
+                mb-5
+                group
+              "
+            >
+              <Image
+                src={img}
+                width={600}
+                height={900}
+                loading="lazy"
+                quality={65}
+                sizes="
+                  (max-width:768px) 50vw,
+                  (max-width:1200px) 33vw,
+                  25vw
                 "
-              >
-                <Image
-                  src={img}
-                  width={600}
-                  height={900}
-                  loading="lazy"
-                  quality={65}
-                  sizes="
-                    (max-width:768px) 50vw,
-                    (max-width:1200px) 33vw,
-                    25vw
-                  "
-                  alt=""
-                  className="
-                    w-full
-                    h-auto
-                    object-cover
-                    transition
-                    duration-500
-                    group-hover:scale-105
-                  "
-                />
+                alt=""
+                className="
+                  w-full
+                  h-auto
+                  object-cover
+                  transition
+                  duration-500
+                  group-hover:scale-105
+                "
+              />
 
-                <div className="
+              <div
+                className="
                   absolute
                   inset-0
                   border
                   border-[#c9a27b]/20
                   rounded-[28px]
-                " />
+                "
+              />
 
-                <div className="
+              <div
+                className="
                   absolute
                   inset-0
                   bg-gradient-to-t
@@ -213,40 +214,14 @@ export default function PageFive() {
                   opacity-0
                   group-hover:opacity-100
                   transition
-                " />
-              </div>
-            ))}
+                "
+              />
+            </div>
+          ))}
         </div>
-
-        {/* LOAD MORE */}
-        {visible < gallery.length && (
-          <div className="flex justify-center mt-16">
-            <button
-              onClick={() =>
-                setVisible((prev) =>
-                  Math.min(prev + 6, gallery.length)
-                )
-              }
-              className="
-                px-8
-                py-4
-                rounded-full
-                bg-[#c9a27b]
-                text-[#120805]
-                font-medium
-                shadow-lg
-                hover:scale-105
-                transition
-              "
-            >
-              View More
-            </button>
-          </div>
-        )}
 
         {/* FOOTER */}
         <div className="text-center mt-24">
-
           <div className="text-[#c9a27b] text-xl">
             ❦
           </div>
@@ -262,16 +237,17 @@ export default function PageFive() {
             WEDDING DAY
           </h2>
 
-          <p className="
-            mt-5
-            uppercase
-            tracking-[0.35em]
-            text-[#c9a27b]
-            text-xs
-          ">
+          <p
+            className="
+              mt-5
+              uppercase
+              tracking-[0.35em]
+              text-[#c9a27b]
+              text-xs
+            "
+          >
             Sunday • 05 July 2026
           </p>
-
         </div>
       </div>
     </section>
