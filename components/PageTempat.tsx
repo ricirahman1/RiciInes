@@ -1,29 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
   Allura,
-  Cormorant_Garamond,
   Poppins,
+  Cormorant_Garamond,
 } from "next/font/google";
-import {
-  MapPin,
-  Clock,
-  CalendarDays,
-} from "lucide-react";
-
-
+import { MapPin } from "lucide-react";
 
 const allura = Allura({
   subsets: ["latin"],
   weight: ["400"],
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 const poppins = Poppins({
@@ -31,88 +19,87 @@ const poppins = Poppins({
   weight: ["300", "400", "500"],
 });
 
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
-
-export default function Page() {
+export default function NgunduhMantu() {
   return (
     <section className="relative min-h-screen overflow-hidden">
 
       {/* Background */}
       <Image
-        src="/foto/bg-s4.jpeg"
+        src="/BG-SVT.jpeg"
         alt=""
         fill
         priority
         className="
           object-cover
+          brightness-[0.25]
           scale-110
-          brightness-[0.28]
         "
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#120805]/70" />
+      <div className="absolute inset-0 bg-[#120805]/75" />
 
-      <div
-        className="
-          absolute inset-0
-          bg-gradient-to-b
-          from-[#2a1710]/20
-          via-[#120805]/50
-          to-[#120805]
-        "
-      />
+      <div className="
+        absolute inset-0
+        bg-gradient-to-b
+        from-[#2a1710]/20
+        via-[#120805]/50
+        to-[#120805]
+      " />
 
       {/* Glow */}
       <div className="
         absolute
-        -top-20
-        -left-20
-        w-[350px]
-        h-[350px]
+        top-0
+        left-0
+        w-96
+        h-96
         rounded-full
         bg-[#b87345]/10
         blur-3xl
-      "/>
+      " />
 
       <div className="
         absolute
         bottom-0
         right-0
-        w-[400px]
-        h-[400px]
+        w-96
+        h-96
         rounded-full
-        bg-[#6b331c]/20
+        bg-[#8a4b2b]/10
         blur-3xl
-      "/>
+      " />
 
       {/* Floral */}
       <Image
         src="/floral-gold.png"
         alt=""
-        width={280}
-        height={280}
+        width={260}
+        height={260}
         className="
           absolute
           top-0
           left-0
-          opacity-30
-          pointer-events-none
+          opacity-25
         "
       />
 
       <Image
-        src="/floral-gold.png"
+        src="/flowers/top-left.png"
         alt=""
-        width={280}
-        height={280}
+        width={160}
+        height={160}
         className="
           absolute
           bottom-0
           right-0
           rotate-180
-          opacity-30
-          pointer-events-none
+          opacity-25
         "
       />
 
@@ -128,208 +115,153 @@ export default function Page() {
       ">
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
           className="
-            max-w-xl
+            max-w-lg
             text-center
           "
         >
 
-          {/* Ornament */}
-          <div className="mb-8">
-            <span className="text-[#d9b18b] text-2xl">
-              ❦
-            </span>
+          <div className="text-[#d9b18b] text-2xl mb-6">
+            ❦
           </div>
 
-          {/* Save the date */}
+          {/* Title */}
           <h1
             className={`
               ${allura.className}
               text-6xl
               md:text-8xl
-              text-[#f4e3d2]
+              text-[#f5ebe2]
             `}
           >
             Save The Date
           </h1>
 
-          <p
+          <h2
             className={`
-              ${poppins.className}
-              uppercase
-              tracking-[0.5em]
-              text-xs
-              text-[#c8a27f]
-              mt-4
+              ${serif.className}
+              text-4xl
+              md:text-5xl
+              text-[#d9b18b]
+              mt-6
             `}
           >
             Ngunduh Mantu
+          </h2>
+
+          {/* Text */}
+          <p
+            className={`
+              ${poppins.className}
+              text-[#d4c0af]
+              leading-8
+              mt-10
+            `}
+          >
+            Dengan memohon rahmat dan
+            ridho Allah SWT, kami
+            mengundang Bapak/Ibu/
+            Saudara/i untuk menghadiri
+            acara Ngunduh Mantu.
           </p>
 
-          {/* Name */}
-          <div className="my-12">
-
-            <h2
-              className={`
-                ${cormorant.className}
-                text-5xl
-                md:text-7xl
-                text-[#f5ebe2]
-              `}
-            >
-              Rici
-            </h2>
-
-            <div className="text-[#d9b18b] text-2xl my-2">
-              &
-            </div>
-
-            <h2
-              className={`
-                ${cormorant.className}
-                text-5xl
-                md:text-7xl
-                text-[#f5ebe2]
-              `}
-            >
-              Partner
-            </h2>
-
+          <div className="my-12 text-[#d9b18b] text-xl">
+            ✦
           </div>
 
           {/* Date */}
-          <div className="mb-12">
+          <h3
+            className={`
+              ${serif.className}
+              text-5xl
+              text-[#f5ebe2]
+            `}
+          >
+            Minggu
+          </h3>
+
+          <p
+            className={`
+              ${poppins.className}
+              text-[#d9b18b]
+              tracking-[0.3em]
+              uppercase
+              mt-3
+            `}
+          >
+            05 JULI 2026
+          </p>
+
+          {/* Time */}
+          <div className="mt-12">
+            <p
+              className={`
+                ${serif.className}
+                text-4xl
+                text-[#f5ebe2]
+              `}
+            >
+              14.00 WIB - Selesai
+            </p>
+          </div>
+
+          {/* Venue */}
+          <div className="mt-12">
+
+            <h4
+              className={`
+                ${serif.className}
+                text-3xl
+                text-[#f5ebe2]
+              `}
+            >
+              Home
+            </h4>
 
             <p
               className={`
-                ${cormorant.className}
-                text-4xl
-                text-[#d9b18b]
-                tracking-[0.15em]
+                ${poppins.className}
+                text-[#c7af99]
+                text-sm
+                mt-4
+                leading-7
               `}
             >
-              05 • JULY • 2026
+              Mangsang Permai Blok J no 95, Kel.Mangsang, Kec.Sei Beduk, Kota Batam, Kepulauan Riau
             </p>
 
           </div>
 
-          
+          {/* Maps */}
+          <a
+            href="https://maps.app.goo.gl/xZgKza8WqYNWLhpQ9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex
+              items-center
+              gap-3
+              mt-14
+              px-8
+              py-4
+              rounded-full
+              bg-[#d9b18b]
+              text-[#120805]
+              font-medium
+              shadow-[0_10px_40px_rgba(217,177,139,.3)]
+              hover:scale-105
+              transition-all
+            "
+          >
+            <MapPin size={18} />
+            View Location
+          </a>
 
-          {/* Event */}
-          <div className="space-y-8">
-
-            <div className="flex justify-center">
-              <CalendarDays
-                size={24}
-                className="text-[#d9b18b]"
-              />
-            </div>
-
-            <div>
-              <h3
-                className={`
-                  ${cormorant.className}
-                  text-4xl
-                  text-[#f4e3d2]
-                `}
-              >
-                Sunday
-              </h3>
-
-              <p
-                className={`
-                  ${poppins.className}
-                  text-[#c8a27f]
-                  mt-2
-                `}
-              >
-                05 July 2026
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <Clock
-                size={22}
-                className="text-[#d9b18b]"
-              />
-            </div>
-
-            <div>
-              <h3
-                className={`
-                  ${cormorant.className}
-                  text-3xl
-                  text-[#f4e3d2]
-                `}
-              >
-                14.00 WIB
-              </h3>
-            </div>
-
-            <div className="flex justify-center">
-              <MapPin
-                size={24}
-                className="text-[#d9b18b]"
-              />
-            </div>
-
-            <div>
-              <h3
-                className={`
-                  ${cormorant.className}
-                  text-3xl
-                  text-[#f4e3d2]
-                `}
-              >
-                Mangsang Permai Blok J no 95, Kel. Mangsang, Kec. Sei Beduk, Kota Batam, Kepulauan Riau
-              </h3>
-            </div>
-
-            {/* Button */}
-            <div className="pt-8">
-
-              <a
-                href="#"
-                className="
-                  inline-flex
-                  items-center
-                  gap-3
-                  px-8
-                  py-4
-                  rounded-full
-                  border
-                  border-[#d9b18b]
-                  text-[#f4e3d2]
-                  hover:bg-[#d9b18b]
-                  hover:text-[#120805]
-                  transition-all
-                  duration-300
-                "
-              >
-                <MapPin size={18} />
-                View Maps
-              </a>
-
-            </div>
-
-          </div>
-
-          {/* Bottom Ornament */}
-          <div className="mt-16">
-            <span className="text-[#d9b18b] text-2xl">
-              ❦
-            </span>
+          <div className="mt-14 text-[#d9b18b] text-2xl">
+            ❦
           </div>
 
         </motion.div>
