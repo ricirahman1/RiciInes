@@ -19,7 +19,7 @@ const cormorant = Cormorant_Garamond({
 
 const gallery = [
   "/foto/G1.JPG",
-  "/foto/G2.JPEG",
+  "/foto/G2.jpeg",
   "/foto/G3.JPG",
   "/foto/G4.JPG",
   "/foto/G5.JPG",
