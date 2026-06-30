@@ -1,233 +1,256 @@
 "use client";
 
-import { Allura, Poppins, Cormorant_Garamond } from "next/font/google";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import {
+  Allura,
+  Cormorant_Garamond,
+  Poppins,
+} from "next/font/google";
 
 const titleFont = Allura({
   subsets: ["latin"],
   weight: ["400"],
 });
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
-
-const cormorant = Cormorant_Garamond({
+const serif = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
 });
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400"],
+});
+
 export default function PageLast() {
   return (
-    <section
-      className="
+    <section className="relative min-h-screen overflow-hidden">
+
+      {/* BACKGROUND */}
+      <Image
+        src="/g1.jpeg"
+        alt=""
+        fill
+        priority
+        className="
+          object-cover
+          brightness-[0.25]
+          scale-105
+        "
+      />
+
+      {/* MAHOGANY OVERLAY */}
+      <div className="absolute inset-0 bg-[#120805]/75" />
+
+      {/* GOLD GLOW */}
+      <div className="
+        absolute
+        top-0
+        left-0
+        w-[500px]
+        h-[500px]
+        rounded-full
+        bg-[#b87345]/10
+        blur-3xl
+      "/>
+
+      <div className="
+        absolute
+        bottom-0
+        right-0
+        w-[500px]
+        h-[500px]
+        rounded-full
+        bg-[#6b331c]/20
+        blur-3xl
+      "/>
+
+      {/* FLORAL */}
+      <Image
+        src="/floral-gold.png"
+        width={260}
+        height={260}
+        alt=""
+        className="
+          absolute
+          top-0
+          left-0
+          opacity-20
+        "
+      />
+
+      <Image
+        src="/floral-gold.png"
+        width={260}
+        height={260}
+        alt=""
+        className="
+          absolute
+          bottom-0
+          right-0
+          rotate-180
+          opacity-20
+        "
+      />
+
+      {/* CONTENT */}
+      <div className="
         relative
+        z-10
         min-h-screen
-        overflow-hidden
         flex
         items-center
         justify-center
         px-6
-        bg-cover
-        bg-center
-      "
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(35,25,18,0.45), rgba(35,25,18,0.45)), url('/g1.jpeg')",
-      }}
-    >
+      ">
 
-      {/* SOFT LIGHT */}
-      <div className="absolute top-[-100px] left-[-80px] w-[260px] h-[260px] rounded-full bg-[#ffe8d2]/20 blur-3xl" />
-
-      <div className="absolute bottom-[-120px] right-[-100px] w-[320px] h-[320px] rounded-full bg-[#fff7f0]/10 blur-3xl" />
-
-      {/* FLOATING ICONS */}
-      <motion.div
-        animate={{ y: [0, -10, 0] }}
-        transition={{
-          repeat: Infinity,
-          duration: 5,
-        }}
-        className="absolute top-20 left-10 text-white/60 text-2xl"
-      >
-        ♡
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{
-          repeat: Infinity,
-          duration: 6,
-        }}
-        className="absolute bottom-24 right-12 text-white/50 text-3xl"
-      >
-        ✿
-      </motion.div>
-
-      {/* CONTENT */}
-      <motion.div
-        className="relative z-10 w-full max-w-lg"
-        initial={{ opacity: 0, y: 50, scale: 0.96 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 1,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-
-        {/* GLASS CARD */}
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+          }}
           className="
-            relative
-            overflow-hidden
-            rounded-[3rem]
-            border border-white/20
-            bg-white/[0.10]
-            backdrop-blur-xl
-            px-8 py-12
-            shadow-[0_20px_80px_rgba(0,0,0,0.25)]
-            text-center
+            max-w-3xl
+            w-full
           "
         >
 
-          {/* INNER GLOW */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/[0.06] to-transparent pointer-events-none" />
-
-          {/* TOP HEART */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="mb-5 flex justify-center"
+          {/* FRAME */}
+          <div
+            className="
+              relative
+              rounded-[50px]
+              bg-[#24120d]/50
+              backdrop-blur-xl
+              border
+              border-[#c9a27b]/20
+              px-10
+              py-16
+              text-center
+              shadow-[0_30px_100px_rgba(0,0,0,.5)]
+            "
           >
-            <div
-              className="
-                w-20 h-20
-                rounded-full
-                bg-white/10
-                border border-white/20
-                flex items-center justify-center
-                shadow-inner
-              "
-            >
-              <span className="text-4xl">🤍</span>
+
+            {/* ORNAMENT */}
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-px bg-[#c9a27b]" />
+                <span className="text-[#c9a27b] text-xl">
+                  ❦
+                </span>
+                <div className="w-16 h-px bg-[#c9a27b]" />
+              </div>
             </div>
-          </motion.div>
 
-          {/* SMALL TITLE */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className={`
-              ${cormorant.className}
-              uppercase
-              tracking-[0.35em]
-              text-[#f0d2af]
-              text-xs
-              mb-2
-            `}
-          >
-            Thank You
-          </motion.p>
+            {/* TITLE */}
+            <p
+              className={`
+                ${poppins.className}
+                uppercase
+                tracking-[0.45em]
+                text-[#c9a27b]
+                text-xs
+              `}
+            >
+              Thank You
+            </p>
 
-          {/* TITLE */}
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className={`
-              ${titleFont.className}
-              text-white
-              text-6xl md:text-7xl
-              leading-none
-              mb-8
-              drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)]
-            `}
-          >
-            See You
-            <br />
-            On Our Day
-          </motion.h2>
+            <h1
+              className={`
+                ${titleFont.className}
+                text-[#f4e3d2]
+                text-6xl
+                md:text-8xl
+                mt-4
+                leading-none
+              `}
+            >
+              See You
+              <br />
+              On Our Day
+            </h1>
 
-          {/* TEXT */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className={`
-              ${cormorant.className}
-              text-white/90
-              text-[1.2 rem]
-              leading-[2]
-              font-light
-            `}
-          >
-            We have come to our new life, we want to share the joy of our marriage with all the families and friends. We write this invitation to invite all of you to share the joy with us on our wedding
-          </motion.p>
+            {/* DIVIDER */}
+            <div className="flex justify-center my-10">
+              <div className="w-24 h-px bg-[#c9a27b]/40" />
+            </div>
 
-          {/* ORNAMENT */}
-          <div className="my-8 flex items-center justify-center gap-3">
-            <div className="w-10 h-px bg-[#f0d2af]/50" />
-            <span className="text-[#f0d2af] text-lg">✿</span>
-            <div className="w-10 h-px bg-[#f0d2af]/50" />
+            {/* TEXT */}
+            <p
+              className={`
+                ${serif.className}
+                text-[#f4e3d2]/90
+                text-lg
+                md:text-xl
+                leading-9
+              `}
+            >
+              We are entering a beautiful new chapter
+              of our lives and would be honored to
+              celebrate this joyful moment with our
+              beloved family and friends.
+              <br /><br />
+              Your presence and blessings will make
+              our wedding day truly unforgettable.
+            </p>
+
+            {/* ORNAMENT */}
+            <div className="flex justify-center my-10">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-px bg-[#c9a27b]" />
+                <span className="text-[#c9a27b]">
+                  ❦
+                </span>
+                <div className="w-16 h-px bg-[#c9a27b]" />
+              </div>
+            </div>
+
+            {/* SIGNATURE */}
+            <p
+              className={`
+                ${poppins.className}
+                uppercase
+                tracking-[0.45em]
+                text-[#c9a27b]
+                text-xs
+              `}
+            >
+              WITH LOVE
+            </p>
+
+            <h2
+              className={`
+                ${serif.className}
+                text-[#f4e3d2]
+                text-4xl
+                mt-4
+              `}
+            >
+              Rici & Ines
+            </h2>
+
+            <p
+              className={`
+                ${serif.className}
+                text-[#c9a27b]
+                text-xl
+                mt-6
+              `}
+            >
+              #RICIwithhappINESs
+            </p>
+
           </div>
-
-
-          {/* LOVE */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className={`
-              ${cormorant.className}
-              text-[#f0d2af]
-              uppercase
-              tracking-[0.35em]
-              text-sm
-            `}
-          >
-            WITH LOVE
-          </motion.p>
-
-          <motion.div
-  initial={{ opacity: 0, y: 25 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.9 }}
-  className="
-    mt-2
-    text-center
-    
-  "
->
-  
-
-  <p
-    className={`
-      ${cormorant.className}
-      text-[#dfa91f]
-      text-xl md:text-3xl
-      tracking-wide
-      font-semibold
-    `}
-  >
-    #RICIwithhappINESs
-  </p>
-
-  
-</motion.div>
-
-          {/* BOTTOM ICON */}
-          <div className="mt-8 flex justify-center gap-2 opacity-80">
-            <span className="text-[#f0d2af]">♡</span>
-            <span className="text-[#f0d2af]">✿</span>
-            <span className="text-[#f0d2af]">♡</span>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
