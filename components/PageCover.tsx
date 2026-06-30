@@ -60,7 +60,7 @@ export default function Cover() {
 
         <div className="mt-36 border-t border-[#C9A96A]/40 pt-6">
           <p
-            className={`${cormorant.className} uppercase tracking-[0.3em] text-[#EACB75] text-sm`}
+            className={`${cormorant.className} `}
           >
             Sunday
           </p>
@@ -68,7 +68,7 @@ export default function Cover() {
           <h3
             className={`${cormorant.className} text-[#EACB75] text-2xl md:text-3xl mt-2`}
           >
-            31 • May • 2026
+            5 • July • 2026
           </h3>
         </div>
       </motion.div>

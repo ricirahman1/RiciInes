@@ -52,33 +52,32 @@ export default function PageFive() {
 
       {/* FLORAL */}
       <Image
-        src="/floral-gold.png"
-        width={280}
-        height={280}
-        alt=""
-        className="
-          absolute
-          top-0
-          left-0
-          opacity-20
-          pointer-events-none
-        "
-      />
+              src="/flowers/top-left.png"
+              alt=""
+              width={260}
+              height={260}
+              className="
+                absolute
+                top-0
+                left-0
+                opacity-68
+                rotate-90
+              "
+            />
 
       <Image
-        src="/floral-gold.png"
-        width={280}
-        height={280}
-        alt=""
-        className="
-          absolute
-          bottom-0
-          right-0
-          rotate-180
-          opacity-20
-          pointer-events-none
-        "
-      />
+              src="/flowers/bottom-right.png"
+              alt=""
+              width={260}
+              height={260}
+              className="
+                absolute
+                bottom-0
+                right-0
+                rotate-0
+                opacity-65
+              "
+            />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
 

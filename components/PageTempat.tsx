@@ -85,21 +85,22 @@ export default function NgunduhMantu() {
           absolute
           top-0
           left-0
-          opacity-25
+          opacity-68
+          rotate-90
         "
       />
 
       <Image
-        src="/flowers/top-left.png"
+        src="/flowers/bottom-right.png"
         alt=""
-        width={160}
-        height={160}
+        width={260}
+        height={260}
         className="
           absolute
           bottom-0
           right-0
-          rotate-180
-          opacity-25
+          rotate-0
+          opacity-65
         "
       />
 

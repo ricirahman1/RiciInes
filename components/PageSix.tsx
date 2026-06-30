@@ -143,7 +143,7 @@ export default function PageSix() {
 
       {/* FLORAL */}
       <Image
-        src="/floral-gold.png"
+        src="/flowers/top-left.png"
         width={260}
         height={260}
         alt=""
@@ -151,13 +151,14 @@ export default function PageSix() {
           absolute
           top-0
           left-0
-          opacity-20
+          opacity-70
           pointer-events-none
+          rotate-90
         "
       />
 
       <Image
-        src="/floral-gold.png"
+        src="/flowers/bottom-right.png"
         width={260}
         height={260}
         alt=""
@@ -315,62 +316,130 @@ export default function PageSix() {
           </motion.div>
 
           {/* WISHES */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            className="
-              space-y-5
-              max-h-[700px]
-              overflow-y-auto
-              pr-2
-            "
-          >
-            {wishes.map((wish) => (
-              <div
-                key={wish.id}
-                className="
-                  rounded-[30px]
-                  bg-[#24120d]/60
-                  backdrop-blur-xl
-                  border
-                  border-[#c9a27b]/20
-                  p-6
-                  shadow-[0_10px_40px_rgba(0,0,0,.3)]
-                "
-              >
-                <p
-                  className={`
-                    ${poppins.className}
-                    uppercase
-                    tracking-[0.25em]
-                    text-[#c9a27b]
-                    text-xs
-                  `}
-                >
-                  {wish.name}
-                </p>
+          {/* WISHES */}
+<motion.div
+  initial={{
+    opacity: 0,
+    x: 30,
+  }}
+  whileInView={{
+    opacity: 1,
+    x: 0,
+  }}
+  transition={{
+    duration: 1,
+  }}
+  className="
+    space-y-5
+    max-h-[700px]
+    overflow-y-auto
+    pr-2
+    custom-scroll
+  "
+>
+  {wishes.map((wish) => (
+    <div
+      key={wish.id}
+      className="
+        relative
+        overflow-hidden
+        rounded-[30px]
+        bg-[#24120d]/60
+        backdrop-blur-xl
+        border
+        border-[#c9a27b]/20
+        p-6
+        shadow-[0_10px_40px_rgba(0,0,0,.3)]
+      "
+    >
 
-                <div className="w-12 h-px bg-[#c9a27b]/30 my-4" />
+      {/* FLORAL TOP */}
+      <Image
+        src="/flowers/top-left.png"
+        width={50}
+        height={50}
+        alt=""
+        className="
+          absolute
+          top-0
+          left-1
+          opacity-70
+          pointer-events-none
+          rotate-90
+        "
+      />
 
-                <p
-                  className={`
-                    ${handwriting.className}
-                    text-[#f4e3d2]
-                    text-xl
-                    leading-8
-                  `}
-                >
-                  {wish.message}
-                </p>
-              </div>
-            ))}
-          </motion.div>
+      {/* FLORAL BOTTOM */}
+      <Image
+        src="/flowers/bottom-right.png"
+        width={50}
+        height={50}
+        alt=""
+        className="
+          absolute
+          bottom-0
+          right-0
+          opacity-60
+          pointer-events-none
+        "
+      />
+
+      {/* GOLD LIGHT */}
+      <div
+        className="
+          absolute
+          -top-20
+          -right-20
+          w-40
+          h-40
+          rounded-full
+          bg-[#b87345]/10
+          blur-3xl
+        "
+      />
+
+      {/* NAME */}
+      <p
+        className={`
+          ${poppins.className}
+          uppercase
+          tracking-[0.25em]
+          text-[#c9a27b]
+          text-xs
+          relative
+          z-10
+        `}
+      >
+        {wish.name}
+      </p>
+
+      {/* ORNAMENT */}
+      <div className="flex items-center gap-3 my-4 relative z-10">
+        <div className="w-10 h-px bg-[#c9a27b]/30" />
+
+        <span className="text-[#c9a27b]">
+          ❦
+        </span>
+
+        <div className="w-10 h-px bg-[#c9a27b]/30" />
+      </div>
+
+      {/* MESSAGE */}
+      <p
+        className={`
+          ${handwriting.className}
+          text-[#f4e3d2]
+          text-xl
+          leading-8
+          relative
+          z-10
+        `}
+      >
+        {wish.message}
+      </p>
+    </div>
+  ))}
+</motion.div>
 
         </div>
       </div>

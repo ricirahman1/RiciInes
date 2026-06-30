@@ -10,14 +10,14 @@ const bodyFont = Inter({
 export const metadata: Metadata = {
   title: "Undangan Pernikahan Rici & Ines",
   description:
-    "Kami mengundang Anda ke hari bahagia kami - 31 Mei 2026",
+    "Kami mengundang Anda ke hari bahagia kami - 5 Juli 2026",
 
   metadataBase: new URL("https://rici-ines.vercel.app"),
 
   openGraph: {
-    title: "Wedding Invitation Bojan & Evi",
-    description: "June 21, 2026 | Bojan & Evi Wedding",
-    url: "https://wedding-bojan-evi-jha6.vercel.app",
+    title: "Wedding Invitation Rici & Ines",
+    description: "July 5, 2026 | Rici & Ines Wedding",
+    url: "https://wedding-rici-ines.vercel.app",
     siteName: "Wedding Invitation",
 
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpeg",
         width: 1200,
         height: 630,
-        alt: "Wedding Invitation Bojan & Evi",
+        alt: "Wedding Invitation Rici & Ines",
       },
     ],
 
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Wedding Invitation Bojan & Evi",
-    description: "June 21, 2026 | Bojan & Evi Wedding",
-    images: ["/og-image.jpg"],
+    title: "Wedding Invitation Rici & Ines",
+    description: "July 5, 2026 | Rici & Ines Wedding",
+    images: ["/foto/G2.jpeg"],
   },
 };
 

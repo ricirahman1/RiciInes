@@ -40,11 +40,11 @@ export default function PageFour() {
         alt="Wedding Background"
         fill
         priority
-        className="object-cover scale-105 brightness-50"
+        className="object-cover scale-105 brightness-30"
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#1b100b]/70" />
+      <div className="absolute inset-0 bg-[#1b100b]/20" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#2d1810]/20 via-[#1b100b]/50 to-[#120805]/90" />
 
       {/* Glow */}

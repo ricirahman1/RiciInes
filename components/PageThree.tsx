@@ -103,7 +103,7 @@ const RenderItem = ({
             rounded-[180px]
             overflow-hidden
             border-[4px]
-            border-[#c59c73]
+            border-[#e1b61c]
             shadow-[0_0_35px_rgba(197,156,115,0.25)]
           "
         >
@@ -223,7 +223,7 @@ export default function PageThree() {
     className="object-cover scale-110 brightness-[0.80]"
   />
 
-  <div className="absolute inset-0 bg-[#1a0d08]/75" />
+  <div className="absolute inset-0 bg-[#1a0d08]/30" />
 
   <div
     className="
