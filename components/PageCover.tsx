@@ -29,7 +29,7 @@ export default function Cover() {
                 alt="Background"
                 fill
                 priority
-                className="object-cover scale-110 opacity-30"
+                className="object-cover scale-110 opacity-80"
               />
       
               <div className="absolute inset-0 bg-black/10" />

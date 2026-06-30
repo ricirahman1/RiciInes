@@ -37,14 +37,14 @@ export default function PageTwo() {
           className="
             object-cover
             object-center
-            scale-105
+            scale-110
             brightness-[0.65]
           "
         />
       </div>
 
       {/* MAHOGANY OVERLAY */}
-      <div className="absolute inset-0 bg-[#2d1810]/70" />
+      <div className="absolute inset-0 bg-[#2d1810]/40" />
 
       {/* GLOW EFFECTS */}
       <div className="absolute top-[-120px] right-[-80px] w-[320px] h-[320px] rounded-full bg-[#7a3b22]/25 blur-3xl" />

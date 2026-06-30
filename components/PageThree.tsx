@@ -111,10 +111,10 @@ const RenderItem = ({
             src={item.img}
             alt={item.name}
             fill
-            className="object-cover"
+            className="object-cover scale-110 opacity-80"
           />
 
-          <div className="absolute inset-0 ring-8 ring-[#6d4229]/30 rounded-[180px]" />
+          <div className="absolute inset-0 ring-8 ring-[#6d4229]/80 rounded-[180px]" />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
@@ -220,7 +220,7 @@ export default function PageThree() {
     alt="background"
     fill
     priority
-    className="object-cover scale-110 brightness-[0.45]"
+    className="object-cover scale-110 brightness-[0.80]"
   />
 
   <div className="absolute inset-0 bg-[#1a0d08]/75" />
