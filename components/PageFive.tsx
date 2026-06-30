@@ -19,24 +19,22 @@ const cormorant = Cormorant_Garamond({
 });
 
 const gallery = [
-  "/foto/G1.jpeg",
-  "/foto/G2.jpeg",
-  "/foto/G3.jpeg",
-  "/foto/G4.jpeg",
-  "/foto/G5.jpeg",
-  "/foto/G6.jpeg",
-  "/foto/G7.jpeg",
-  "/foto/G8.jpeg",
-  "/foto/G9.jpeg",
-  "/foto/G10.jpeg",
-  "/foto/G11.jpeg",
-  "/foto/G12.jpeg",
-  "/foto/G13.jpeg",
-  "/foto/G14.jpeg",
-  "/foto/G15.jpeg",
-  "/foto/G16.jpeg",
-  "/foto/G17.jpeg",
-  "/foto/G18.jpeg",
+  "/foto/G1.JPG",
+  "/foto/G2.JPG",
+  "/foto/G3.JPG",
+  "/foto/G4.JPG",
+  "/foto/G5.JPG",
+  "/foto/G6.JPG",
+  "/foto/G7.JPG",
+  "/foto/G8.JPG",
+  "/foto/G9.JPG",
+  "/foto/G10.JPG",
+  "/foto/G11.JPG",
+  "/foto/G12.JPG",
+  "/foto/G13.JPG",
+  "/foto/G14.JPG",
+  "/foto/G15.JPG",
+  
 ];
 
 export default function PageFive() {
