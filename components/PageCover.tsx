@@ -25,7 +25,7 @@ export default function Cover() {
               <div className="absolute inset-0 bg-gradient-to-b from-[#ea6262] via-[#3A1010] to-[#1B0808]" />
       
               <Image
-                src="/bg-s2.jpg"
+                src="/foto/bg-s2.jpeg"
                 alt="Background"
                 fill
                 priority

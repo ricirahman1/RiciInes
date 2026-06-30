@@ -30,7 +30,7 @@ export default function PageTwo() {
       {/* BACKGROUND */}
       <div className="absolute inset-0">
         <Image
-          src="/bg-s3.jpg"
+          src="/foto/bg-s3.jpeg"
           alt="Wedding Background"
           fill
           priority
