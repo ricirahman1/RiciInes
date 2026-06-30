@@ -38,6 +38,58 @@ export default function Cover() {
       
             </div>
 
+
+            {/* ================= Floral Decoration ================= */}
+<div className="absolute inset-0 pointer-events-none z-[2]">
+  {/* Top Left */}
+  <motion.div
+    initial={{ opacity: 0, x: -40, y: -40 }}
+    animate={{ opacity: 0.9, x: 0, y: 0 }}
+    transition={{ duration: 1.2 }}
+    className="absolute -top-6 -left-6 w-52 md:w-72"
+  >
+    <Image
+      src="/flowers/bottom-right.png"
+      alt="Flower"
+      width={200}
+      height={200}
+      className="object-contain rotate-180"
+    />
+  </motion.div>
+
+  {/* Bottom Right */}
+  <motion.div
+    initial={{ opacity: 0, x: 40, y: 40 }}
+    animate={{ opacity: 0.9, x: 0, y: 0 }}
+    transition={{ duration: 1.4 }}
+    className="absolute -bottom-6 -right-6 w-56 md:w-80"
+  >
+    <Image
+      src="/flowers/center.png"
+      alt="Flower"
+      width={200}
+      height={300}
+      className="object-contain opacity-70"
+    />
+  </motion.div>
+
+  {/* Small flower middle right */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 0.5, scale: 1 }}
+    transition={{ duration: 1.6 }}
+    className="absolute top-[35%] right-4 w-20 md:w-28"
+  >
+    <Image
+      src="/flowers/center.png"
+      alt="Flower"
+      width={200}
+      height={200}
+      className="object-contain"
+    />
+  </motion.div>
+</div>
+
             
       {/* Particles */}
 
@@ -51,7 +103,7 @@ export default function Cover() {
         className="relative z-10 flex min-h-screen flex-col justify-center items-end px-8 md:px-20 text-right"
       >
         <p
-          className={`${cormorant.className} self-start uppercase tracking-[0.60em] text-[#EACB75] text-2xl md:text-2xl`}
+          className={`${cormorant.className} self-start uppercase tracking-[0.60em] text-[#c9a27b] text-2xl md:text-2xl`}
         >
           Ngunduh Mantu
         </p>

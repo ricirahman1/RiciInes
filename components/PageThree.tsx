@@ -103,7 +103,7 @@ const RenderItem = ({
             rounded-[180px]
             overflow-hidden
             border-[4px]
-            border-[#d78227]
+            border-[#c9a27b]
             shadow-[0_0_35px_rgba(197,156,115,0.25)]
           "
         >

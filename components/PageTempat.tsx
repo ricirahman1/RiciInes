@@ -8,6 +8,7 @@ import {
   Cormorant_Garamond,
 } from "next/font/google";
 import { MapPin } from "lucide-react";
+import { House } from "lucide-react";
 
 const allura = Allura({
   subsets: ["latin"],
@@ -210,31 +211,40 @@ export default function NgunduhMantu() {
           </div>
 
           {/* Venue */}
-          <div className="mt-12">
+         
 
-            <h4
-              className={`
-                ${serif.className}
-                text-3xl
-                text-[#f5ebe2]
-              `}
-            >
-              Home
-            </h4>
+<div className="mt-12">
+  <div className="flex justify-center">
+    <div className="
+      w-16 h-16
+      rounded-full
+      border border-[#c9a27b]/30
+      bg-[#24120d]/40
+      backdrop-blur-md
+      flex items-center justify-center
+      shadow-[0_0_30px_rgba(201,162,123,.15)]
+    ">
+      <House
+        className="w-7 h-7 text-[#c9a27b]"
+        strokeWidth={1.7}
+      />
+    </div>
+  </div>
 
-            <p
-              className={`
-                ${poppins.className}
-                text-[#c7af99]
-                text-sm
-                mt-4
-                leading-7
-              `}
-            >
-              Mangsang Permai Blok J no 95, Kel.Mangsang, Kec.Sei Beduk, Kota Batam, Kepulauan Riau
-            </p>
-
-          </div>
+  <p
+    className={`
+      ${poppins.className}
+      text-[#c7af99]
+      text-sm
+      mt-5
+      leading-7
+      text-center
+    `}
+  >
+    Mangsang Permai Blok J No. 95, Kel. Mangsang,
+    Kec. Sei Beduk, Kota Batam, Kepulauan Riau
+  </p>
+</div>
 
           {/* Maps */}
           <a

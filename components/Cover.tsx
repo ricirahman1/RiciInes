@@ -152,33 +152,37 @@ export default function Cover({
         >
           
         </motion.p>
-        <div
-        className="mt-36 ">
+        <div className="mt-36 flex items-center justify-center gap-6">
+  {/* Rici */}
+  <motion.h1
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8 }}
+    className={titleClass}
+  >
+    Rici
+  </motion.h1>
 
-          {/* Names */}
+  {/* & */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.9 }}
+    className="text-4xl text-[#D4AF37] leading-none"
+  >
+    &
+  </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className={titleClass}
-        >
-          Rici
-        </motion.h1>
-
-        <div className="text-4xl text-[#D4AF37]">&</div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className={titleClass}
-        >
-          Ines
-        </motion.h1>
-
-
-        </div>
+  {/* Ines */}
+  <motion.h1
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1 }}
+    className={titleClass}
+  >
+    Ines
+  </motion.h1>
+</div>
 
         
 
