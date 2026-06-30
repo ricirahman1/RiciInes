@@ -51,32 +51,14 @@ export default function Cover() {
         className="relative z-10 flex min-h-screen flex-col justify-center items-end px-8 md:px-20 text-right"
       >
         <p
-          className={`${cormorant.className} self-start uppercase tracking-[0.60em] text-[#EACB75] text-lg md:text-base`}
+          className={`${cormorant.className} self-start uppercase tracking-[0.60em] text-[#EACB75] text-2xl md:text-2xl`}
         >
           Ngunduh Mantu
         </p>
 
-        <div className="mt-6 leading-none">
-          <h1
-            className={`${oregano.className} text-[82px] md:text-[120px] text-[#EACB75] drop-shadow-xl`}
-          >
-            Rici
-          </h1>
+        
 
-          <p
-            className={`${cormorant.className} text-[#EACB75] text-4xl md:text-5xl text-center my-3`}
-          >
-            &
-          </p>
-
-          <h1
-            className={`${oregano.className} text-[82px] md:text-[120px] text-[#EACB75] drop-shadow-xl`}
-          >
-            Ines
-          </h1>
-        </div>
-
-        <div className="mt-8 border-t border-[#C9A96A]/40 pt-6">
+        <div className="mt-36 border-t border-[#C9A96A]/40 pt-6">
           <p
             className={`${cormorant.className} uppercase tracking-[0.3em] text-[#EACB75] text-sm`}
           >
