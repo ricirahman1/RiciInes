@@ -148,12 +148,14 @@ export default function Cover({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-4 text-xs tracking-[0.45em] text-[#EACB75]"
+          className="mt-8 text-xs tracking-[0.45em] text-[#EACB75] pb-3"
         >
-          THE WEDDING OF
+          
         </motion.p>
+        <div
+        className="mt-36 ">
 
-        {/* Names */}
+          {/* Names */}
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -174,6 +176,11 @@ export default function Cover({
         >
           Ines
         </motion.h1>
+
+
+        </div>
+
+        
 
         {/* Guest */}
 
@@ -204,7 +211,7 @@ export default function Cover({
           }}
           whileTap={{ scale: 0.95 }}
           className="
-            mt-12
+            mt-5
             flex
             items-center
             gap-3

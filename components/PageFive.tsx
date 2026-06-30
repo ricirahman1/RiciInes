@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -36,37 +37,18 @@ const gallery = [
   "/foto/G16.jpeg",
   "/foto/G17.jpeg",
   "/foto/G18.jpeg",
-
-  
-
 ];
 
 export default function PageFive() {
+  const [visible, setVisible] = useState(6);
+
   return (
     <section className="relative overflow-hidden bg-[#120805] py-24">
 
       {/* GLOW */}
-      <div className="
-        absolute
-        -top-20
-        -left-20
-        w-[450px]
-        h-[450px]
-        rounded-full
-        bg-[#b87345]/10
-        blur-3xl
-      "/>
+      <div className="absolute -top-20 -left-20 w-[450px] h-[450px] rounded-full bg-[#b87345]/10 blur-3xl" />
 
-      <div className="
-        absolute
-        bottom-0
-        right-0
-        w-[500px]
-        h-[500px]
-        rounded-full
-        bg-[#6b331c]/20
-        blur-3xl
-      "/>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#6b331c]/20 blur-3xl" />
 
       {/* FLORAL */}
       <Image
@@ -102,9 +84,9 @@ export default function PageFive() {
 
         {/* HEADER */}
         <motion.div
-          initial={{ opacity:0, y:30 }}
-          whileInView={{ opacity:1, y:0 }}
-          transition={{ duration:1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
           className="text-center mb-20"
         >
           <p className="
@@ -133,29 +115,31 @@ export default function PageFive() {
           </div>
         </motion.div>
 
-        {/* HERO IMAGE */}
+        {/* HERO */}
         <motion.div
-          initial={{ opacity:0 }}
-          whileInView={{ opacity:1 }}
-          transition={{ duration:1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
           className="
             relative
-            h-[75vh]
+            h-[70vh]
             overflow-hidden
             rounded-[40px]
-            mb-8
+            mb-12
           "
         >
           <Image
             src={gallery[0]}
             fill
             priority
+            quality={80}
+            sizes="100vw"
             alt=""
             className="
               object-cover
               transition
-              duration-[2500ms]
-              hover:scale-105
+              duration-700
+              hover:scale-[1.02]
             "
           />
 
@@ -166,62 +150,52 @@ export default function PageFive() {
             from-black/50
             via-transparent
             to-transparent
-          "/>
+          " />
         </motion.div>
 
-        {/* EDITORIAL GRID */}
+        {/* GALLERY */}
         <div className="
-          grid
-          md:grid-cols-12
+          columns-2
+          md:columns-3
+          lg:columns-4
           gap-5
+          space-y-5
         ">
-
-          {gallery.slice(1).map((img, i) => {
-
-            const large =
-              i === 1 ||
-              i === 4 ||
-              i === 7;
-
-            return (
-              <motion.div
+          {gallery
+            .slice(1, visible)
+            .map((img, i) => (
+              <div
                 key={i}
-                initial={{
-                  opacity:0,
-                  y:40,
-                }}
-                whileInView={{
-                  opacity:1,
-                  y:0,
-                }}
-                transition={{
-                  duration:.8,
-                  delay:i*.05,
-                }}
-                className={`
+                className="
+                  break-inside-avoid
                   relative
                   overflow-hidden
-                  rounded-[30px]
+                  rounded-[28px]
                   bg-[#24120d]
-                  ${
-                    large
-                      ? "md:col-span-7"
-                      : "md:col-span-5"
-                  }
-                `}
+                  shadow-xl
+                  mb-5
+                  group
+                "
               >
                 <Image
                   src={img}
-                  width={1200}
-                  height={1600}
+                  width={600}
+                  height={900}
+                  loading="lazy"
+                  quality={65}
+                  sizes="
+                    (max-width:768px) 50vw,
+                    (max-width:1200px) 33vw,
+                    25vw
+                  "
                   alt=""
                   className="
                     w-full
-                    h-full
+                    h-auto
                     object-cover
                     transition
-                    duration-[2000ms]
-                    hover:scale-110
+                    duration-500
+                    group-hover:scale-105
                   "
                 />
 
@@ -230,8 +204,8 @@ export default function PageFive() {
                   inset-0
                   border
                   border-[#c9a27b]/20
-                  rounded-[30px]
-                "/>
+                  rounded-[28px]
+                " />
 
                 <div className="
                   absolute
@@ -239,11 +213,39 @@ export default function PageFive() {
                   bg-gradient-to-t
                   from-black/20
                   to-transparent
-                "/>
-              </motion.div>
-            );
-          })}
+                  opacity-0
+                  group-hover:opacity-100
+                  transition
+                " />
+              </div>
+            ))}
         </div>
+
+        {/* LOAD MORE */}
+        {visible < gallery.length && (
+          <div className="flex justify-center mt-16">
+            <button
+              onClick={() =>
+                setVisible((prev) =>
+                  Math.min(prev + 6, gallery.length)
+                )
+              }
+              className="
+                px-8
+                py-4
+                rounded-full
+                bg-[#c9a27b]
+                text-[#120805]
+                font-medium
+                shadow-lg
+                hover:scale-105
+                transition
+              "
+            >
+              View More
+            </button>
+          </div>
+        )}
 
         {/* FOOTER */}
         <div className="text-center mt-24">

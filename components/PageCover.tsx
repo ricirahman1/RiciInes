@@ -53,7 +53,7 @@ export default function Cover() {
         <p
           className={`${cormorant.className} self-start uppercase tracking-[0.60em] text-[#EACB75] text-lg md:text-base`}
         >
-          Wedding Invitation
+          Ngunduh Mantu
         </p>
 
         <div className="mt-6 leading-none">
