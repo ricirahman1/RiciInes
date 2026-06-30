@@ -36,7 +36,7 @@ export default function PageFour() {
 
       {/* Background */}
       <Image
-        src="/BG-SVT.jpeg"
+        src="/foto/bg-s4.jpeg"
         alt="Wedding Background"
         fill
         priority

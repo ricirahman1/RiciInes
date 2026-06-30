@@ -46,7 +46,7 @@ const data = [
     link: "https://www.instagram.com/ric_rhmn",
   },
   {
-    name: "Ines",
+    name: "Ines",  
     full: "Ines Leo Riesgo S.TP",
     desc: "Putri dari Bapak Jefandri & Ibu Eldawati",
     img: "/foto/adekk.jpeg",

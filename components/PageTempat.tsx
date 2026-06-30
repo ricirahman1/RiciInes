@@ -39,7 +39,7 @@ export default function Page() {
 
       {/* Background */}
       <Image
-        src="/BG-SVT.jpeg"
+        src="/foto/bg-s4.jpeg"
         alt=""
         fill
         priority
@@ -273,7 +273,7 @@ export default function Page() {
                   text-[#f4e3d2]
                 `}
               >
-                10.00 WIB
+                14.00 WIB
               </h3>
             </div>
 
@@ -292,24 +292,8 @@ export default function Page() {
                   text-[#f4e3d2]
                 `}
               >
-                Gedung Pramuka
+                Mangsang Permai Blok J no 95, Kel. Mangsang, Kec. Sei Beduk, Kota Batam, Kepulauan Riau
               </h3>
-
-              <p
-                className={`
-                  ${poppins.className}
-                  text-[#c8a27f]
-                  text-sm
-                  leading-7
-                  mt-3
-                `}
-              >
-                Jl. Pramuka Raya No.10,
-                Lolong Belanti,
-                Padang Utara,
-                Kota Padang,
-                Sumatera Barat
-              </p>
             </div>
 
             {/* Button */}
