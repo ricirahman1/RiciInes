@@ -103,7 +103,7 @@ const RenderItem = ({
             rounded-[180px]
             overflow-hidden
             border-[4px]
-            border-[#e1b61c]
+            border-[#d78227]
             shadow-[0_0_35px_rgba(197,156,115,0.25)]
           "
         >
@@ -216,14 +216,14 @@ export default function PageThree() {
       {/* STICKY BACKGROUND */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
   <Image
-    src="/bg-s2.jpg"
+    src="/foto/bg-s2.jpeg"
     alt="background"
     fill
     priority
     className="object-cover scale-110 brightness-[0.80]"
   />
 
-  <div className="absolute inset-0 bg-[#1a0d08]/30" />
+  <div className="absolute inset-0 bg-[#1a0d08]/60" />
 
   <div
     className="

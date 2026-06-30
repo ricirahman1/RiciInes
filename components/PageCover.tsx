@@ -58,7 +58,7 @@ export default function Cover() {
 
         
 
-        <div className="mt-36 border-t border-[#C9A96A]/40 pt-6">
+        <div className="mt-36 text-[#EACB75] pt-6">
           <p
             className={`${cormorant.className} `}
           >
