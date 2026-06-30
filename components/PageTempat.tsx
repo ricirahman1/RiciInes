@@ -30,7 +30,7 @@ export default function NgunduhMantu() {
 
       {/* Background */}
       <Image
-        src="/BG-SVT.jpeg"
+        src="/foto/bg-s4.jpeg"
         alt=""
         fill
         priority
@@ -77,7 +77,7 @@ export default function NgunduhMantu() {
 
       {/* Floral */}
       <Image
-        src="/floral-gold.png"
+        src="/flowers/top-left.png"
         alt=""
         width={260}
         height={260}
