@@ -103,8 +103,8 @@ export default function Cover({
       >
         <Image
           src="/flowers.png"
-          width={280}
-          height={280}
+          width={180}
+          height={180}
           alt="Flower"
         />
       </motion.div>
@@ -116,8 +116,8 @@ export default function Cover({
       >
         <Image
           src="/flowers/top-left.png"
-          width={380}
-          height={380}
+          width={180}
+          height={180}
           alt="Flower"
         />
       </motion.div>
