@@ -30,48 +30,48 @@ export default function PageTwo() {
       {/* BACKGROUND */}
       <div className="absolute inset-0">
         <Image
-          src="/bg-qs.jpeg"
-          alt="Wedding"
+          src="/bg-s3.jpg"
+          alt="Wedding Background"
           fill
           priority
           className="
             object-cover
             object-center
-            brightness-[0.88]
             scale-105
+            brightness-[0.65]
           "
         />
       </div>
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-[#6b4d38]/25" />
+      {/* MAHOGANY OVERLAY */}
+      <div className="absolute inset-0 bg-[#2d1810]/70" />
 
-      {/* BLUR LIGHT */}
-      <div className="absolute top-[-100px] right-[-60px] w-[260px] h-[260px] rounded-full bg-[#ffe4d1]/30 blur-3xl" />
+      {/* GLOW EFFECTS */}
+      <div className="absolute top-[-120px] right-[-80px] w-[320px] h-[320px] rounded-full bg-[#7a3b22]/25 blur-3xl" />
 
-      <div className="absolute bottom-[-120px] left-[-80px] w-[280px] h-[280px] rounded-full bg-[#fff7ef]/20 blur-3xl" />
+      <div className="absolute bottom-[-120px] left-[-80px] w-[300px] h-[300px] rounded-full bg-[#5a2413]/20 blur-3xl" />
 
-      {/* FLOATING HEARTS */}
+      {/* FLOATING ORNAMENT */}
       <motion.div
-        animate={{ y: [0, -10, 0] }}
+        animate={{ y: [0, -15, 0] }}
         transition={{
           repeat: Infinity,
           duration: 4,
         }}
-        className="absolute top-24 left-10 text-white/60 text-2xl"
+        className="absolute top-24 left-10 text-[#d8a574]/50 text-2xl"
       >
-        ♡
+        ❦
       </motion.div>
 
       <motion.div
-        animate={{ y: [0, 10, 0] }}
+        animate={{ y: [0, 15, 0] }}
         transition={{
           repeat: Infinity,
           duration: 5,
         }}
-        className="absolute bottom-32 right-12 text-white/50 text-3xl"
+        className="absolute bottom-32 right-12 text-[#d8a574]/50 text-3xl"
       >
-        ✿
+        ✦
       </motion.div>
 
       {/* MAIN CARD */}
@@ -79,52 +79,60 @@ export default function PageTwo() {
         initial={{ opacity: 0, y: 60, scale: 0.95 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         transition={{
-          duration: 1.1,
+          duration: 1.2,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="
-          relative z-10
-          w-full max-w-md
-        "
+        className="relative z-10 w-full max-w-md"
       >
-
-        {/* PAPER CARD */}
+        {/* LUXURY CARD */}
         <div
           className="
             relative
             overflow-hidden
             rounded-[3rem]
-            bg-[#fffaf6]/78
-            backdrop-blur-2xl
-            border border-white/60
-            px-8 py-12
-            shadow-[0_20px_80px_rgba(0,0,0,0.18)]
+            bg-gradient-to-br
+            from-[#2a1812]/92
+            via-[#3b2218]/88
+            to-[#24120d]/92
+            backdrop-blur-3xl
+            border
+            border-[#8b5a3c]/40
+            px-8
+            py-12
+            shadow-[0_25px_80px_rgba(0,0,0,0.45)]
             text-center
           "
         >
+
+          {/* GOLD SHINE */}
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#d8a574] to-transparent opacity-70" />
 
           {/* TOP ICON */}
           <motion.div
             initial={{ opacity: 0, scale: 0.7 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="mb-5 flex justify-center"
+            className="mb-6 flex justify-center"
           >
             <div
               className="
-                w-20 h-20
+                w-20
+                h-20
                 rounded-full
-                bg-[#f6e7d8]
-                flex items-center justify-center
-                shadow-inner
-                border border-[#ecd8c4]
+                bg-[#4a281d]
+                border
+                border-[#8b5a3c]
+                flex
+                items-center
+                justify-center
+                shadow-[0_0_30px_rgba(184,115,69,0.25)]
               "
             >
               <span className="text-4xl">🤍</span>
             </div>
           </motion.div>
 
-          {/* SMALL TITLE */}
+          {/* SUBTITLE */}
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -132,23 +140,23 @@ export default function PageTwo() {
             className={`
               ${cormorant.className}
               uppercase
-              tracking-[0.35em]
-              text-[#c1966a]
+              tracking-[0.4em]
+              text-[#d8a574]
               text-xs
-              mb-3
+              mb-4
             `}
           >
-            With Love
+            WITH LOVE
           </motion.p>
 
-          {/* MAIN TITLE */}
+          {/* TITLE */}
           <motion.h2
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className={`
               ${vibes.className}
-              text-[#9c7152]
+              text-[#f1d1b0]
               text-5xl
               leading-none
               mb-8
@@ -157,29 +165,30 @@ export default function PageTwo() {
             Forever Starts Here
           </motion.h2>
 
-          {/* AYAT */}
+          {/* VERSE */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className={`
               ${poppins.className}
-              text-[#5e4b3f]
-              text-[0.93rem]
+              text-[#f5ebe2]
+              text-[0.92rem]
               leading-[2]
               font-light
             `}
           >
-            “Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan
-            pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram,
-            dan dijadikan-Nya di antaramu rasa kasih dan sayang.”
+            "Dan di antara tanda-tanda kebesaran-Nya ialah Dia
+            menciptakan pasangan untukmu dari jenismu sendiri agar
+            kamu merasa tenteram kepadanya, dan dijadikan-Nya di
+            antaramu rasa kasih dan sayang."
           </motion.p>
 
-          {/* MINI FLOWER */}
+          {/* ORNAMENT */}
           <div className="my-8 flex items-center justify-center gap-3">
-            <div className="w-8 h-px bg-[#d8b594]" />
-            <span className="text-[#d8b594] text-lg">✿</span>
-            <div className="w-8 h-px bg-[#d8b594]" />
+            <div className="w-10 h-px bg-[#b87345]" />
+            <span className="text-[#b87345] text-xl">❦</span>
+            <div className="w-10 h-px bg-[#b87345]" />
           </div>
 
           {/* SOURCE */}
@@ -189,20 +198,25 @@ export default function PageTwo() {
             transition={{ delay: 0.6 }}
             className={`
               ${cormorant.className}
-              text-[#a88462]
-              tracking-[0.28em]
+              text-[#d8a574]
+              tracking-[0.3em]
               uppercase
               text-sm
             `}
           >
-            QS Ar-Rum • 21
+            QS AR-RUM • 21
           </motion.p>
 
-          {/* BOTTOM DECOR */}
-          <div className="mt-10 flex justify-center gap-2 opacity-70">
-            <span className="text-[#d7b08a]">♡</span>
-            <span className="text-[#d7b08a]">✿</span>
-            <span className="text-[#d7b08a]">♡</span>
+          {/* BOTTOM ORNAMENT */}
+          <div className="mt-10 flex justify-center gap-4 opacity-80">
+            <span className="text-[#c98b59]">❦</span>
+            <span className="text-[#d8a574]">✦</span>
+            <span className="text-[#c98b59]">❦</span>
+          </div>
+
+          {/* BOTTOM GOLD LINE */}
+          <div className="mt-8 flex justify-center">
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#d8a574] to-transparent" />
           </div>
         </div>
       </motion.div>

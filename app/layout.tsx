@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rici-ines.vercel.app"),
 
   openGraph: {
-    title: "Undangan Pernikahan Rici & Ines",
-    description: "31 Mei 2026 | Rici & Ines Wedding",
-    url: "https://rici-ines.vercel.app",
+    title: "Wedding Invitation Bojan & Evi",
+    description: "June 21, 2026 | Bojan & Evi Wedding",
+    url: "https://wedding-bojan-evi-jha6.vercel.app",
     siteName: "Wedding Invitation",
 
     images: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpeg",
         width: 1200,
         height: 630,
-        alt: "Wedding Invitation Rici & Ines",
+        alt: "Wedding Invitation Bojan & Evi",
       },
     ],
 
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Undangan Pernikahan Rici & Ines",
-    description: "31 Mei 2026 | Rici & Ines Wedding",
+    title: "Wedding Invitation Bojan & Evi",
+    description: "June 21, 2026 | Bojan & Evi Wedding",
     images: ["/og-image.jpg"],
   },
 };

@@ -1,15 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
   Allura,
   Cormorant_Garamond,
   Poppins,
 } from "next/font/google";
-import { MapPin } from "lucide-react";
+import {
+  MapPin,
+  Clock,
+  CalendarDays,
+} from "lucide-react";
 
-/* ================= FONT ================= */
+
+
 const allura = Allura({
   subsets: ["latin"],
   weight: ["400"],
@@ -17,7 +23,7 @@ const allura = Allura({
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600"],
 });
 
 const poppins = Poppins({
@@ -25,460 +31,325 @@ const poppins = Poppins({
   weight: ["300", "400", "500"],
 });
 
-/* ================= PAGE ================= */
-export default function PageWeddingLocation() {
+
+
+export default function Page() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#f5efe8]">
+    <section className="relative min-h-screen overflow-hidden">
 
-      {/* ================= BACKGROUND ================= */}
-      <div className="absolute inset-0">
+      {/* Background */}
+      <Image
+        src="/BG-SVT.jpeg"
+        alt=""
+        fill
+        priority
+        className="
+          object-cover
+          scale-110
+          brightness-[0.28]
+        "
+      />
 
-        {/* IMAGE */}
-        <Image
-          src="/g11.png"
-          alt="Wedding"
-          fill
-          priority
-          className="
-            object-cover
-            opacity-[0.24]
-            scale-105
-            saturate-[0.88]
-          "
-        />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-[#120805]/70" />
 
-        {/* DARK ELEGANT OVERLAY */}
-        <div
-          className="
-            absolute inset-0
-            bg-gradient-to-b
-            from-[#1e1611]/25
-            via-[#3b2d24]/15
-            to-[#f5efe8]
-          "
-        />
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-b
+          from-[#2a1710]/20
+          via-[#120805]/50
+          to-[#120805]
+        "
+      />
 
-        {/* EXTRA DARK LAYER */}
-        <div className="absolute inset-0 bg-[#1d1611]/8" />
+      {/* Glow */}
+      <div className="
+        absolute
+        -top-20
+        -left-20
+        w-[350px]
+        h-[350px]
+        rounded-full
+        bg-[#b87345]/10
+        blur-3xl
+      "/>
 
-        {/* LIGHT EFFECT */}
-        <div className="absolute -top-32 -left-32 w-[320px] h-[320px] rounded-full bg-[#ceb39a]/30 blur-3xl" />
+      <div className="
+        absolute
+        bottom-0
+        right-0
+        w-[400px]
+        h-[400px]
+        rounded-full
+        bg-[#6b331c]/20
+        blur-3xl
+      "/>
 
-        <div className="absolute bottom-0 right-0 w-[320px] h-[320px] rounded-full bg-[#b69276]/20 blur-3xl" />
+      {/* Floral */}
+      <Image
+        src="/floral-gold.png"
+        alt=""
+        width={280}
+        height={280}
+        className="
+          absolute
+          top-0
+          left-0
+          opacity-30
+          pointer-events-none
+        "
+      />
 
-      </div>
+      <Image
+        src="/floral-gold.png"
+        alt=""
+        width={280}
+        height={280}
+        className="
+          absolute
+          bottom-0
+          right-0
+          rotate-180
+          opacity-30
+          pointer-events-none
+        "
+      />
 
-      {/* ================= CONTENT ================= */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-28">
+      {/* Content */}
+      <div className="
+        relative
+        z-10
+        min-h-screen
+        flex
+        items-center
+        justify-center
+        px-8
+      ">
 
-        {/* ================= TITLE ================= */}
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="text-center mb-24"
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1.2,
+          }}
+          className="
+            max-w-xl
+            text-center
+          "
         >
 
-          <p
-            className={`
-              ${poppins.className}
-              uppercase
-              tracking-[0.45em]
-              text-[11px]
-              text-[#6f5e52]
-              mb-5
-            `}
-          >
-            Wedding Celebration
-          </p>
+          {/* Ornament */}
+          <div className="mb-8">
+            <span className="text-[#d9b18b] text-2xl">
+              ❦
+            </span>
+          </div>
 
+          {/* Save the date */}
           <h1
             className={`
               ${allura.className}
-              text-[68px]
-              md:text-[96px]
-              text-[#241c17]
-              leading-none
-              drop-shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+              text-6xl
+              md:text-8xl
+              text-[#f4e3d2]
             `}
           >
             Save The Date
           </h1>
 
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <div className="w-16 h-px bg-[#b79b85]" />
-            <span className="text-[#9d7f67] text-lg">✦</span>
-            <div className="w-16 h-px bg-[#b79b85]" />
+          <p
+            className={`
+              ${poppins.className}
+              uppercase
+              tracking-[0.5em]
+              text-xs
+              text-[#c8a27f]
+              mt-4
+            `}
+          >
+            Ngunduh Mantu
+          </p>
+
+          {/* Name */}
+          <div className="my-12">
+
+            <h2
+              className={`
+                ${cormorant.className}
+                text-5xl
+                md:text-7xl
+                text-[#f5ebe2]
+              `}
+            >
+              Rici
+            </h2>
+
+            <div className="text-[#d9b18b] text-2xl my-2">
+              &
+            </div>
+
+            <h2
+              className={`
+                ${cormorant.className}
+                text-5xl
+                md:text-7xl
+                text-[#f5ebe2]
+              `}
+            >
+              Partner
+            </h2>
+
           </div>
 
-        </motion.div>
+          {/* Date */}
+          <div className="mb-12">
 
-        {/* ================= GRID ================= */}
-        <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8 items-start">
-
-          {/* ================= LEFT DATE ================= */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-            className="lg:sticky lg:top-20"
-          >
-
-            <div
-              className="
-                relative
-                overflow-hidden
-                rounded-[2.5rem]
-                border border-[#d9cabc]
-                bg-[#f7f1eb]/75
-                backdrop-blur-[10px]
-                p-10
-                shadow-[0_20px_70px_rgba(0,0,0,0.08)]
-              "
+            <p
+              className={`
+                ${cormorant.className}
+                text-4xl
+                text-[#d9b18b]
+                tracking-[0.15em]
+              `}
             >
+              05 • JULY • 2026
+            </p>
 
-              {/* GLOW */}
-              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-[#ead8c7] blur-3xl opacity-60" />
+          </div>
 
-              <div className="relative z-10">
+          
 
-                <p
-                  className={`
-                    ${poppins.className}
-                    uppercase
-                    tracking-[0.35em]
-                    text-[11px]
-                    text-[#8a7361]
-                  `}
-                >
-                  Sunday
-                </p>
+          {/* Event */}
+          <div className="space-y-8">
 
-                <h2
-                  className={`
-                    ${cormorant.className}
-                    text-[120px]
-                    md:text-[145px]
-                    text-[#241c17]
-                    leading-[0.82]
-                    mt-5
-                  `}
-                >
-                  31
-                </h2>
+            <div className="flex justify-center">
+              <CalendarDays
+                size={24}
+                className="text-[#d9b18b]"
+              />
+            </div>
 
-                <div className="mt-4">
-                  <h3
-                    className={`
-                      ${cormorant.className}
-                      text-4xl
-                      text-[#6f5a4b]
-                    `}
-                  >
-                    May 2026
-                  </h3>
-                </div>
+            <div>
+              <h3
+                className={`
+                  ${cormorant.className}
+                  text-4xl
+                  text-[#f4e3d2]
+                `}
+              >
+                Sunday
+              </h3>
 
-                <div className="mt-10">
-                  <p
-                    className={`
-                      ${poppins.className}
-                      text-[#67584c]
-                      text-sm
-                      leading-relaxed
-                    `}
-                  >
-                    “A beautiful day to celebrate
-                    love, laughter, and forever.”
-                  </p>
-                </div>
+              <p
+                className={`
+                  ${poppins.className}
+                  text-[#c8a27f]
+                  mt-2
+                `}
+              >
+                05 July 2026
+              </p>
+            </div>
 
-              </div>
+            <div className="flex justify-center">
+              <Clock
+                size={22}
+                className="text-[#d9b18b]"
+              />
+            </div>
+
+            <div>
+              <h3
+                className={`
+                  ${cormorant.className}
+                  text-3xl
+                  text-[#f4e3d2]
+                `}
+              >
+                10.00 WIB
+              </h3>
+            </div>
+
+            <div className="flex justify-center">
+              <MapPin
+                size={24}
+                className="text-[#d9b18b]"
+              />
+            </div>
+
+            <div>
+              <h3
+                className={`
+                  ${cormorant.className}
+                  text-3xl
+                  text-[#f4e3d2]
+                `}
+              >
+                Gedung Pramuka
+              </h3>
+
+              <p
+                className={`
+                  ${poppins.className}
+                  text-[#c8a27f]
+                  text-sm
+                  leading-7
+                  mt-3
+                `}
+              >
+                Jl. Pramuka Raya No.10,
+                Lolong Belanti,
+                Padang Utara,
+                Kota Padang,
+                Sumatera Barat
+              </p>
+            </div>
+
+            {/* Button */}
+            <div className="pt-8">
+
+              <a
+                href="#"
+                className="
+                  inline-flex
+                  items-center
+                  gap-3
+                  px-8
+                  py-4
+                  rounded-full
+                  border
+                  border-[#d9b18b]
+                  text-[#f4e3d2]
+                  hover:bg-[#d9b18b]
+                  hover:text-[#120805]
+                  transition-all
+                  duration-300
+                "
+              >
+                <MapPin size={18} />
+                View Maps
+              </a>
 
             </div>
 
-          </motion.div>
-
-          {/* ================= RIGHT CONTENT ================= */}
-          <div className="space-y-8">
-
-            {/* ================= AKAD ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="
-                rounded-[2.5rem]
-                border border-[#ddd0c3]
-                bg-[#f8f3ee]/70
-                backdrop-blur-[10px]
-                p-8 md:p-10
-                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
-              "
-            >
-
-              <div className="flex items-start justify-between gap-5 flex-wrap">
-
-                <div>
-
-                  <p
-                    className={`
-                      ${poppins.className}
-                      uppercase
-                      tracking-[0.35em]
-                      text-[10px]
-                      text-[#8f7765]
-                      mb-4
-                    `}
-                  >
-                    Wedding Ceremony
-                  </p>
-
-                  <h2
-                    className={`
-                      ${cormorant.className}
-                      text-5xl md:text-6xl
-                      text-[#241c17]
-                    `}
-                  >
-                    Akad Nikah
-                  </h2>
-
-                </div>
-
-                <div className="text-right">
-                  <p className="text-[#7d6859] text-sm">
-                    08.00 WIB
-                  </p>
-                </div>
-
-              </div>
-
-              <div className="mt-10 grid md:grid-cols-2 gap-10">
-
-                <div>
-
-                  <p
-                    className={`
-                      ${poppins.className}
-                      uppercase
-                      tracking-[0.25em]
-                      text-[10px]
-                      text-[#8f7c6f]
-                      mb-3
-                    `}
-                  >
-                    Venue
-                  </p>
-
-                  <h3
-                    className={`
-                      ${cormorant.className}
-                      text-3xl
-                      text-[#392f28]
-                    `}
-                  >
-                    Gedung Pramuka
-                  </h3>
-
-                </div>
-
-                <div>
-
-                  <p
-                    className={`
-                      ${poppins.className}
-                      uppercase
-                      tracking-[0.25em]
-                      text-[10px]
-                      text-[#8f7c6f]
-                      mb-3
-                    `}
-                  >
-                    Address
-                  </p>
-
-                  <p
-                    className={`
-                      ${poppins.className}
-                      text-[#65584d]
-                      text-sm
-                      leading-relaxed
-                    `}
-                  >
-                    Jl. Pramuka Raya No.10,
-                    Lolong Belanti, Padang Utara,
-                    Kota Padang, Sumatera Barat
-                  </p>
-
-                </div>
-
-              </div>
-
-            </motion.div>
-
-            {/* ================= RESEPSI ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
-              className="
-                rounded-[2.5rem]
-                border border-[#ddd0c3]
-                bg-[#f3ebe3]/75
-                backdrop-blur-[10px]
-                p-8 md:p-10
-                shadow-[0_20px_60px_rgba(0,0,0,0.06)]
-              "
-            >
-
-              <div className="flex items-start justify-between gap-5 flex-wrap">
-
-                <div>
-
-                  <p
-                    className={`
-                      ${poppins.className}
-                      uppercase
-                      tracking-[0.35em]
-                      text-[10px]
-                      text-[#8b7562]
-                      mb-4
-                    `}
-                  >
-                    Wedding Reception
-                  </p>
-
-                  <h2
-                    className={`
-                      ${cormorant.className}
-                      text-5xl md:text-6xl
-                      text-[#241c17]
-                    `}
-                  >
-                    Resepsi
-                  </h2>
-
-                </div>
-
-                <div className="text-right">
-                  <p className="text-[#7d6859] text-sm">
-                    10.00 WIB
-                  </p>
-                </div>
-
-              </div>
-
-              <div>
-
-                <p
-                  className={`
-                    ${poppins.className}
-                    uppercase
-                    tracking-[0.25em]
-                    text-[10px]
-                    text-[#8f7c6f]
-                    mt-10
-                    mb-3
-                  `}
-                >
-                  Venue
-                </p>
-
-                <h3
-                  className={`
-                    ${cormorant.className}
-                    text-3xl
-                    text-[#392f28]
-                  `}
-                >
-                  Gedung Pramuka
-                </h3>
-
-              </div>
-
-              <div>
-
-                <p
-                  className={`
-                    ${poppins.className}
-                    uppercase
-                    tracking-[0.25em]
-                    text-[10px]
-                    text-[#8f7c6f]
-                    mb-3
-                    mt-6
-                  `}
-                >
-                  Address
-                </p>
-
-                <p
-                  className={`
-                    ${poppins.className}
-                    text-[#65584d]
-                    text-sm
-                    leading-relaxed
-                  `}
-                >
-                  Jl. Pramuka Raya No.10,
-                  Lolong Belanti, Padang Utara,
-                  Kota Padang, Sumatera Barat
-                </p>
-
-              </div>
-
-              {/* BUTTON */}
-              <div className="mt-10">
-
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Gedung+Pramuka+Padang"
-                  target="_blank"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-3
-                    rounded-full
-                    border border-[#d1bba8]
-                    bg-[#fffaf6]
-                    px-6
-                    py-3
-                    text-[#3a3028]
-                    hover:scale-105
-                    hover:bg-[#f7efe8]
-                    transition-all
-                    duration-300
-                    shadow-[0_10px_30px_rgba(0,0,0,0.05)]
-                  "
-                >
-
-                  <MapPin size={18} />
-
-                  <span
-                    className={`
-                      ${poppins.className}
-                      text-sm
-                    `}
-                  >
-                    View Maps
-                  </span>
-
-                </a>
-
-              </div>
-
-            </motion.div>
-
           </div>
 
-        </div>
+          {/* Bottom Ornament */}
+          <div className="mt-16">
+            <span className="text-[#d9b18b] text-2xl">
+              ❦
+            </span>
+          </div>
 
+        </motion.div>
       </div>
-
     </section>
   );
 }

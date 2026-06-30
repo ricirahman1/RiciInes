@@ -41,7 +41,7 @@ const data = [
     name: "Rici",
     full: "Rici Rahman S.Tr.T",
     desc: "Putra dari Alm. Bapak Syamsuri & Ibu Uuk Uswatul Chasanah",
-    img: "/rici.jpeg",
+    img: "/abang.jpg",
     ig: "ric_rhmn",
     link: "https://www.instagram.com/ric_rhmn",
   },
@@ -49,13 +49,12 @@ const data = [
     name: "Ines",
     full: "Ines Leo Riesgo S.TP",
     desc: "Putri dari Bapak Jefandri & Ibu Eldawati",
-    img: "/INESS.jpeg",
+    img: "/adekk.jpg",
     ig: "inesleoriesgo",
     link: "https://www.instagram.com/inesleoriesgo",
   },
 ];
 
-/* ================= CARD ================= */
 const RenderItem = ({
   item,
 }: {
@@ -64,150 +63,147 @@ const RenderItem = ({
   <motion.div
     initial={{ opacity: 0, y: 80 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
+    transition={{ duration: 1.2 }}
     viewport={{ once: true }}
     className="flex flex-col items-center"
   >
-    {/* IG CARD */}
+    {/* CARD */}
     <div
       className="
-      w-[300px] md:w-[350px]
-      rounded-[28px]
-      overflow-hidden
-      bg-white/10
-      backdrop-blur-xl
-      border border-white/20
-      shadow-[0_25px_80px_rgba(0,0,0,0.35)]
-    "
+        relative
+        w-[320px]
+        md:w-[380px]
+        rounded-[36px]
+        overflow-hidden
+        bg-gradient-to-br
+        from-[#24120d]/95
+        via-[#3b2218]/92
+        to-[#1b0f0a]/95
+        border
+        border-[#b78b61]/40
+        shadow-[0_30px_100px_rgba(0,0,0,0.5)]
+        backdrop-blur-xl
+      "
     >
-      {/* HEADER */}
-      <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 group"
-        >
-          <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/30">
-            <Image
-              src={item.img}
-              alt={item.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          <div>
-            <p className="text-sm text-white font-medium group-hover:text-[#f6d4b1] transition">
-              @{item.ig}
-            </p>
-
-            <p className="text-[10px] tracking-[0.25em] text-white/50">
-              WEDDING POST
-            </p>
-          </div>
-        </a>
-
-        <span className="text-white/60 text-lg">•••</span>
+      {/* TOP DECOR */}
+      <div className="pt-8 flex justify-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-px bg-[#b78b61]" />
+          <span className="text-[#d9b78a] text-xl">❦</span>
+          <div className="w-10 h-px bg-[#b78b61]" />
+        </div>
       </div>
 
-      {/* IMAGE */}
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block"
-      >
-        <div className="relative w-full h-[380px] md:h-[460px] overflow-hidden">
+      {/* FRAME */}
+      <div className="px-8 pt-8">
+        <div
+          className="
+            relative
+            aspect-[3/4]
+            rounded-[180px]
+            overflow-hidden
+            border-[4px]
+            border-[#c59c73]
+            shadow-[0_0_35px_rgba(197,156,115,0.25)]
+          "
+        >
           <Image
             src={item.img}
             alt={item.name}
             fill
-            className="object-cover transition duration-700 hover:scale-105"
+            className="object-cover"
           />
+
+          <div className="absolute inset-0 ring-8 ring-[#6d4229]/30 rounded-[180px]" />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
-      </a>
+      </div>
 
-      {/* ACTION */}
-      <div className="px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Heart
-              size={22}
-              className="text-white/80 hover:text-pink-400 transition cursor-pointer"
-            />
+      {/* CONTENT */}
+      <div className="px-8 py-10 text-center">
+        <p
+          className={`
+            ${cormorant.className}
+            uppercase
+            tracking-[0.35em]
+            text-[#d8b48a]
+            text-xs
+          `}
+        >
+          THE BRIDE & GROOM
+        </p>
 
-            <Send
-              size={20}
-              className="text-white/80 hover:text-white transition cursor-pointer"
-            />
+        <h2
+          className={`
+            ${oregano.className}
+            text-[#f1d7bc]
+            text-6xl
+            mt-4
+          `}
+        >
+          {item.name}
+        </h2>
 
-            <Instagram
-              size={20}
-              className="text-white/80 hover:text-[#f6d4b1] transition cursor-pointer"
-            />
-          </div>
+        <p
+          className={`
+            ${cormorant.className}
+            text-[#f5ebe2]
+            text-2xl
+            mt-4
+          `}
+        >
+          {item.full}
+        </p>
 
-          <Bookmark
-            size={20}
-            className="text-white/70 hover:text-white transition cursor-pointer"
-          />
+        <div className="flex justify-center my-6">
+          <div className="w-20 h-px bg-[#b78b61]" />
         </div>
 
-        <p className="mt-4 text-sm text-white">
-          <span className="font-semibold">@{item.ig}</span>{" "}
-          forever starts today ♡
+        <p
+          className={`
+            ${cormorant.className}
+            text-[#d6c6b8]
+            text-lg
+            leading-relaxed
+          `}
+        >
+          {item.desc}
         </p>
 
-        <p className="mt-2 text-xs text-white/50">
-          View all comments
-        </p>
+        {/* BUTTON */}
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            inline-flex
+            items-center
+            gap-2
+            mt-8
+            px-6
+            py-3
+            rounded-full
+            bg-[#5a2413]
+            border
+            border-[#b78b61]
+            hover:bg-[#743822]
+            transition
+          "
+        >
+          <Instagram size={16} />
+          <span>@{item.ig}</span>
+        </a>
       </div>
-    </div>
 
-    {/* TEXT */}
-    <div className="mt-8 text-center max-w-sm">
-      <h2
-        className={`${oregano.className}
-        text-5xl text-[#eb2190]`}
-      >
-        {item.name}
-      </h2>
-
-      <p
-        className={`${cormorant.className}
-        text-white/90 mt-3 text-2xl`}
-      >
-        {item.full}
-      </p>
-
-      <p
-        className={`${cormorant.className}
-        text-white/80 mt-4 text-lg leading-relaxed`}
-      >
-        {item.desc}
-      </p>
-
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="
-        inline-flex items-center gap-2
-        mt-6 px-5 py-2
-        rounded-full
-        bg-white/10 hover:bg-white/20
-        border border-white/20
-        transition
-      "
-      >
-        <Instagram size={16} />
-        <span className="text-sm">
-          @{item.ig}
-        </span>
-      </a>
+      {/* BOTTOM ORNAMENT */}
+      <div className="pb-8 flex justify-center">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-px bg-[#b78b61]" />
+          <span className="text-[#d9b78a]">❦</span>
+          <div className="w-10 h-px bg-[#b78b61]" />
+        </div>
+      </div>
     </div>
   </motion.div>
 );
@@ -219,26 +215,31 @@ export default function PageThree() {
 
       {/* STICKY BACKGROUND */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <Image
-          src="/bg-sd2.jpg"
-          alt="background"
-          fill
-          priority
-          className="object-cover scale-105"
-        />
+  <Image
+    src="/bg-s2.jpg"
+    alt="background"
+    fill
+    priority
+    className="object-cover scale-110 brightness-[0.45]"
+  />
 
-        <div className="absolute inset-0 bg-black/30" />
+  <div className="absolute inset-0 bg-[#1a0d08]/75" />
 
-        <div
-          className="
-          absolute inset-0
-          bg-gradient-to-b
-          from-black/20
-          via-black/10
-          to-[#120d0a]/80
-        "
-        />
-      </div>
+  <div
+    className="
+      absolute inset-0
+      bg-gradient-to-b
+      from-[#2d1810]/20
+      via-[#1b100b]/50
+      to-[#120805]/95
+    "
+  />
+
+  {/* candle glow */}
+  <div className="absolute top-20 right-20 w-60 h-60 rounded-full bg-[#b87345]/20 blur-3xl" />
+
+  <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full bg-[#7a3b22]/20 blur-3xl" />
+</div>
 
       {/* CONTENT */}
       <div
