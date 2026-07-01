@@ -34,6 +34,7 @@ const gallery = [
   "/foto/G15.JPG",
   "/foto/G16.JPG",
   "/foto/G17.JPG",
+  "/foto/G18.JPG",
 ];
 
 export default function PageFive() {
